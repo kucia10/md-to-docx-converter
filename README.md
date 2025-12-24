@@ -9,7 +9,7 @@ An Electron-based desktop application for converting Markdown files to DOCX. Use
 - **Real-time Preview**: Live rendering of Markdown files
 - **Various Conversion Options**: Font, margins, page orientation, and detailed settings
 - **Progress Display**: Detailed progress indicator during conversion
-- **Multi-language Support**: UI support for 10 languages including Korean, English, Japanese, Chinese (Simplified/Traditional), Spanish, French, German, Portuguese, and Russian
+- **Multi-language Support**: UI support for 12 languages including Korean, English, Japanese, Chinese (Simplified/Traditional), Spanish, French, German, Portuguese, Russian, Italian, and Arabic
 - **Theme Support**: Dark/Light mode support
 
 ### 🛠️ Conversion Options
@@ -20,7 +20,7 @@ An Electron-based desktop application for converting Markdown files to DOCX. Use
 ### 📱 User Interface
 - **Intuitive Layout**: Left panel (file/options) + Right panel (preview)
 - **Responsive Design**: Optimized UI for various window sizes
-- **Multi-language Toggle**: Instant switching between 10 languages
+- **Multi-language Toggle**: Instant switching between 12 languages
 - **Theme Toggle**: Dark/Light mode switching
 
 ## System Requirements
