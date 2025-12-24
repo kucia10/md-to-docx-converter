@@ -1,5 +1,7 @@
 # MD to DOCX
 
+![스크린샷](docs/screenshot/converter.png)
+
 Electron 기반의 Markdown 파일을 DOCX로 변환하는 데스크톱 애플리케이션입니다. Python과 Pandoc을 사용하여 고품질의 문서 변환을 제공합니다.
 
 ## 기능

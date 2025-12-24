@@ -1,5 +1,7 @@
 # MD to DOCX
 
+![Screenshot](docs/screenshot/converter.png)
+
 An Electron-based desktop application for converting Markdown files to DOCX. Uses Python and Pandoc to deliver high-quality document conversion.
 
 ## Features
