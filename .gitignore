@@ -147,11 +147,11 @@ app.asar
 app.asar.unpacked/
 
 # Electron development files
-electron-builder.json
-electron-builder.yml
-electron-builder.yaml
-electron-builder.js
-electron-builder.ts
+#electron-builder.json
+#electron-builder.yml
+#electron-builder.yaml
+#electron-builder.js
+#electron-builder.ts
 
 # Electron cache
 .electron
