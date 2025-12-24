@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "Sélectionner un fichier",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "download": "Télécharger",
+    "folder": "Dossier",
+    "openFolder": "Ouvrir le dossier",
+    "loading": "Chargement...",
+    "processing": "Traitement...",
+    "converting": "Conversion...",
+    "completed": "Terminé",
+    "error": "Erreur",
+    "success": "Succès",
+    "preview": "Aperçu",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "subtitle": "Convertir les fichiers Markdown en documents Word",
+  "fileUpload": {
+    "title": "Sélectionner un fichier",
+    "dragDropHint": "Glissez-déposez des fichiers Markdown ici ou cliquez pour sélectionner",
+    "supportedFormats": "Les fichiers .md, .markdown sont pris en charge",
+    "selectedFiles": "Fichiers sélectionnés ({{count}})",
+    "fileSize": "Taille",
+    "dateModified": "Modifié",
+    "removeFile": "Supprimer le fichier"
+  },
+  "conversionOptions": {
+    "title": "Options de conversion",
+    "documentSettings": "Paramètres du document",
+    "font": "Police",
+    "fontSize": "Taille de police (pt)",
+    "lineHeight": "Interligne",
+    "pageOrientation": "Orientation de la page",
+    "portrait": "Portrait",
+    "landscape": "Paysage",
+    "pageMargins": "Marges de la page (cm)",
+    "top": "Haut",
+    "bottom": "Bas",
+    "left": "Gauche",
+    "right": "Droite",
+    "advancedOptions": "Options avancées",
+    "generateToc": "Générer la table des matières",
+    "referenceStyle": "Style de références",
+    "imageHandling": "Gestion des images",
+    "embed": "Incorporer",
+    "link": "Lien",
+    "codeBlockStyle": "Style de bloc de code",
+    "fenced": "Délimité (```)",
+    "indented": "Indenté",
+    "currentSettings": "Paramètres actuels",
+    "summary": "Police: {{font}}, Taille: {{size}}pt | Interligne: {{lineHeight}}, Orientation: {{orientation}} | Marges: Haut {{top}}cm, Bas {{bottom}}cm, Gauche {{left}}cm, Droite {{right}}cm | TOC: {{toc}}, Référence: {{ref}}",
+    "defaultValue": "(Défaut)",
+    "defaultValueEnabled": "(Défaut: Activé)"
+  },
+  "progress": {
+    "preparing": "Préparation...",
+    "converting": "Conversion...",
+    "finalizing": "Finalisation...",
+    "completed": "Terminé",
+    "errorOccurred": "Une erreur s'est produite",
+    "progressRate": "Progression",
+    "fileProgress": "{{current}} / {{total}} fichiers",
+    "currentFile": "Fichier actuel",
+    "stage": "Étape",
+    "overallProgress": "Progression globale",
+    "estimatedTime": "Temps restant estimé",
+    "seconds": "{{count}}s",
+    "conversionSuccess": "Conversion terminée avec succès !",
+    "conversionError": "Une erreur s'est produite lors de la conversion"
+  },
+  "batchConversion": {
+    "title": "Conversion par lots",
+    "inProgress": "Conversion par lots en cours",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "Fichier actuel",
+    "preparing": "Préparation...",
+    "converting": "Conversion par lots",
+    "completed": "Terminé",
+    "errorOccurred": "Une erreur s'est produite",
+    "error": "Erreur de conversion par lots",
+    "cancel": "Annuler",
+    "batchConvertButton": "Convertir {{count}} fichiers par lots"
+  },
+  "resultDisplay": {
+    "title": "Résultat de la conversion",
+    "conversionSuccess": "Conversion réussie",
+    "conversionFailed": "Échec de la conversion",
+    "processedFiles": "Fichiers traités",
+    "outputFile": "Fichier de sortie",
+    "errorDetails": "Détails de l'erreur"
+  },
+  "theme": {
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "system": "Système",
+    "currentTheme": "Thème actuel"
+  },
+  "buttons": {
+    "convertToDocx": "Convertir en DOCX",
+    "batchConvert": "Conversion par lots"
+  },
+  "errors": {
+    "conversionError": "Erreur de conversion",
+    "batchConversionError": "Erreur de conversion par lots",
+    "batchConversionCanceled": "La conversion par lots a été annulée",
+    "conversionCanceled": "La conversion a été annulée",
+    "generalConversionError": "Une erreur s'est produite lors de la conversion par lots",
+    "singleConversionError": "Une erreur s'est produite lors de la conversion"
+  },
+  "preview": {
+    "noFile": "Aucun fichier à prévisualiser",
+    "selectFile": "Sélectionnez un fichier Markdown"
+  },
+  "time": {
+    "seconds": "s"
+  }
+}

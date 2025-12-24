@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "ファイル選択",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "download": "ダウンロード",
+    "folder": "フォルダ",
+    "openFolder": "フォルダを開く",
+    "loading": "読み込み中...",
+    "processing": "処理中...",
+    "converting": "変換中...",
+    "completed": "完了",
+    "error": "エラー",
+    "success": "成功",
+    "preview": "プレビュー",
+    "yes": "はい",
+    "no": "いいえ"
+  },
+  "subtitle": "MarkdownファイルをWord文書に変換します",
+  "fileUpload": {
+    "title": "ファイル選択",
+    "dragDropHint": "Markdownファイルをここにドラッグ＆ドロップするか、クリックして選択してください",
+    "supportedFormats": ".md、.markdownファイルをサポート",
+    "selectedFiles": "選択されたファイル ({{count}})",
+    "fileSize": "サイズ",
+    "dateModified": "更新日",
+    "removeFile": "ファイル削除"
+  },
+  "conversionOptions": {
+    "title": "変換オプション",
+    "documentSettings": "文書設定",
+    "font": "フォント",
+    "fontSize": "フォントサイズ (pt)",
+    "lineHeight": "行間",
+    "pageOrientation": "ページ方向",
+    "portrait": "縦",
+    "landscape": "横",
+    "pageMargins": "ページ余白 (cm)",
+    "top": "上",
+    "bottom": "下",
+    "left": "左",
+    "right": "右",
+    "advancedOptions": "詳細オプション",
+    "generateToc": "目次の生成",
+    "referenceStyle": "参考文献スタイル",
+    "imageHandling": "画像処理",
+    "embed": "埋め込み",
+    "link": "リンク",
+    "codeBlockStyle": "コードブロックスタイル",
+    "fenced": "フェンス (```)",
+    "indented": "インデント",
+    "currentSettings": "現在の設定",
+    "summary": "フォント: {{font}}, サイズ: {{size}}pt | 行間: {{lineHeight}}, 方向: {{orientation}} | 余白: 上{{top}}cm, 下{{bottom}}cm, 左{{left}}cm, 右{{right}}cm | 目次: {{toc}}, 参考文献: {{ref}}",
+    "defaultValue": "(デフォルト)",
+    "defaultValueEnabled": "(デフォルト: 有効)"
+  },
+  "progress": {
+    "preparing": "準備中...",
+    "converting": "変換中...",
+    "finalizing": "完了中...",
+    "completed": "完了",
+    "errorOccurred": "エラーが発生しました",
+    "progressRate": "進捗",
+    "fileProgress": "{{current}} / {{total}} ファイル",
+    "currentFile": "現在のファイル",
+    "stage": "ステージ",
+    "overallProgress": "全体の進捗",
+    "estimatedTime": "残り推定時間",
+    "seconds": "{{count}}秒",
+    "conversionSuccess": "変換が正常に完了しました！",
+    "conversionError": "変換中にエラーが発生しました"
+  },
+  "batchConversion": {
+    "title": "一括変換",
+    "inProgress": "一括変換中",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "現在のファイル",
+    "preparing": "準備中...",
+    "converting": "一括変換中",
+    "completed": "完了",
+    "errorOccurred": "エラーが発生しました",
+    "error": "一括変換エラー",
+    "cancel": "キャンセル",
+    "batchConvertButton": "{{count}}個のファイルを一括変換"
+  },
+  "resultDisplay": {
+    "title": "変換結果",
+    "conversionSuccess": "変換成功",
+    "conversionFailed": "変換失敗",
+    "processedFiles": "処理されたファイル",
+    "outputFile": "出力ファイル",
+    "errorDetails": "エラー詳細"
+  },
+  "theme": {
+    "lightMode": "ライトモード",
+    "darkMode": "ダークモード",
+    "system": "システム",
+    "currentTheme": "現在のテーマ"
+  },
+  "buttons": {
+    "convertToDocx": "DOCXに変換",
+    "batchConvert": "一括変換"
+  },
+  "errors": {
+    "conversionError": "変換エラー",
+    "batchConversionError": "一括変換エラー",
+    "batchConversionCanceled": "一括変換がキャンセルされました",
+    "conversionCanceled": "変換がキャンセルされました",
+    "generalConversionError": "一括変換中にエラーが発生しました",
+    "singleConversionError": "変換中にエラーが発生しました"
+  },
+  "preview": {
+    "noFile": "プレビューするファイルがありません",
+    "selectFile": "Markdownファイルを選択してください"
+  },
+  "time": {
+    "seconds": "秒"
+  }
+}

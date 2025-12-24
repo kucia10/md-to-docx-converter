@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "اختيار ملف",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "download": "تنزيل",
+    "folder": "مجلد",
+    "openFolder": "فتح المجلد",
+    "loading": "جاري التحميل...",
+    "processing": "جاري المعالجة...",
+    "converting": "جاري التحويل...",
+    "completed": "مكتمل",
+    "error": "خطأ",
+    "success": "نجح",
+    "preview": "معاينة",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "subtitle": "تحويل ملفات Markdown إلى مستندات Word",
+  "fileUpload": {
+    "title": "اختيار ملف",
+    "dragDropHint": "اسحب وأفلت ملفات Markdown هنا أو انقر للاختيار",
+    "supportedFormats": "ملفات .md و .markdown مدعومة",
+    "selectedFiles": "الملفات المحددة ({{count}})",
+    "fileSize": "الحجم",
+    "dateModified": "تم التعديل",
+    "removeFile": "إزالة الملف"
+  },
+  "conversionOptions": {
+    "title": "خيارات التحويل",
+    "documentSettings": "إعدادات المستند",
+    "font": "الخط",
+    "fontSize": "حجم الخط (pt)",
+    "lineHeight": "ارتفاع السطر",
+    "pageOrientation": "اتجاه الصفحة",
+    "portrait": "طولي",
+    "landscape": "عرضي",
+    "pageMargins": "هوامش الصفحة (cm)",
+    "top": "أعلى",
+    "bottom": "أسفل",
+    "left": "يسار",
+    "right": "يمين",
+    "advancedOptions": "خيارات متقدمة",
+    "generateToc": "إنشاء جدول المحتويات",
+    "referenceStyle": "نمط المراجع",
+    "imageHandling": "معالجة الصور",
+    "embed": "تضمين",
+    "link": "رابط",
+    "codeBlockStyle": "نمط كتلة الكود",
+    "fenced": "محدد (```)",
+    "indented": "مسافة بادئة",
+    "currentSettings": "الإعدادات الحالية",
+    "summary": "الخط: {{font}}، الحجم: {{size}}pt | ارتفاع السطر: {{lineHeight}}، الاتجاه: {{orientation}} | الهوامش: أعلى {{top}}cm، أسفل {{bottom}}cm، يسار {{left}}cm، يمين {{right}}cm | الفهرس: {{toc}}، المرجع: {{ref}}",
+    "defaultValue": "(افتراضي)",
+    "defaultValueEnabled": "(افتراضي: مفعّل)"
+  },
+  "progress": {
+    "preparing": "جاري التحضير...",
+    "converting": "جاري التحويل...",
+    "finalizing": "جاري الإنهاء...",
+    "completed": "مكتمل",
+    "errorOccurred": "حدث خطأ",
+    "progressRate": "التقدم",
+    "fileProgress": "{{current}} / {{total}} ملف",
+    "currentFile": "الملف الحالي",
+    "stage": "المرحلة",
+    "overallProgress": "التقدم الكلي",
+    "estimatedTime": "الوقت المقدر المتبقي",
+    "seconds": "{{count}}ث",
+    "conversionSuccess": "تم التحويل بنجاح!",
+    "conversionError": "حدث خطأ أثناء التحويل"
+  },
+  "batchConversion": {
+    "title": "التحويل الدفعي",
+    "inProgress": "جاري التحويل الدفعي",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "الملف الحالي",
+    "preparing": "جاري التحضير...",
+    "converting": "التحويل الدفعي",
+    "completed": "مكتمل",
+    "errorOccurred": "حدث خطأ",
+    "error": "خطأ في التحويل الدفعي",
+    "cancel": "إلغاء",
+    "batchConvertButton": "تحويل دفعي {{count}} ملف"
+  },
+  "resultDisplay": {
+    "title": "نتيجة التحويل",
+    "conversionSuccess": "تم التحويل بنجاح",
+    "conversionFailed": "فشل التحويل",
+    "processedFiles": "الملفات المعالجة",
+    "outputFile": "ملف الإخراج",
+    "errorDetails": "تفاصيل الخطأ"
+  },
+  "theme": {
+    "lightMode": "الوضع الفاتح",
+    "darkMode": "الوضع الداكن",
+    "system": "النظام",
+    "currentTheme": "المظهر الحالي"
+  },
+  "buttons": {
+    "convertToDocx": "تحويل إلى DOCX",
+    "batchConvert": "تحويل دفعي"
+  },
+  "errors": {
+    "conversionError": "خطأ في التحويل",
+    "batchConversionError": "خطأ في التحويل الدفعي",
+    "batchConversionCanceled": "تم إلغاء التحويل الدفعي",
+    "conversionCanceled": "تم إلغاء التحويل",
+    "generalConversionError": "حدث خطأ أثناء التحويل الدفعي",
+    "singleConversionError": "حدث خطأ أثناء التحويل"
+  },
+  "preview": {
+    "noFile": "لا يوجد ملف للمعاينة",
+    "selectFile": "اختر ملف Markdown"
+  },
+  "time": {
+    "seconds": "ث"
+  }
+}

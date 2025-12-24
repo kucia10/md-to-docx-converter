@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "Seleziona file",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "download": "Scarica",
+    "folder": "Cartella",
+    "openFolder": "Apri cartella",
+    "loading": "Caricamento...",
+    "processing": "Elaborazione...",
+    "converting": "Conversione...",
+    "completed": "Completato",
+    "error": "Errore",
+    "success": "Successo",
+    "preview": "Anteprima",
+    "yes": "Sì",
+    "no": "No"
+  },
+  "subtitle": "Converti file Markdown in documenti Word",
+  "fileUpload": {
+    "title": "Seleziona file",
+    "dragDropHint": "Trascina i file Markdown qui o clicca per selezionare",
+    "supportedFormats": "Sono supportati i file .md, .markdown",
+    "selectedFiles": "File selezionati ({{count}})",
+    "fileSize": "Dimensione",
+    "dateModified": "Modificato",
+    "removeFile": "Rimuovi file"
+  },
+  "conversionOptions": {
+    "title": "Opzioni di conversione",
+    "documentSettings": "Impostazioni documento",
+    "font": "Font",
+    "fontSize": "Dimensione font (pt)",
+    "lineHeight": "Interlinea",
+    "pageOrientation": "Orientamento pagina",
+    "portrait": "Verticale",
+    "landscape": "Orizzontale",
+    "pageMargins": "Margini pagina (cm)",
+    "top": "Superiore",
+    "bottom": "Inferiore",
+    "left": "Sinistra",
+    "right": "Destra",
+    "advancedOptions": "Opzioni avanzate",
+    "generateToc": "Genera indice",
+    "referenceStyle": "Stile riferimenti",
+    "imageHandling": "Gestione immagini",
+    "embed": "Incorpora",
+    "link": "Collegamento",
+    "codeBlockStyle": "Stile blocco di codice",
+    "fenced": "Delimitato (```)",
+    "indented": "Rientrato",
+    "currentSettings": "Impostazioni attuali",
+    "summary": "Font: {{font}}, Dimensione: {{size}}pt | Interlinea: {{lineHeight}}, Orientamento: {{orientation}} | Margini: Superiore {{top}}cm, Inferiore {{bottom}}cm, Sinistra {{left}}cm, Destra {{right}}cm | TOC: {{toc}}, Riferimento: {{ref}}",
+    "defaultValue": "(Predefinito)",
+    "defaultValueEnabled": "(Predefinito: Abilitato)"
+  },
+  "progress": {
+    "preparing": "Preparazione...",
+    "converting": "Conversione...",
+    "finalizing": "Finalizzazione...",
+    "completed": "Completato",
+    "errorOccurred": "Si è verificato un errore",
+    "progressRate": "Avanzamento",
+    "fileProgress": "{{current}} / {{total}} file",
+    "currentFile": "File corrente",
+    "stage": "Fase",
+    "overallProgress": "Avanzamento complessivo",
+    "estimatedTime": "Tempo rimanente stimato",
+    "seconds": "{{count}}s",
+    "conversionSuccess": "Conversione completata con successo!",
+    "conversionError": "Si è verificato un errore durante la conversione"
+  },
+  "batchConversion": {
+    "title": "Conversione in batch",
+    "inProgress": "Conversione in batch in corso",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "File corrente",
+    "preparing": "Preparazione...",
+    "converting": "Conversione in batch",
+    "completed": "Completato",
+    "errorOccurred": "Si è verificato un errore",
+    "error": "Errore conversione in batch",
+    "cancel": "Annulla",
+    "batchConvertButton": "Converti {{count}} file in batch"
+  },
+  "resultDisplay": {
+    "title": "Risultato conversione",
+    "conversionSuccess": "Conversione riuscita",
+    "conversionFailed": "Conversione non riuscita",
+    "processedFiles": "File elaborati",
+    "outputFile": "File di output",
+    "errorDetails": "Dettagli errore"
+  },
+  "theme": {
+    "lightMode": "Modalità chiara",
+    "darkMode": "Modalità scura",
+    "system": "Sistema",
+    "currentTheme": "Tema attuale"
+  },
+  "buttons": {
+    "convertToDocx": "Converti in DOCX",
+    "batchConvert": "Conversione in batch"
+  },
+  "errors": {
+    "conversionError": "Errore di conversione",
+    "batchConversionError": "Errore conversione in batch",
+    "batchConversionCanceled": "La conversione in batch è stata annullata",
+    "conversionCanceled": "La conversione è stata annullata",
+    "generalConversionError": "Si è verificato un errore durante la conversione in batch",
+    "singleConversionError": "Si è verificato un errore durante la conversione"
+  },
+  "preview": {
+    "noFile": "Nessun file da anteprima",
+    "selectFile": "Seleziona un file Markdown"
+  },
+  "time": {
+    "seconds": "s"
+  }
+}

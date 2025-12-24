@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "選擇檔案",
+    "cancel": "取消",
+    "close": "關閉",
+    "download": "下載",
+    "folder": "資料夾",
+    "openFolder": "開啟資料夾",
+    "loading": "載入中...",
+    "processing": "處理中...",
+    "converting": "轉換中...",
+    "completed": "已完成",
+    "error": "錯誤",
+    "success": "成功",
+    "preview": "預覽",
+    "yes": "是",
+    "no": "否"
+  },
+  "subtitle": "將Markdown檔案轉換為Word文件",
+  "fileUpload": {
+    "title": "選擇檔案",
+    "dragDropHint": "將Markdown檔案拖曳至此處，或點擊選擇",
+    "supportedFormats": "支援.md、.markdown檔案",
+    "selectedFiles": "已選檔案 ({{count}})",
+    "fileSize": "大小",
+    "dateModified": "修改日期",
+    "removeFile": "移除檔案"
+  },
+  "conversionOptions": {
+    "title": "轉換選項",
+    "documentSettings": "文件設定",
+    "font": "字體",
+    "fontSize": "字體大小 (pt)",
+    "lineHeight": "行高",
+    "pageOrientation": "頁面方向",
+    "portrait": "直式",
+    "landscape": "橫式",
+    "pageMargins": "頁面邊距 (cm)",
+    "top": "上",
+    "bottom": "下",
+    "left": "左",
+    "right": "右",
+    "advancedOptions": "進階選項",
+    "generateToc": "產生目錄",
+    "referenceStyle": "參考文獻樣式",
+    "imageHandling": "圖片處理",
+    "embed": "嵌入",
+    "link": "連結",
+    "codeBlockStyle": "程式碼區塊樣式",
+    "fenced": "圍欄 (```)",
+    "indented": "縮排",
+    "currentSettings": "目前設定",
+    "summary": "字體: {{font}}, 大小: {{size}}pt | 行高: {{lineHeight}}, 方向: {{orientation}} | 邊距: 上{{top}}cm, 下{{bottom}}cm, 左{{left}}cm, 右{{right}}cm | 目錄: {{toc}}, 參考文獻: {{ref}}",
+    "defaultValue": "(預設)",
+    "defaultValueEnabled": "(預設: 啟用)"
+  },
+  "progress": {
+    "preparing": "準備中...",
+    "converting": "轉換中...",
+    "finalizing": "完成中...",
+    "completed": "已完成",
+    "errorOccurred": "發生錯誤",
+    "progressRate": "進度",
+    "fileProgress": "{{current}} / {{total}} 檔案",
+    "currentFile": "目前檔案",
+    "stage": "階段",
+    "overallProgress": "整體進度",
+    "estimatedTime": "預估剩餘時間",
+    "seconds": "{{count}}秒",
+    "conversionSuccess": "轉換成功完成！",
+    "conversionError": "轉換過程中發生錯誤"
+  },
+  "batchConversion": {
+    "title": "批次轉換",
+    "inProgress": "批次轉換中",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "目前檔案",
+    "preparing": "準備中...",
+    "converting": "批次轉換中",
+    "completed": "已完成",
+    "errorOccurred": "發生錯誤",
+    "error": "批次轉換錯誤",
+    "cancel": "取消",
+    "batchConvertButton": "批次轉換 {{count}} 個檔案"
+  },
+  "resultDisplay": {
+    "title": "轉換結果",
+    "conversionSuccess": "轉換成功",
+    "conversionFailed": "轉換失敗",
+    "processedFiles": "已處理檔案",
+    "outputFile": "輸出檔案",
+    "errorDetails": "錯誤詳情"
+  },
+  "theme": {
+    "lightMode": "淺色模式",
+    "darkMode": "深色模式",
+    "system": "系統",
+    "currentTheme": "目前主題"
+  },
+  "buttons": {
+    "convertToDocx": "轉換為DOCX",
+    "batchConvert": "批次轉換"
+  },
+  "errors": {
+    "conversionError": "轉換錯誤",
+    "batchConversionError": "批次轉換錯誤",
+    "batchConversionCanceled": "批次轉換已取消",
+    "conversionCanceled": "轉換已取消",
+    "generalConversionError": "批次轉換過程中發生錯誤",
+    "singleConversionError": "轉換過程中發生錯誤"
+  },
+  "preview": {
+    "noFile": "沒有檔案可預覽",
+    "selectFile": "請選擇Markdown檔案"
+  },
+  "time": {
+    "seconds": "秒"
+  }
+}

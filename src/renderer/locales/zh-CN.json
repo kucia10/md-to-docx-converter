@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "选择文件",
+    "cancel": "取消",
+    "close": "关闭",
+    "download": "下载",
+    "folder": "文件夹",
+    "openFolder": "打开文件夹",
+    "loading": "加载中...",
+    "processing": "处理中...",
+    "converting": "转换中...",
+    "completed": "已完成",
+    "error": "错误",
+    "success": "成功",
+    "preview": "预览",
+    "yes": "是",
+    "no": "否"
+  },
+  "subtitle": "将Markdown文件转换为Word文档",
+  "fileUpload": {
+    "title": "选择文件",
+    "dragDropHint": "将Markdown文件拖放到此处，或点击选择",
+    "supportedFormats": "支持.md、.markdown文件",
+    "selectedFiles": "已选文件 ({{count}})",
+    "fileSize": "大小",
+    "dateModified": "修改日期",
+    "removeFile": "移除文件"
+  },
+  "conversionOptions": {
+    "title": "转换选项",
+    "documentSettings": "文档设置",
+    "font": "字体",
+    "fontSize": "字体大小 (pt)",
+    "lineHeight": "行高",
+    "pageOrientation": "页面方向",
+    "portrait": "纵向",
+    "landscape": "横向",
+    "pageMargins": "页边距 (cm)",
+    "top": "上",
+    "bottom": "下",
+    "left": "左",
+    "right": "右",
+    "advancedOptions": "高级选项",
+    "generateToc": "生成目录",
+    "referenceStyle": "参考文献样式",
+    "imageHandling": "图像处理",
+    "embed": "嵌入",
+    "link": "链接",
+    "codeBlockStyle": "代码块样式",
+    "fenced": "围栏 (```)",
+    "indented": "缩进",
+    "currentSettings": "当前设置",
+    "summary": "字体: {{font}}, 大小: {{size}}pt | 行高: {{lineHeight}}, 方向: {{orientation}} | 边距: 上{{top}}cm, 下{{bottom}}cm, 左{{left}}cm, 右{{right}}cm | 目录: {{toc}}, 参考文献: {{ref}}",
+    "defaultValue": "(默认)",
+    "defaultValueEnabled": "(默认: 启用)"
+  },
+  "progress": {
+    "preparing": "准备中...",
+    "converting": "转换中...",
+    "finalizing": "完成中...",
+    "completed": "已完成",
+    "errorOccurred": "发生错误",
+    "progressRate": "进度",
+    "fileProgress": "{{current}} / {{total}} 文件",
+    "currentFile": "当前文件",
+    "stage": "阶段",
+    "overallProgress": "整体进度",
+    "estimatedTime": "预计剩余时间",
+    "seconds": "{{count}}秒",
+    "conversionSuccess": "转换成功完成！",
+    "conversionError": "转换过程中发生错误"
+  },
+  "batchConversion": {
+    "title": "批量转换",
+    "inProgress": "批量转换中",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "当前文件",
+    "preparing": "准备中...",
+    "converting": "批量转换中",
+    "completed": "已完成",
+    "errorOccurred": "发生错误",
+    "error": "批量转换错误",
+    "cancel": "取消",
+    "batchConvertButton": "批量转换 {{count}} 个文件"
+  },
+  "resultDisplay": {
+    "title": "转换结果",
+    "conversionSuccess": "转换成功",
+    "conversionFailed": "转换失败",
+    "processedFiles": "已处理文件",
+    "outputFile": "输出文件",
+    "errorDetails": "错误详情"
+  },
+  "theme": {
+    "lightMode": "浅色模式",
+    "darkMode": "深色模式",
+    "system": "系统",
+    "currentTheme": "当前主题"
+  },
+  "buttons": {
+    "convertToDocx": "转换为DOCX",
+    "batchConvert": "批量转换"
+  },
+  "errors": {
+    "conversionError": "转换错误",
+    "batchConversionError": "批量转换错误",
+    "batchConversionCanceled": "批量转换已取消",
+    "conversionCanceled": "转换已取消",
+    "generalConversionError": "批量转换过程中发生错误",
+    "singleConversionError": "转换过程中发生错误"
+  },
+  "preview": {
+    "noFile": "没有文件可预览",
+    "selectFile": "请选择Markdown文件"
+  },
+  "time": {
+    "seconds": "秒"
+  }
+}

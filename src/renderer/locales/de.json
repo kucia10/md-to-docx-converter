@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "Datei auswählen",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "download": "Herunterladen",
+    "folder": "Ordner",
+    "openFolder": "Ordner öffnen",
+    "loading": "Laden...",
+    "processing": "Verarbeitung...",
+    "converting": "Konvertierung...",
+    "completed": "Abgeschlossen",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "preview": "Vorschau",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "subtitle": "Konvertieren Sie Markdown-Dateien in Word-Dokumente",
+  "fileUpload": {
+    "title": "Datei auswählen",
+    "dragDropHint": "Ziehen Sie Markdown-Dateien hierher oder klicken Sie zum Auswählen",
+    "supportedFormats": ".md, .markdown Dateien werden unterstützt",
+    "selectedFiles": "Ausgewählte Dateien ({{count}})",
+    "fileSize": "Größe",
+    "dateModified": "Geändert",
+    "removeFile": "Datei entfernen"
+  },
+  "conversionOptions": {
+    "title": "Konvertierungsoptionen",
+    "documentSettings": "Dokumenteinstellungen",
+    "font": "Schriftart",
+    "fontSize": "Schriftgröße (pt)",
+    "lineHeight": "Zeilenabstand",
+    "pageOrientation": "Seitenausrichtung",
+    "portrait": "Hochformat",
+    "landscape": "Querformat",
+    "pageMargins": "Seitenränder (cm)",
+    "top": "Oben",
+    "bottom": "Unten",
+    "left": "Links",
+    "right": "Rechts",
+    "advancedOptions": "Erweiterte Optionen",
+    "generateToc": "Inhaltsverzeichnis erstellen",
+    "referenceStyle": "Literaturverzeichnisstil",
+    "imageHandling": "Bildverarbeitung",
+    "embed": "Einbetten",
+    "link": "Verknüpfung",
+    "codeBlockStyle": "Codeblock-Stil",
+    "fenced": "Eingegrenzt (```)",
+    "indented": "Eingerückt",
+    "currentSettings": "Aktuelle Einstellungen",
+    "summary": "Schrift: {{font}}, Größe: {{size}}pt | Zeilenabstand: {{lineHeight}}, Ausrichtung: {{orientation}} | Ränder: Oben {{top}}cm, Unten {{bottom}}cm, Links {{left}}cm, Rechts {{right}}cm | TOC: {{toc}}, Referenz: {{ref}}",
+    "defaultValue": "(Standard)",
+    "defaultValueEnabled": "(Standard: Aktiviert)"
+  },
+  "progress": {
+    "preparing": "Vorbereitung...",
+    "converting": "Konvertierung...",
+    "finalizing": "Abschluss...",
+    "completed": "Abgeschlossen",
+    "errorOccurred": "Ein Fehler ist aufgetreten",
+    "progressRate": "Fortschritt",
+    "fileProgress": "{{current}} / {{total}} Dateien",
+    "currentFile": "Aktuelle Datei",
+    "stage": "Phase",
+    "overallProgress": "Gesamtfortschritt",
+    "estimatedTime": "Geschätzte verbleibende Zeit",
+    "seconds": "{{count}}s",
+    "conversionSuccess": "Konvertierung erfolgreich abgeschlossen!",
+    "conversionError": "Während der Konvertierung ist ein Fehler aufgetreten"
+  },
+  "batchConversion": {
+    "title": "Batch-Konvertierung",
+    "inProgress": "Batch-Konvertierung läuft",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "Aktuelle Datei",
+    "preparing": "Vorbereitung...",
+    "converting": "Batch-Konvertierung",
+    "completed": "Abgeschlossen",
+    "errorOccurred": "Ein Fehler ist aufgetreten",
+    "error": "Batch-Konvertierungsfehler",
+    "cancel": "Abbrechen",
+    "batchConvertButton": "{{count}} Dateien batch-konvertieren"
+  },
+  "resultDisplay": {
+    "title": "Konvertierungsergebnis",
+    "conversionSuccess": "Konvertierung erfolgreich",
+    "conversionFailed": "Konvertierung fehlgeschlagen",
+    "processedFiles": "Verarbeitete Dateien",
+    "outputFile": "Ausgabedatei",
+    "errorDetails": "Fehlerdetails"
+  },
+  "theme": {
+    "lightMode": "Helles Modus",
+    "darkMode": "Dunkles Modus",
+    "system": "System",
+    "currentTheme": "Aktuelles Thema"
+  },
+  "buttons": {
+    "convertToDocx": "In DOCX konvertieren",
+    "batchConvert": "Batch-Konvertierung"
+  },
+  "errors": {
+    "conversionError": "Konvertierungsfehler",
+    "batchConversionError": "Batch-Konvertierungsfehler",
+    "batchConversionCanceled": "Die Batch-Konvertierung wurde abgebrochen",
+    "conversionCanceled": "Die Konvertierung wurde abgebrochen",
+    "generalConversionError": "Während der Batch-Konvertierung ist ein Fehler aufgetreten",
+    "singleConversionError": "Während der Konvertierung ist ein Fehler aufgetreten"
+  },
+  "preview": {
+    "noFile": "Keine Datei für Vorschau verfügbar",
+    "selectFile": "Wählen Sie eine Markdown-Datei aus"
+  },
+  "time": {
+    "seconds": "s"
+  }
+}

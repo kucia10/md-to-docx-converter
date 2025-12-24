@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="256" height="256" rx="48" fill="#3B82F6"/>
+  
+  <!-- Document icon -->
+  <path d="M80 64C80 55.1634 87.1634 48 96 48H160C168.837 48 176 55.1634 176 64V192C176 200.837 168.837 208 160 208H96C87.1634 208 80 200.837 80 192V64Z" fill="white"/>
+  
+  <!-- MD text -->
+  <text x="128" y="120" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3B82F6">MD</text>
+  
+  <!-- DOCX text -->
+  <text x="128" y="160" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3B82F6">DOCX</text>
+  
+  <!-- Arrow -->
+  <path d="M128 140L120 132M128 140L136 132M128 140V128" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

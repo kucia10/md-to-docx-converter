@@ -1,0 +1,4 @@
+# Core dependencies for MD to DOCX conversion
+pypandoc==1.13
+# For better JSON handling
+# No additional dependencies needed as we use subprocess to call pandoc directly

@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "파일 선택",
+    "cancel": "취소",
+    "close": "닫기",
+    "download": "다운로드",
+    "folder": "폴더",
+    "openFolder": "폴더 열기",
+    "loading": "로딩 중...",
+    "processing": "처리 중...",
+    "converting": "변환 중...",
+    "completed": "완료됨",
+    "error": "오류",
+    "success": "성공",
+    "preview": "미리보기",
+    "yes": "예",
+    "no": "아니오"
+  },
+  "subtitle": "Markdown 파일을 Word 문서로 변환합니다",
+  "fileUpload": {
+    "title": "파일 선택",
+    "dragDropHint": "Markdown 파일을 여기로 드래그하거나 클릭하여 선택하세요",
+    "supportedFormats": ".md, .markdown 파일을 지원합니다",
+    "selectedFiles": "선택된 파일 ({{count}})",
+    "fileSize": "크기",
+    "dateModified": "수정일",
+    "removeFile": "파일 제거"
+  },
+  "conversionOptions": {
+    "title": "변환 옵션",
+    "documentSettings": "문서 설정",
+    "font": "글꼴",
+    "fontSize": "글자 크기 (pt)",
+    "lineHeight": "줄 간격",
+    "pageOrientation": "페이지 방향",
+    "portrait": "세로",
+    "landscape": "가로",
+    "pageMargins": "페이지 여백 (cm)",
+    "top": "위쪽",
+    "bottom": "아래쪽",
+    "left": "왼쪽",
+    "right": "오른쪽",
+    "advancedOptions": "고급 옵션",
+    "generateToc": "목차 생성",
+    "referenceStyle": "참고문헌 스타일",
+    "imageHandling": "이미지 처리",
+    "embed": "포함",
+    "link": "링크",
+    "codeBlockStyle": "코드 블록 스타일",
+    "fenced": "Fenced (```)",
+    "indented": "들여쓰기",
+    "currentSettings": "현재 설정",
+    "summary": "글꼴: {{font}}, 크기: {{size}}pt | 줄 간격: {{lineHeight}}, 방향: {{orientation}} | 여백: 위{{top}}cm, 아래{{bottom}}cm, 좌{{left}}cm, 우{{right}}cm | 목차: {{toc}}, 참고문헌: {{ref}}",
+    "defaultValue": "(기본값)",
+    "defaultValueEnabled": "(기본값: 활성화)"
+  },
+  "progress": {
+    "preparing": "준비 중...",
+    "converting": "변환 중...",
+    "finalizing": "완료 중...",
+    "completed": "완료됨",
+    "errorOccurred": "오류 발생",
+    "progressRate": "진행률",
+    "fileProgress": "{{current}} / {{total}} 파일",
+    "currentFile": "현재 파일",
+    "stage": "단계",
+    "overallProgress": "전체 진행률",
+    "estimatedTime": "예상 남은 시간",
+    "seconds": "{{count}}초",
+    "conversionSuccess": "변환이 성공적으로 완료되었습니다!",
+    "conversionError": "변환 중 오류가 발생했습니다"
+  },
+  "batchConversion": {
+    "title": "일괄 변환",
+    "inProgress": "일괄 변환 중",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "현재 파일",
+    "preparing": "준비 중...",
+    "converting": "일괄 변환 중",
+    "completed": "완료됨",
+    "errorOccurred": "오류 발생",
+    "error": "일괄 변환 오류",
+    "cancel": "취소",
+    "batchConvertButton": "{{count}}개 파일 일괄 변환"
+  },
+  "resultDisplay": {
+    "title": "변환 결과",
+    "conversionSuccess": "변환 성공",
+    "conversionFailed": "변환 실패",
+    "processedFiles": "처리된 파일",
+    "outputFile": "출력 파일",
+    "errorDetails": "오류 상세 정보"
+  },
+  "theme": {
+    "lightMode": "라이트 모드",
+    "darkMode": "다크 모드",
+    "system": "시스템",
+    "currentTheme": "현재 테마"
+  },
+  "buttons": {
+    "convertToDocx": "DOCX로 변환",
+    "batchConvert": "일괄 변환"
+  },
+  "errors": {
+    "conversionError": "변환 오류",
+    "batchConversionError": "일괄 변환 오류",
+    "batchConversionCanceled": "일괄 변환이 취소되었습니다",
+    "conversionCanceled": "변환이 취소되었습니다",
+    "generalConversionError": "일괄 변환 중 오류가 발생했습니다",
+    "singleConversionError": "변환 중 오류가 발생했습니다"
+  },
+  "preview": {
+    "noFile": "미리보기할 파일이 없습니다",
+    "selectFile": "Markdown 파일을 선택하세요"
+  },
+  "time": {
+    "seconds": "초"
+  }
+}

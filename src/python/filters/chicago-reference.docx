@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Georgia" w:hAnsi="Georgia" w:eastAsia="Georgia" w:cs="Georgia"/>
+        <w:sz w:val="28"/>
+        <w:szCs w:val="28"/>
+        <w:spacing w:line="360" w:lineRule="auto"/>
+      </w:rPr>
+    </w:rPrDefault>
+    <w:pPrDefault>
+      <w:pPr>
+        <w:spacing w:top="720" w:bottom="720" w:left="853" w:right="853" w:line="360"/>
+        <w:jc w:val="left"/>
+      </w:pPr>
+    </w:pPrDefault>
+  </w:docDefaults>
+</w:styles>

@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "Select File",
+    "cancel": "Cancel",
+    "close": "Close",
+    "download": "Download",
+    "folder": "Folder",
+    "openFolder": "Open Folder",
+    "loading": "Loading...",
+    "processing": "Processing...",
+    "converting": "Converting...",
+    "completed": "Completed",
+    "error": "Error",
+    "success": "Success",
+    "preview": "Preview",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "subtitle": "Convert Markdown files to Word documents",
+  "fileUpload": {
+    "title": "Select File",
+    "dragDropHint": "Drag and drop Markdown files here or click to select",
+    "supportedFormats": ".md, .markdown files are supported",
+    "selectedFiles": "Selected Files ({{count}})",
+    "fileSize": "Size",
+    "dateModified": "Modified",
+    "removeFile": "Remove File"
+  },
+  "conversionOptions": {
+    "title": "Conversion Options",
+    "documentSettings": "Document Settings",
+    "font": "Font Family",
+    "fontSize": "Font Size (pt)",
+    "lineHeight": "Line Height",
+    "pageOrientation": "Page Orientation",
+    "portrait": "Portrait",
+    "landscape": "Landscape",
+    "pageMargins": "Page Margins (cm)",
+    "top": "Top",
+    "bottom": "Bottom",
+    "left": "Left",
+    "right": "Right",
+    "advancedOptions": "Advanced Options",
+    "generateToc": "Generate Table of Contents",
+    "referenceStyle": "Reference Style",
+    "imageHandling": "Image Handling",
+    "embed": "Embed",
+    "link": "Link",
+    "codeBlockStyle": "Code Block Style",
+    "fenced": "Fenced (```)",
+    "indented": "Indented",
+    "currentSettings": "Current Settings",
+    "summary": "Font: {{font}}, Size: {{size}}pt | Line Height: {{lineHeight}}, Orientation: {{orientation}} | Margins: Top {{top}}cm, Bottom {{bottom}}cm, Left {{left}}cm, Right {{right}}cm | TOC: {{toc}}, Reference: {{ref}}",
+    "defaultValue": "(Default)",
+    "defaultValueEnabled": "(Default: Enabled)"
+  },
+  "progress": {
+    "preparing": "Preparing...",
+    "converting": "Converting...",
+    "finalizing": "Finalizing...",
+    "completed": "Completed",
+    "errorOccurred": "Error Occurred",
+    "progressRate": "Progress",
+    "fileProgress": "{{current}} / {{total}} Files",
+    "currentFile": "Current File",
+    "stage": "Stage",
+    "overallProgress": "Overall Progress",
+    "estimatedTime": "Estimated Time Remaining",
+    "seconds": "{{count}}s",
+    "conversionSuccess": "Conversion completed successfully!",
+    "conversionError": "An error occurred during conversion"
+  },
+  "batchConversion": {
+    "title": "Batch Conversion",
+    "inProgress": "Batch Converting",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "Current File",
+    "preparing": "Preparing...",
+    "converting": "Batch Converting",
+    "completed": "Completed",
+    "errorOccurred": "Error Occurred",
+    "error": "Batch Conversion Error",
+    "cancel": "Cancel",
+    "batchConvertButton": "Batch Convert {{count}} Files"
+  },
+  "resultDisplay": {
+    "title": "Conversion Result",
+    "conversionSuccess": "Conversion Successful",
+    "conversionFailed": "Conversion Failed",
+    "processedFiles": "Processed Files",
+    "outputFile": "Output File",
+    "errorDetails": "Error Details"
+  },
+  "theme": {
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "system": "System",
+    "currentTheme": "Current Theme"
+  },
+  "buttons": {
+    "convertToDocx": "Convert to DOCX",
+    "batchConvert": "Batch Convert"
+  },
+  "errors": {
+    "conversionError": "Conversion Error",
+    "batchConversionError": "Batch Conversion Error",
+    "batchConversionCanceled": "Batch conversion has been canceled",
+    "conversionCanceled": "Conversion has been canceled",
+    "generalConversionError": "An error occurred during batch conversion",
+    "singleConversionError": "An error occurred during conversion"
+  },
+  "preview": {
+    "noFile": "No file to preview",
+    "selectFile": "Select a Markdown file"
+  },
+  "time": {
+    "seconds": "s"
+  }
+}

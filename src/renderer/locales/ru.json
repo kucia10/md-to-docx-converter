@@ -1,0 +1,119 @@
+{
+  "common": {
+    "selectFile": "Выбрать файл",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "download": "Скачать",
+    "folder": "Папка",
+    "openFolder": "Открыть папку",
+    "loading": "Загрузка...",
+    "processing": "Обработка...",
+    "converting": "Преобразование...",
+    "completed": "Завершено",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "preview": "Предпросмотр",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "subtitle": "Преобразование файлов Markdown в документы Word",
+  "fileUpload": {
+    "title": "Выбрать файл",
+    "dragDropHint": "Перетащите файлы Markdown сюда или нажмите для выбора",
+    "supportedFormats": "Поддерживаются файлы .md, .markdown",
+    "selectedFiles": "Выбранные файлы ({{count}})",
+    "fileSize": "Размер",
+    "dateModified": "Изменено",
+    "removeFile": "Удалить файл"
+  },
+  "conversionOptions": {
+    "title": "Параметры преобразования",
+    "documentSettings": "Настройки документа",
+    "font": "Шрифт",
+    "fontSize": "Размер шрифта (pt)",
+    "lineHeight": "Межстрочный интервал",
+    "pageOrientation": "Ориентация страницы",
+    "portrait": "Портретная",
+    "landscape": "Альбомная",
+    "pageMargins": "Поля страницы (cm)",
+    "top": "Верх",
+    "bottom": "Низ",
+    "left": "Лево",
+    "right": "Право",
+    "advancedOptions": "Дополнительные параметры",
+    "generateToc": "Создать оглавление",
+    "referenceStyle": "Стиль ссылок",
+    "imageHandling": "Обработка изображений",
+    "embed": "Встроить",
+    "link": "Ссылка",
+    "codeBlockStyle": "Стиль блока кода",
+    "fenced": "Ограниченный (```)",
+    "indented": "С отступом",
+    "currentSettings": "Текущие настройки",
+    "summary": "Шрифт: {{font}}, Размер: {{size}}pt | Интервал: {{lineHeight}}, Ориентация: {{orientation}} | Поля: Верх {{top}}см, Низ {{bottom}}см, Лево {{left}}см, Право {{right}}см | Оглавление: {{toc}}, Ссылка: {{ref}}",
+    "defaultValue": "(По умолчанию)",
+    "defaultValueEnabled": "(По умолчанию: Включено)"
+  },
+  "progress": {
+    "preparing": "Подготовка...",
+    "converting": "Преобразование...",
+    "finalizing": "Завершение...",
+    "completed": "Завершено",
+    "errorOccurred": "Произошла ошибка",
+    "progressRate": "Прогресс",
+    "fileProgress": "{{current}} / {{total}} файлов",
+    "currentFile": "Текущий файл",
+    "stage": "Этап",
+    "overallProgress": "Общий прогресс",
+    "estimatedTime": "Осталось времени",
+    "seconds": "{{count}}с",
+    "conversionSuccess": "Преобразование успешно завершено!",
+    "conversionError": "Произошла ошибка при преобразовании"
+  },
+  "batchConversion": {
+    "title": "Пакетное преобразование",
+    "inProgress": "Пакетное преобразование",
+    "progress": "{{current}}/{{total}}",
+    "currentFile": "Текущий файл",
+    "preparing": "Подготовка...",
+    "converting": "Пакетное преобразование",
+    "completed": "Завершено",
+    "errorOccurred": "Произошла ошибка",
+    "error": "Ошибка пакетного преобразования",
+    "cancel": "Отмена",
+    "batchConvertButton": "Пакетное преобразование {{count}} файлов"
+  },
+  "resultDisplay": {
+    "title": "Результат преобразования",
+    "conversionSuccess": "Преобразование успешно",
+    "conversionFailed": "Преобразование не удалось",
+    "processedFiles": "Обработанные файлы",
+    "outputFile": "Выходной файл",
+    "errorDetails": "Сведения об ошибке"
+  },
+  "theme": {
+    "lightMode": "Светлая тема",
+    "darkMode": "Темная тема",
+    "system": "Система",
+    "currentTheme": "Текущая тема"
+  },
+  "buttons": {
+    "convertToDocx": "Преобразовать в DOCX",
+    "batchConvert": "Пакетное преобразование"
+  },
+  "errors": {
+    "conversionError": "Ошибка преобразования",
+    "batchConversionError": "Ошибка пакетного преобразования",
+    "batchConversionCanceled": "Пакетное преобразование было отменено",
+    "conversionCanceled": "Преобразование было отменено",
+    "generalConversionError": "Произошла ошибка при пакетном преобразовании",
+    "singleConversionError": "Произошла ошибка при преобразовании"
+  },
+  "preview": {
+    "noFile": "Нет файла для предпросмотра",
+    "selectFile": "Выберите файл Markdown"
+  },
+  "time": {
+    "seconds": "с"
+  }
+}
