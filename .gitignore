@@ -7,6 +7,9 @@ dist/
 build/
 out/
 
+# .athena configuration
+.athena/
+
 # Runtime data
 pids
 *.pid
