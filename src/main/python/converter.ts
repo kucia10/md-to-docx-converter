@@ -47,10 +47,21 @@ export class PythonConverter {
       if (options.orientation) args.push('--orientation', options.orientation)
       if (options.generateToc) args.push('--generate-toc')
 
+      // Add common Pandoc installation paths to PATH for macOS GUI apps
+      const additionalPaths = [
+        '/usr/local/bin',           // Homebrew (Intel Mac)
+        '/opt/homebrew/bin',        // Homebrew (Apple Silicon)
+        '/usr/bin',                 // System
+        '/opt/local/bin',           // MacPorts
+      ]
+      const currentPath = process.env.PATH || ''
+      const enhancedPath = [...additionalPaths, currentPath].join(':')
+
       this.pythonProcess = spawn(pythonPath, args, {
         stdio: ['pipe', 'pipe', 'pipe'],
         env: {
           ...process.env,
+          PATH: enhancedPath,
           PYTHONIOENCODING: 'utf-8',
         },
       })
@@ -88,17 +99,12 @@ export class PythonConverter {
   }
 
   private getPythonPath(): string {
-    if (this.isDev) {
-      // In development, use system Python
-      return 'python3'
-    } else {
-      // In production, use bundled Python
-      const pythonPath = path.join((process as any).resourcesPath, 'resources', 'python', 'python')
-      if (process.platform === 'win32') {
-        return pythonPath + '.exe'
-      }
-      return pythonPath
+    // Use system Python in both development and production
+    // Users need to have Python 3 installed with required packages (pypandoc)
+    if (process.platform === 'win32') {
+      return 'python'
     }
+    return 'python3'
   }
 
   private getPythonScriptPath(): string {
@@ -106,7 +112,8 @@ export class PythonConverter {
       // In development, use src/python/convert.py from project root
       return path.join(process.cwd(), 'src/python/convert.py')
     } else {
-      return path.join((process as any).resourcesPath, 'resources', 'python', 'convert.py')
+      // In production, use bundled script from extraResources
+      return path.join((process as any).resourcesPath, 'python', 'convert.py')
     }
   }
 

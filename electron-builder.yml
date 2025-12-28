@@ -13,8 +13,10 @@ files:
   - src/resources/**/*
 
 extraResources:
-  - from: "resources"
-    to: "resources"
+  - from: "src/python"
+    to: "python"
+    filter:
+      - "**/*"
 
 win:
   target:

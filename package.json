@@ -1,6 +1,6 @@
 {
   "name": "md-to-docx-converter",
-  "version": "1.1.7",
+  "version": "1.1.14",
   "description": "Electron application to convert Markdown files to DOCX using Python and Pandoc",
   "main": "dist/main/main.js",
   "homepage": "./",
@@ -78,6 +78,10 @@
       {
         "from": "src/resources",
         "to": "resources"
+      },
+      {
+        "from": "src/python",
+        "to": "python"
       }
     ],
     "mac": {

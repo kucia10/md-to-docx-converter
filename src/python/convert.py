@@ -16,6 +16,8 @@ from typing import Dict, Any, Optional
 class PandocConverter:
     def __init__(self):
         self.pandoc_path = self._get_pandoc_path()
+        # Get the directory where this script is located
+        self.script_dir = Path(__file__).parent.resolve()
         
     def _get_pandoc_path(self) -> str:
         """Get the path to the bundled Pandoc executable"""
@@ -134,10 +136,12 @@ class PandocConverter:
         cmd.append('--toc')
         cmd.extend(['--toc-depth', '3'])
         
-        # Reference style (Chicago by default)
-        reference_style = options.get('referenceStyle', 'chicago')
-        if reference_style:
-            cmd.extend(['--citeproc', '--reference-doc=filters/chicago-reference.docx'])
+        # Reference style (disabled due to missing/corrupted reference doc)
+        # Use default Pandoc styling instead
+        # reference_style = options.get('referenceStyle', 'chicago')
+        # if reference_style and (self.script_dir / 'filters' / 'chicago-reference.docx').exists():
+        #     reference_doc_path = self.script_dir / 'filters' / 'chicago-reference.docx'
+        #     cmd.extend(['--citeproc', f'--reference-doc={reference_doc_path}'])
         
         # Highlight style for code blocks
         cmd.extend(['--highlight-style', 'pygments'])
