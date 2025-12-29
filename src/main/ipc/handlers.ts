@@ -226,6 +226,59 @@ export function setupIpcHandlers(): void {
     return result
   })
 
+  // Merge conversion handler - multiple files to single DOCX
+  ipcMain.handle(IPC_CHANNELS.START_MERGE_CONVERSION, async (event: any, { inputFiles, outputPath, options }: {
+    inputFiles: string[];
+    outputPath: string;
+    options: any
+  }) => {
+    if (!pythonConverter) {
+      throw new Error('Python converter not initialized')
+    }
+
+    console.log('[Merge Conversion] Starting merge conversion with', inputFiles.length, 'files')
+    
+    const totalFiles = inputFiles.length
+    
+    // Send initial progress
+    event.sender.send(IPC_CHANNELS.MERGE_CONVERSION_PROGRESS, {
+      currentFile: 0,
+      totalFiles,
+      currentFileName: '',
+      percentage: 0,
+      status: 'preparing'
+    })
+    
+    try {
+      await pythonConverter.mergeFilesToDocx(inputFiles, outputPath, options)
+      
+      // Send completion result
+      const result = {
+        success: true,
+        message: `${totalFiles}개 파일이 하나의 DOCX로 병합되었습니다`,
+        outputPath,
+        totalFiles
+      }
+      
+      event.sender.send(IPC_CHANNELS.MERGE_CONVERSION_COMPLETE, result)
+      
+      console.log('[Merge Conversion] Merge conversion completed:', result)
+      return result
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      console.error('[Merge Conversion] Error:', errorMessage)
+      
+      const errorResult = {
+        success: false,
+        message: '병합 변환 중 오류가 발생했습니다',
+        error: errorMessage
+      }
+      
+      event.sender.send(IPC_CHANNELS.MERGE_CONVERSION_COMPLETE, errorResult)
+      throw error
+    }
+  })
+
   // App info handlers
   ipcMain.handle(IPC_CHANNELS.GET_APP_VERSION, () => {
     // Electron's app.getVersion() automatically reads from package.json

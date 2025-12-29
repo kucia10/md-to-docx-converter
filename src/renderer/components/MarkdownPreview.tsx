@@ -1,14 +1,23 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactMarkdown from 'react-markdown'
-import { ConversionOptions as ConversionOptionsType } from '../types'
+import { ConversionOptions as ConversionOptionsType, FileItem } from '../types'
 
 interface MarkdownPreviewProps {
   content: string
   options: ConversionOptionsType
+  selectedFiles?: FileItem[]
+  isCombinedPreview?: boolean
+  onToggleCombinedPreview?: () => void
 }
 
-export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content, options }) => {
+export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({
+  content,
+  options,
+  selectedFiles = [],
+  isCombinedPreview = false,
+  onToggleCombinedPreview,
+}) => {
   const { t } = useTranslation()
   // Apply styles based on options
   const previewStyle = React.useMemo(() => ({
@@ -36,6 +45,17 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content, optio
       {/* Preview Header */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-gray-500 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
         <span className="text-sm font-medium text-gray-700 dark:text-gray-500">{t('common.preview')}</span>
+        {selectedFiles.length > 1 && (
+          <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={isCombinedPreview}
+              onChange={onToggleCombinedPreview}
+              className="w-4 h-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500"
+            />
+            {t('preview.combined')}
+          </label>
+        )}
       </div>
 
       {/* Preview Content */}

@@ -8,12 +8,15 @@ export const IPC_CHANNELS = {
   // Conversion operations
   START_CONVERSION: 'start-conversion',
   START_BATCH_CONVERSION: 'start-batch-conversion',
+  START_MERGE_CONVERSION: 'start-merge-conversion',
   CANCEL_CONVERSION: 'cancel-conversion',
   CONVERSION_PROGRESS: 'conversion-progress',
   CONVERSION_COMPLETE: 'conversion-complete',
   CONVERSION_ERROR: 'conversion-error',
   BATCH_CONVERSION_PROGRESS: 'batch-conversion-progress',
   BATCH_CONVERSION_COMPLETE: 'batch-conversion-complete',
+  MERGE_CONVERSION_PROGRESS: 'merge-conversion-progress',
+  MERGE_CONVERSION_COMPLETE: 'merge-conversion-complete',
   
   // App operations
   GET_APP_VERSION: 'get-app-version',

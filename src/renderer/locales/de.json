@@ -111,7 +111,8 @@
   },
   "preview": {
     "noFile": "Keine Datei für Vorschau verfügbar",
-    "selectFile": "Wählen Sie eine Markdown-Datei aus"
+    "selectFile": "Wählen Sie eine Markdown-Datei aus",
+    "combined": "Kombinierte Vorschau"
   },
   "time": {
     "seconds": "s"

@@ -13,6 +13,8 @@ export const electronAPI = {
     ipcRenderer.invoke(IPC_CHANNELS.START_CONVERSION, { inputPath, outputPath, options }),
   startBatchConversion: (inputFiles: string[], outputDirectory: string, options: any) =>
     ipcRenderer.invoke(IPC_CHANNELS.START_BATCH_CONVERSION, { inputFiles, outputDirectory, options }),
+  startMergeConversion: (inputFiles: string[], outputPath: string, options: any) =>
+    ipcRenderer.invoke(IPC_CHANNELS.START_MERGE_CONVERSION, { inputFiles, outputPath, options }),
   cancelConversion: () => ipcRenderer.send(IPC_CHANNELS.CANCEL_CONVERSION),
   onConversionProgress: (callback: (progress: any) => void) =>
     ipcRenderer.on(IPC_CHANNELS.CONVERSION_PROGRESS, (_event: any, progress: any) => callback(progress)),
@@ -24,6 +26,10 @@ export const electronAPI = {
     ipcRenderer.on(IPC_CHANNELS.BATCH_CONVERSION_PROGRESS, (_event: any, progress: any) => callback(progress)),
   onBatchConversionComplete: (callback: (result: any) => void) =>
     ipcRenderer.on(IPC_CHANNELS.BATCH_CONVERSION_COMPLETE, (_event: any, result: any) => callback(result)),
+  onMergeConversionProgress: (callback: (progress: any) => void) =>
+    ipcRenderer.on(IPC_CHANNELS.MERGE_CONVERSION_PROGRESS, (_event: any, progress: any) => callback(progress)),
+  onMergeConversionComplete: (callback: (result: any) => void) =>
+    ipcRenderer.on(IPC_CHANNELS.MERGE_CONVERSION_COMPLETE, (_event: any, result: any) => callback(result)),
   
   // App operations
   getAppVersion: () => ipcRenderer.invoke(IPC_CHANNELS.GET_APP_VERSION),
@@ -36,6 +42,8 @@ export const electronAPI = {
     ipcRenderer.removeAllListeners(IPC_CHANNELS.CONVERSION_ERROR)
     ipcRenderer.removeAllListeners(IPC_CHANNELS.BATCH_CONVERSION_PROGRESS)
     ipcRenderer.removeAllListeners(IPC_CHANNELS.BATCH_CONVERSION_COMPLETE)
+    ipcRenderer.removeAllListeners(IPC_CHANNELS.MERGE_CONVERSION_PROGRESS)
+    ipcRenderer.removeAllListeners(IPC_CHANNELS.MERGE_CONVERSION_COMPLETE)
   }
 }
 

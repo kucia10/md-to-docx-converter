@@ -111,7 +111,8 @@
   },
   "preview": {
     "noFile": "Нет файла для предпросмотра",
-    "selectFile": "Выберите файл Markdown"
+    "selectFile": "Выберите файл Markdown",
+    "combined": "Объединенный предварительный просмотр"
   },
   "time": {
     "seconds": "с"

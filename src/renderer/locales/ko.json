@@ -24,7 +24,10 @@
     "selectedFiles": "선택된 파일 ({{count}})",
     "fileSize": "크기",
     "dateModified": "수정일",
-    "removeFile": "파일 제거"
+    "removeFile": "파일 제거",
+    "dragToReorder": "드래그하여 순서 변경",
+    "moveUp": "위로 이동",
+    "moveDown": "아래로 이동"
   },
   "conversionOptions": {
     "title": "변환 옵션",
@@ -83,6 +86,18 @@
     "cancel": "취소",
     "batchConvertButton": "{{count}}개 파일 일괄 변환"
   },
+  "mergeConversion": {
+    "title": "병합 변환",
+    "inProgress": "병합 변환 중",
+    "status": "상태",
+    "preparing": "준비 중...",
+    "merging": "파일 병합 중...",
+    "converting": "변환 중...",
+    "completed": "완료됨",
+    "mergeButton": "{{count}}개 파일을 하나의 DOCX로 병합",
+    "success": "병합 변환 완료",
+    "failed": "병합 변환 실패"
+  },
   "resultDisplay": {
     "title": "변환 결과",
     "conversionSuccess": "변환 성공",
@@ -99,7 +114,8 @@
   },
   "buttons": {
     "convertToDocx": "DOCX로 변환",
-    "batchConvert": "일괄 변환"
+    "batchConvert": "일괄 변환",
+    "mergeConvert": "하나로 병합"
   },
   "errors": {
     "conversionError": "변환 오류",
@@ -107,11 +123,14 @@
     "batchConversionCanceled": "일괄 변환이 취소되었습니다",
     "conversionCanceled": "변환이 취소되었습니다",
     "generalConversionError": "일괄 변환 중 오류가 발생했습니다",
-    "singleConversionError": "변환 중 오류가 발생했습니다"
+    "singleConversionError": "변환 중 오류가 발생했습니다",
+    "mergeConversionError": "병합 변환 오류",
+    "mergeConversionCanceled": "병합 변환이 취소되었습니다"
   },
   "preview": {
     "noFile": "미리보기할 파일이 없습니다",
-    "selectFile": "Markdown 파일을 선택하세요"
+    "selectFile": "Markdown 파일을 선택하세요",
+    "combined": "통합 미리보기"
   },
   "time": {
     "seconds": "초"

@@ -111,7 +111,8 @@
   },
   "preview": {
     "noFile": "لا يوجد ملف للمعاينة",
-    "selectFile": "اختر ملف Markdown"
+    "selectFile": "اختر ملف Markdown",
+    "combined": "معاينة مجمعة"
   },
   "time": {
     "seconds": "ث"

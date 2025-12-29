@@ -111,7 +111,8 @@
   },
   "preview": {
     "noFile": "没有文件可预览",
-    "selectFile": "请选择Markdown文件"
+    "selectFile": "请选择Markdown文件",
+    "combined": "合并预览"
   },
   "time": {
     "seconds": "秒"

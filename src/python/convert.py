@@ -153,10 +153,84 @@ class PandocConverter:
         return cmd
 
 
+def merge_files(
+    input_files: list[str],
+    output_path: str,
+    options: Dict[str, Any]
+) -> Dict[str, Any]:
+    """
+    Merge multiple Markdown files into a single DOCX
+    
+    Args:
+        input_files: List of input Markdown file paths
+        output_path: Path to output DOCX file
+        options: Conversion options dictionary
+        
+    Returns:
+        Dictionary with conversion result
+    """
+    try:
+        # Validate input files
+        for input_path in input_files:
+            if not os.path.exists(input_path):
+                return {
+                    'success': False,
+                    'error': f'Input file not found: {input_path}'
+                }
+        
+        # Create output directory if it doesn't exist
+        output_dir = os.path.dirname(output_path)
+        if output_dir and not os.path.exists(output_dir):
+            os.makedirs(output_dir, exist_ok=True)
+        
+        # Merge all markdown files with page breaks
+        merged_content = []
+        for i, input_path in enumerate(input_files):
+            with open(input_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                # Add file name as header (except first file)
+                if i > 0:
+                    file_name = os.path.basename(input_path)
+                    merged_content.append(f"\n\n---\n\n# {file_name}\n\n")
+                merged_content.append(content)
+                # Add page break between files
+                if i < len(input_files) - 1:
+                    merged_content.append('\n\n\\newpage\n\n')
+        
+        merged_markdown = ''.join(merged_content)
+        
+        # Create temporary markdown file
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, encoding='utf-8') as temp_file:
+            temp_file.write(merged_markdown)
+            temp_path = temp_file.name
+        
+        try:
+            # Create converter instance and convert merged markdown to DOCX
+            converter = PandocConverter()
+            result = converter.convert(temp_path, output_path, options)
+            
+            # Clean up temp file
+            os.unlink(temp_path)
+            
+            return result
+        except Exception as e:
+            # Clean up temp file on error
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
+            raise
+            
+    except Exception as e:
+        return {
+            'success': False,
+            'error': f'Merge error: {str(e)}'
+        }
+
+
 def main():
     """Main function to handle command line arguments"""
     parser = argparse.ArgumentParser(description='Convert Markdown to DOCX using Pandoc')
-    parser.add_argument('--input', required=True, help='Input Markdown file path')
+    parser.add_argument('--merge', action='store_true', help='Merge multiple files into single DOCX')
+    parser.add_argument('--input', action='append', help='Input Markdown file path (can be used multiple times)')
     parser.add_argument('--output', required=True, help='Output DOCX file path')
     parser.add_argument('--font-size', type=int, help='Font size in points')
     parser.add_argument('--font-family', help='Font family name')
@@ -192,9 +266,24 @@ def main():
     # Filter out None values
     options = {k: v for k, v in options.items() if v is not None}
     
-    # Create converter and perform conversion
+    # Create converter
     converter = PandocConverter()
-    result = converter.convert(args.input, args.output, options)
+    
+    # Perform conversion or merge
+    if args.merge:
+        if not args.input:
+            return {
+                'success': False,
+                'error': 'At least one input file required for merge'
+            }
+        result = merge_files(args.input, args.output, options)
+    else:
+        if not args.input or len(args.input) == 0:
+            return {
+                'success': False,
+                'error': 'Input file path required'
+            }
+        result = converter.convert(args.input[0], args.output, options)
     
     # Output result as JSON
     print(json.dumps(result))

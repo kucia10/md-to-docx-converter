@@ -162,3 +162,32 @@
 .alert-info {
   @apply bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200;
 }
+
+/* Drag and Drop styles */
+.draggable-item {
+  transition: transform 150ms ease-out;
+}
+
+.draggable-item.dragging {
+  transform: scale(1.02);
+}
+
+.drag-handle {
+  cursor: grab;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.droppable-area {
+  transition: background-color 150ms ease-out;
+}
+
+.droppable-area.dragging-over {
+  background-color: rgb(249 250 251); /* gray-50 */
+}
+
+.dark .droppable-area.dragging-over {
+  background-color: rgb(31 41 55); /* gray-800 */
+}

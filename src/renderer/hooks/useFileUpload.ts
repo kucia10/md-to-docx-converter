@@ -75,6 +75,36 @@ export const useFileUpload = () => {
     setSelectedFiles(prev => prev.filter(file => file.id !== fileId))
   }, [])
 
+  const moveFileUp = useCallback((fileId: string) => {
+    setSelectedFiles(prev => {
+      const index = prev.findIndex(file => file.id === fileId)
+      if (index <= 0) return prev
+      const newFiles = [...prev]
+      ;[newFiles[index - 1], newFiles[index]] = [newFiles[index], newFiles[index - 1]]
+      return newFiles
+    })
+  }, [])
+
+  const moveFileDown = useCallback((fileId: string) => {
+    setSelectedFiles(prev => {
+      const index = prev.findIndex(file => file.id === fileId)
+      if (index === -1 || index >= prev.length - 1) return prev
+      const newFiles = [...prev]
+      ;[newFiles[index], newFiles[index + 1]] = [newFiles[index + 1], newFiles[index]]
+      return newFiles
+    })
+  }, [])
+
+  const reorderFiles = useCallback((sourceIndex: number, destinationIndex: number) => {
+    setSelectedFiles(prev => {
+      if (sourceIndex === destinationIndex) return prev
+      const newFiles = [...prev]
+      const [removed] = newFiles.splice(sourceIndex, 1)
+      newFiles.splice(destinationIndex, 0, removed)
+      return newFiles
+    })
+  }, [])
+
   const clearFiles = useCallback(() => {
     setSelectedFiles([])
   }, [])
@@ -87,6 +117,9 @@ export const useFileUpload = () => {
     handleDragLeave,
     handleDrop,
     removeFile,
+    moveFileUp,
+    moveFileDown,
+    reorderFiles,
     clearFiles,
   }
 }

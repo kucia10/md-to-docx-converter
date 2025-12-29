@@ -11,9 +11,10 @@ import { ThemeProvider } from './context/ThemeContext'
 import { useFileUpload } from './hooks/useFileUpload'
 import { useConversion } from './hooks/useConversion'
 import { useBatchConversion } from './hooks/useBatchConversion'
+import { useMergeConversion } from './hooks/useMergeConversion'
 import { usePreview } from './hooks/usePreview'
 import { ConversionOptions as ConversionOptionsType } from './types'
-import { FolderOpen, FileText } from 'lucide-react'
+import { FolderOpen, FileText, FileSymlink } from 'lucide-react'
 
 function App() {
   const { t } = useTranslation()
@@ -25,6 +26,9 @@ function App() {
     handleDragLeave,
     handleDrop,
     removeFile,
+    moveFileUp,
+    moveFileDown,
+    reorderFiles,
   } = useFileUpload()
 
   const {
@@ -48,12 +52,24 @@ function App() {
   } = useBatchConversion()
 
   const {
+    isConverting: isMergeConverting,
+    mergeProgress,
+    mergeError,
+    mergeResult,
+    startMergeConversion,
+    cancelMergeConversion,
+    resetMergeConversion,
+  } = useMergeConversion()
+
+  const {
     previewContent,
     selectedFileIndex,
+    isCombinedPreview,
     selectFileForPreview,
+    toggleCombinedPreview,
   } = usePreview(selectedFiles)
 
-  const [appVersion, setAppVersion] = useState('v1.1.0')
+  const [appVersion, setAppVersion] = useState('v1.2.0')
 
   const [conversionOptions, setConversionOptions] = useState<ConversionOptionsType>({
     fontSize: 12,
@@ -118,6 +134,29 @@ function App() {
     }
   }
 
+  const handleStartMergeConversion = async () => {
+    if (selectedFiles.length === 0) {
+      return
+    }
+
+    try {
+      // Generate default docx filename
+      const defaultDocxName = 'merged-files.docx'
+
+      // Get output path from save dialog
+      const result = await window.electronAPI.saveFileDialog(defaultDocxName)
+      if (result.canceled || !result.filePath) {
+        return
+      }
+
+      const inputFiles = selectedFiles.map(f => f.path || '').filter(p => p)
+
+      await startMergeConversion(inputFiles, result.filePath, conversionOptions)
+    } catch (error) {
+      console.error('Merge conversion error:', error)
+    }
+  }
+
   // Fetch app version from Electron main process
   useEffect(() => {
     const fetchVersion = async () => {
@@ -168,12 +207,16 @@ function App() {
             <FileUpload
               selectedFiles={selectedFiles}
               isDragging={isDragging}
+              isCombinedPreview={isCombinedPreview}
               onFileSelect={handleFileSelect}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
               onRemoveFile={removeFile}
               onSelectFileForPreview={selectFileForPreview}
+              onMoveFileUp={moveFileUp}
+              onMoveFileDown={moveFileDown}
+              onReorderFiles={reorderFiles}
             />
           </div>
 
@@ -186,7 +229,7 @@ function App() {
           </div>
 
           {/* Conversion Buttons */}
-          {selectedFiles.length > 0 && !isBatchConverting && (
+          {selectedFiles.length > 0 && !isBatchConverting && !isMergeConverting && (
             <div className="p-6 border-t border-gray-200 dark:border-gray-700 space-y-3">
               <button
                 onClick={handleStartConversion}
@@ -196,14 +239,24 @@ function App() {
                 {isConverting ? t('common.converting') : t('buttons.convertToDocx')}
               </button>
               {selectedFiles.length > 1 && (
-                <button
-                  onClick={handleStartBatchConversion}
-                  disabled={isConverting}
-                  className="w-full btn btn-secondary flex items-center justify-center gap-2"
-                >
-                  <FolderOpen size={16} />
-                  {t('batchConversion.batchConvertButton', { count: selectedFiles.length })}
-                </button>
+                <>
+                  <button
+                    onClick={handleStartMergeConversion}
+                    disabled={isConverting}
+                    className="w-full btn btn-secondary flex items-center justify-center gap-2"
+                  >
+                    <FileSymlink size={16} />
+                    {t('mergeConversion.mergeButton', { count: selectedFiles.length })}
+                  </button>
+                  <button
+                    onClick={handleStartBatchConversion}
+                    disabled={isConverting}
+                    className="w-full btn btn-secondary flex items-center justify-center gap-2"
+                  >
+                    <FolderOpen size={16} />
+                    {t('batchConversion.batchConvertButton', { count: selectedFiles.length })}
+                  </button>
+                </>
               )}
             </div>
           )}
@@ -256,6 +309,44 @@ function App() {
             </div>
           )}
 
+          {/* Merge Progress Section */}
+          {isMergeConverting && mergeProgress && (
+            <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 rounded-md p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-medium text-purple-800 dark:text-purple-200 flex items-center gap-2">
+                    <FileSymlink size={16} />
+                    {t('mergeConversion.inProgress')}
+                  </h3>
+                  <span className="text-xs text-purple-600 dark:text-purple-400">
+                    {mergeProgress.percentage}%
+                  </span>
+                </div>
+                
+                {/* Progress Bar */}
+                <div className="w-full bg-purple-200 dark:bg-purple-700 rounded-full h-2 mb-3">
+                  <div
+                    className="bg-purple-600 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${mergeProgress.percentage}%` }}
+                  ></div>
+                </div>
+
+                {/* Status */}
+                <div className="text-xs text-purple-700 dark:text-purple-300 mb-2">
+                  {t('mergeConversion.status')}: {mergeProgress.status}
+                </div>
+
+                {/* Cancel Button */}
+                <button
+                  onClick={cancelMergeConversion}
+                  className="w-full text-xs bg-purple-100 dark:bg-purple-800 hover:bg-purple-200 dark:hover:bg-purple-700 text-purple-800 dark:text-purple-200 py-2 rounded-md transition-colors"
+                >
+                  {t('common.cancel')}
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Error Display */}
           {conversionError && !isBatchConverting && (
             <div className="p-6 border-t border-gray-200 dark:border-gray-700">
@@ -289,6 +380,26 @@ function App() {
               </div>
             </div>
           )}
+
+          {/* Merge Error Display */}
+          {mergeError && (
+            <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-md p-4">
+                <h3 className="text-sm font-medium text-red-800 dark:text-red-200">
+                  {t('errors.mergeConversionError')}
+                </h3>
+                <p className="mt-1 text-sm text-red-700 dark:text-red-300">
+                  {mergeError}
+                </p>
+                <button
+                  onClick={resetMergeConversion}
+                  className="mt-2 text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200"
+                >
+                  {t('common.close')}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right Panel - Preview */}
@@ -299,7 +410,7 @@ function App() {
               <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {t('common.preview')}
               </h2>
-              {selectedFiles.length > 0 && (
+              {selectedFiles.length > 0 && !isCombinedPreview && (
                 <select
                   value={selectedFileIndex}
                   onChange={(e) => selectFileForPreview(Number(e.target.value))}
@@ -320,6 +431,9 @@ function App() {
             <MarkdownPreview
               content={previewContent}
               options={conversionOptions}
+              selectedFiles={selectedFiles}
+              isCombinedPreview={isCombinedPreview}
+              onToggleCombinedPreview={toggleCombinedPreview}
             />
           </div>
         </div>
@@ -389,6 +503,47 @@ function App() {
                 className="w-full btn btn-primary"
               >
                 닫기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Merge Conversion Result Display */}
+      {mergeResult && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                  mergeResult.success ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'
+                }`}>
+                  <FileSymlink className={mergeResult.success ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'} size={20} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    {mergeResult.success ? t('mergeConversion.success') : t('mergeConversion.failed')}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {mergeResult.message}
+                  </p>
+                </div>
+              </div>
+
+              {mergeResult.success && (
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600 dark:text-gray-300">병합 파일:</span>
+                    <span className="font-medium text-gray-900 dark:text-gray-100">{mergeResult.totalFiles}개</span>
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={resetMergeConversion}
+                className="w-full btn btn-primary"
+              >
+                {t('common.close')}
               </button>
             </div>
           </div>

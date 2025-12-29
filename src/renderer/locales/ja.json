@@ -111,7 +111,8 @@
   },
   "preview": {
     "noFile": "プレビューするファイルがありません",
-    "selectFile": "Markdownファイルを選択してください"
+    "selectFile": "Markdownファイルを選択してください",
+    "combined": "統合プレビュー"
   },
   "time": {
     "seconds": "秒"
