@@ -237,7 +237,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Email**: bluesky.kucia10@gmail.com
 - **GitHub**: https://github.com/kucia10/md-to-docx-converter
-- **Documentation**: https://kucia10.github.io/md-to-docx-converter
+
 
 ---
 
