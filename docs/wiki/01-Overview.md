@@ -261,4 +261,4 @@ npm run version:patch      # Patch version bump (1.2.1 → 1.2.2)
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Initial wiki documentation created |
+| 2025-12-29 | 1.0 | Initial wiki documentation created |

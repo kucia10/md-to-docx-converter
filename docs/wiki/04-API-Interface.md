@@ -581,4 +581,4 @@ export const IPC_CHANNELS = {
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Initial API documentation created |
+| 2025-12-29 | 1.0 | Initial API documentation created |

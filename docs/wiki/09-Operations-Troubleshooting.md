@@ -389,4 +389,4 @@ A: Check if sandbox setting is correct. `sandbox: false` is required.
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Troubleshooting documentation initial draft created |
+| 2025-12-29 | 1.0 | Troubleshooting documentation initial draft created |

@@ -184,4 +184,4 @@ npm run dev:renderer
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Observability documentation initial draft created |
+| 2025-12-29 | 1.0 | Observability documentation initial draft created |

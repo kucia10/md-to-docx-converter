@@ -159,4 +159,4 @@ ipcMain.handle(IPC_CHANNELS.OPEN_FILE_DIALOG, handler)
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Initial documentation created |
+| 2025-12-29 | 1.0 | Initial documentation created |

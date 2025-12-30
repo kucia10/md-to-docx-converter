@@ -142,7 +142,7 @@ export default defineConfig({
 ```yaml
 appId: com.mdtodocx.converter
 productName: MD to DOCX
-copyright: Copyright © 2024 MD to DOCX Team
+copyright: Copyright © 2025 MD to DOCX Team
 electronVersion: 28.0.0
 
 directories:
@@ -522,4 +522,4 @@ webPreferences: {
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Initial configuration/environment documentation created |
+| 2025-12-29 | 1.0 | Initial configuration/environment documentation created |

@@ -261,4 +261,4 @@ ipcMain.on(IPC_CHANNELS.QUIT_APP, () => {
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 1.0 | Initial documentation created |
+| 2025-12-29 | 1.0 | Initial documentation created |

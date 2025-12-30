@@ -243,5 +243,5 @@ See [`08-Observability.md`](08-Observability.md) for details
 
 | Date | Version | Changes |
 |------|---------|---------|
-| 2024-12-29 | 2.0 | All module documentation completed, observability/operations sections added, IA updated |
-| 2024-12-29 | 1.0 | IA initial draft created |
+| 2025-12-29 | 2.0 | All module documentation completed, observability/operations sections added, IA updated |
+| 2025-12-29 | 1.0 | IA initial draft created |
