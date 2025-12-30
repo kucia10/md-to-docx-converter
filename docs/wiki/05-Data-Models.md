@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes TypeScript types and data models defined in [`src/renderer/types/index.ts`](../src/renderer/types/index.ts).
+This document describes TypeScript types and data models defined in [`src/renderer/types/index.ts`](../../src/renderer/types/index.ts).
 
 ## Type Definitions
 
@@ -19,7 +19,7 @@ File information model for file upload management
 | `lastModified` | `number` | Last modified time (timestamp) |
 | `content` | `string?` | File content (for preview) |
 
-**Location**: [`src/renderer/types/index.ts:1-8`](../src/renderer/types/index.ts:1-8)
+**Location**: [`src/renderer/types/index.ts:1-8`](../../src/renderer/types/index.ts:1-8)
 
 ---
 
@@ -42,7 +42,7 @@ Conversion options model (UI settings → Python conversion parameters)
 | `imageHandling` | `'embed' \| 'link'?` | 'embed' | Image handling method |
 | `codeBlockStyle` | `'fenced' \| 'indented'?` | 'fenced' | Code block style |
 
-**Location**: [`src/renderer/types/index.ts:10-23`](../src/renderer/types/index.ts:10-23)
+**Location**: [`src/renderer/types/index.ts:10-23`](../../src/renderer/types/index.ts:10-23)
 
 **Note**: 
 - UI stores margins in **cm** units
@@ -63,7 +63,7 @@ Single file conversion progress model
 | `percentage` | `number` | Progress (0-100) |
 | `stage` | `'preparing' \| 'converting' \| 'finalizing' \| 'completed' \| 'error'` | Conversion stage |
 
-**Location**: [`src/renderer/types/index.ts:25-31`](../src/renderer/types/index.ts:25-31)
+**Location**: [`src/renderer/types/index.ts:25-31`](../../src/renderer/types/index.ts:25-31)
 
 ---
 
@@ -79,7 +79,7 @@ Single file conversion result model
 | `processedFiles` | `string[]?` | Processed file list |
 | `errors` | `string[]?` | Error list |
 
-**Location**: [`src/renderer/types/index.ts:33-39`](../src/renderer/types/index.ts:33-39)
+**Location**: [`src/renderer/types/index.ts:33-39`](../../src/renderer/types/index.ts:33-39)
 
 ---
 
@@ -97,7 +97,7 @@ Batch conversion progress model
 | `processedFiles` | `string[]` | Processed file path list |
 | `errors` | `Array<{fileName, error}>` | Error list |
 
-**Location**: [`src/renderer/types/index.ts:61-69`](../src/renderer/types/index.ts:61-69)
+**Location**: [`src/renderer/types/index.ts:61-69`](../../src/renderer/types/index.ts:61-69)
 
 ---
 
@@ -114,7 +114,7 @@ Batch conversion result model
 | `processedFiles` | `number` | Number of processed files |
 | `errors` | `Array<{fileName: string; error: string}>` | Error list |
 
-**Location**: [`src/renderer/types/index.ts:71-78`](../src/renderer/types/index.ts:71-78)
+**Location**: [`src/renderer/types/index.ts:71-78`](../../src/renderer/types/index.ts:71-78)
 
 ---
 
@@ -130,7 +130,7 @@ Merge conversion progress model
 | `percentage` | `number` | Progress (0-100) |
 | `status` | `'preparing' \| 'merging' \| 'converting' \| 'completed' \| 'error'` | Status |
 
-**Location**: [`src/renderer/types/index.ts:80-86`](../src/renderer/types/index.ts:80-86)
+**Location**: [`src/renderer/types/index.ts:80-86`](../../src/renderer/types/index.ts:80-86)
 
 ---
 
@@ -146,7 +146,7 @@ Merge conversion result model
 | `totalFiles` | `number` | Number of merged files |
 | `error` | `string?` | Error message |
 
-**Location**: [`src/renderer/types/index.ts:88-94`](../src/renderer/types/index.ts:88-94)
+**Location**: [`src/renderer/types/index.ts:88-94`](../../src/renderer/types/index.ts:88-94)
 
 ---
 
@@ -192,7 +192,7 @@ IPC API types exposed from Preload script
 | `quitApp()` | - | `void` | Quit app |
 | `removeAllListeners()` | - | `void` | Remove all IPC listeners |
 
-**Location**: [`src/renderer/types/index.ts:96-115`](../src/renderer/types/index.ts:96-115)
+**Location**: [`src/renderer/types/index.ts:96-115`](../../src/renderer/types/index.ts:96-115)
 
 ---
 

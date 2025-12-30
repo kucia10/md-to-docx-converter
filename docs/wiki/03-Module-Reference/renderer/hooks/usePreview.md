@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Markdown preview management (single file/merge file modes, file switching)
-- **Primary Users/Callers**: [`MarkdownPreview.tsx`](../../../../../src/renderer/components/MarkdownPreview.tsx), [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **Core Entry Point**: [`usePreview(selectedFiles)`](../../../../../src/renderer/hooks/usePreview.ts:4)
+- **Primary Users/Callers**: [`MarkdownPreview.tsx`](../../../../../../src/renderer/components/MarkdownPreview.tsx), [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **Core Entry Point**: [`usePreview(selectedFiles)`](../../../../../../src/renderer/hooks/usePreview.ts:4)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Custom Hooks (Presentation Layer)
 - **Upstream/Downstream Dependencies**:
-  - Depends on: `types` ([`FileItem`](../../../../../src/renderer/types/index.ts))
+  - Depends on: `types` ([`FileItem`](../../../../../../src/renderer/types/index.ts))
   - Used by: `MarkdownPreview` component, file switching UI controls
 - **Role in Runtime Flow**: File selection → content rendering → preview mode switching
 
@@ -74,7 +74,7 @@ selectFileForPreview(selectedFileIndex + 1)
 ## Internal Behavior
 
 ### Main Flow
-1. **Preview Content Calculation**: [`useEffect`](../../../../../src/renderer/hooks/usePreview.ts:9)
+1. **Preview Content Calculation**: [`useEffect`](../../../../../../src/renderer/hooks/usePreview.ts:9)
    - When `isCombinedPreview` is true: Generate merged content of all files
    - When `isCombinedPreview` is false: Single file content
 
@@ -83,7 +83,7 @@ selectFileForPreview(selectedFileIndex + 1)
    - Remove file extension: `file.name.replace(/\.[^/.]+$/, '')`
    - First file starts without separator
 
-3. **Auto-Select Last File**: [`useEffect`](../../../../../src/renderer/hooks/usePreview.ts:32)
+3. **Auto-Select Last File**: [`useEffect`](../../../../../../src/renderer/hooks/usePreview.ts:32)
    - Automatically select the last file when `selectedFiles.length` changes
    - Only works in single file mode (`!isCombinedPreview`)
 
@@ -147,7 +147,7 @@ selectFileForPreview(selectedFileIndex + 1)
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `FileItem`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `FileItem`
 
 ### External Libraries/Services
 - React: `useState`, `useCallback`, `useEffect`

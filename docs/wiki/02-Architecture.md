@@ -88,7 +88,7 @@ MD to DOCX Converter follows the **Electron 3-process architecture**: Renderer P
 
 ### 1. Renderer Process (UI Layer)
 
-**Location**: [`src/renderer/`](../src/renderer/)
+**Location**: [`src/renderer/`](../../src/renderer/)
 
 **Responsibilities**:
 - User interface rendering
@@ -97,23 +97,23 @@ MD to DOCX Converter follows the **Electron 3-process architecture**: Renderer P
 - IPC calls (via Preload)
 
 **Major Components**:
-- [`App.tsx`](../src/renderer/App.tsx) - Main app component
-- [`FileUpload.tsx`](../src/renderer/components/FileUpload.tsx) - File upload (drag & drop)
-- [`ConversionOptions.tsx`](../src/renderer/components/ConversionOptions.tsx) - Conversion options UI
-- [`ProgressBar.tsx`](../src/renderer/components/ProgressBar.tsx) - Progress display
-- [`ResultDisplay.tsx`](../src/renderer/components/ResultDisplay.tsx) - Result display
-- [`MarkdownPreview.tsx`](../src/renderer/components/MarkdownPreview.tsx) - Markdown rendering
+- [`App.tsx`](../../src/renderer/App.tsx) - Main app component
+- [`FileUpload.tsx`](../../src/renderer/components/FileUpload.tsx) - File upload (drag & drop)
+- [`ConversionOptions.tsx`](../../src/renderer/components/ConversionOptions.tsx) - Conversion options UI
+- [`ProgressBar.tsx`](../../src/renderer/components/ProgressBar.tsx) - Progress display
+- [`ResultDisplay.tsx`](../../src/renderer/components/ResultDisplay.tsx) - Result display
+- [`MarkdownPreview.tsx`](../../src/renderer/components/MarkdownPreview.tsx) - Markdown rendering
 
 **Major Hooks**:
-- [`useConversion.ts`](../src/renderer/hooks/useConversion.ts) - Single file conversion state
-- [`useBatchConversion.ts`](../src/renderer/hooks/useBatchConversion.ts) - Batch conversion state
-- [`useMergeConversion.ts`](../src/renderer/hooks/useMergeConversion.ts) - Merge conversion state
-- [`useFileUpload.ts`](../src/renderer/hooks/useFileUpload.ts) - File upload management
-- [`usePreview.ts`](../src/renderer/hooks/usePreview.ts) - Preview management
+- [`useConversion.ts`](../../src/renderer/hooks/useConversion.ts) - Single file conversion state
+- [`useBatchConversion.ts`](../../src/renderer/hooks/useBatchConversion.ts) - Batch conversion state
+- [`useMergeConversion.ts`](../../src/renderer/hooks/useMergeConversion.ts) - Merge conversion state
+- [`useFileUpload.ts`](../../src/renderer/hooks/useFileUpload.ts) - File upload management
+- [`usePreview.ts`](../../src/renderer/hooks/usePreview.ts) - Preview management
 
 ### 2. Preload Script (Context Bridge Layer)
 
-**Location**: [`src/preload/index.ts`](../src/preload/index.ts)
+**Location**: [`src/preload/index.ts`](../../src/preload/index.ts)
 
 **Responsibilities**:
 - IPC communication bridge between Renderer ↔ Main
@@ -139,7 +139,7 @@ window.electronAPI = {
 
 ### 3. Main Process (Backend Layer)
 
-**Location**: [`src/main/`](../src/main/)
+**Location**: [`src/main/`](../../src/main/)
 
 **Responsibilities**:
 - Electron app lifecycle management
@@ -148,16 +148,16 @@ window.electronAPI = {
 - Python process execution and management
 
 **Major Modules**:
-- [`main.ts`](../src/main/main.ts) - App entry point, window creation
-- [`ipc/channels.ts`](../src/main/ipc/channels.ts) - IPC channel constant definitions
-- [`ipc/handlers.ts`](../src/main/ipc/handlers.ts) - IPC handler implementation
-- [`python/converter.ts`](../src/main/python/converter.ts) - Python bridge class
+- [`main.ts`](../../src/main/main.ts) - App entry point, window creation
+- [`ipc/channels.ts`](../../src/main/ipc/channels.ts) - IPC channel constant definitions
+- [`ipc/handlers.ts`](../../src/main/ipc/handlers.ts) - IPC handler implementation
+- [`python/converter.ts`](../../src/main/python/converter.ts) - Python bridge class
 
 ### 4. Python Integration Layer
 
 **Location**: 
-- [`src/main/python/converter.ts`](../src/main/python/converter.ts) - TypeScript bridge
-- [`src/python/convert.py`](../src/python/convert.py) - Python conversion script
+- [`src/main/python/converter.ts`](../../src/main/python/converter.ts) - TypeScript bridge
+- [`src/python/convert.py`](../../src/python/convert.py) - Python conversion script
 
 **Responsibilities**:
 - Python process `spawn()` and management
@@ -250,28 +250,28 @@ window.electronAPI = {
 
 | Channel | Direction | Purpose | Handler |
 |---------|-----------|---------|---------|
-| `open-file-dialog` | Renderer → Main | Show file selection dialog | [`handlers.ts:21-55`](../src/main/ipc/handlers.ts:21-55) |
-| `save-file-dialog` | Renderer → Main | Show save dialog | [`handlers.ts:87-115`](../src/main/ipc/handlers.ts:87-115) |
-| `open-directory-dialog` | Renderer → Main | Show directory selection dialog | [`handlers.ts:57-85`](../src/main/ipc/handlers.ts:57-85) |
-| `read-file` | Renderer → Main | Read file content | [`handlers.ts:118-135`](../src/main/ipc/handlers.ts:118-135) |
-| `start-conversion` | Renderer → Main | Start single file conversion | [`handlers.ts:138-163`](../src/main/ipc/handlers.ts:138-163) |
-| `start-batch-conversion` | Renderer → Main | Start batch conversion | [`handlers.ts:166-227`](../src/main/ipc/handlers.ts:166-227) |
-| `start-merge-conversion` | Renderer → Main | Start merge conversion | [`handlers.ts:230-280`](../src/main/ipc/handlers.ts:230-280) |
-| `cancel-conversion` | Renderer → Main | Cancel conversion | [`converter.ts:120-125`](../src/main/python/converter.ts:120-125) |
-| `get-app-version` | Renderer → Main | Get app version | [`handlers.ts:283-286`](../src/main/ipc/handlers.ts:283-286) |
-| `quit-app` | Renderer → Main | Quit app | [`handlers.ts:289-293`](../src/main/ipc/handlers.ts:289-293) |
+| `open-file-dialog` | Renderer → Main | Show file selection dialog | [`handlers.ts:21-55`](../../src/main/ipc/handlers.ts:21-55) |
+| `save-file-dialog` | Renderer → Main | Show save dialog | [`handlers.ts:87-115`](../../src/main/ipc/handlers.ts:87-115) |
+| `open-directory-dialog` | Renderer → Main | Show directory selection dialog | [`handlers.ts:57-85`](../../src/main/ipc/handlers.ts:57-85) |
+| `read-file` | Renderer → Main | Read file content | [`handlers.ts:118-135`](../../src/main/ipc/handlers.ts:118-135) |
+| `start-conversion` | Renderer → Main | Start single file conversion | [`handlers.ts:138-163`](../../src/main/ipc/handlers.ts:138-163) |
+| `start-batch-conversion` | Renderer → Main | Start batch conversion | [`handlers.ts:166-227`](../../src/main/ipc/handlers.ts:166-227) |
+| `start-merge-conversion` | Renderer → Main | Start merge conversion | [`handlers.ts:230-280`](../../src/main/ipc/handlers.ts:230-280) |
+| `cancel-conversion` | Renderer → Main | Cancel conversion | [`converter.ts:120-125`](../../src/main/python/converter.ts:120-125) |
+| `get-app-version` | Renderer → Main | Get app version | [`handlers.ts:283-286`](../../src/main/ipc/handlers.ts:283-286) |
+| `quit-app` | Renderer → Main | Quit app | [`handlers.ts:289-293`](../../src/main/ipc/handlers.ts:289-293) |
 
 ### Event Channels (Main → Renderer)
 
 | Channel | Direction | Purpose | Listener |
 |---------|-----------|---------|----------|
-| `conversion-progress` | Main → Renderer | Single conversion progress | [`useConversion.ts:15-17`](../src/renderer/hooks/useConversion.ts:15-17) |
-| `conversion-complete` | Main → Renderer | Single conversion complete | [`useConversion.ts:19-24`](../src/renderer/hooks/useConversion.ts:19-24) |
-| `conversion-error` | Main → Renderer | Conversion error | [`useConversion.ts:26-30`](../src/renderer/hooks/useConversion.ts:26-30) |
-| `batch-conversion-progress` | Main → Renderer | Batch conversion progress | [`useBatchConversion.ts:15-17`](../src/renderer/hooks/useBatchConversion.ts:15-17) |
-| `batch-conversion-complete` | Main → Renderer | Batch conversion complete | [`useBatchConversion.ts:19-24`](../src/renderer/hooks/useBatchConversion.ts:19-24) |
-| `merge-conversion-progress` | Main → Renderer | Merge conversion progress | [`useMergeConversion.ts:15-17`](../src/renderer/hooks/useMergeConversion.ts:15-17) |
-| `merge-conversion-complete` | Main → Renderer | Merge conversion complete | [`useMergeConversion.ts:19-24`](../src/renderer/hooks/useMergeConversion.ts:19-24) |
+| `conversion-progress` | Main → Renderer | Single conversion progress | [`useConversion.ts:15-17`](../../src/renderer/hooks/useConversion.ts:15-17) |
+| `conversion-complete` | Main → Renderer | Single conversion complete | [`useConversion.ts:19-24`](../../src/renderer/hooks/useConversion.ts:19-24) |
+| `conversion-error` | Main → Renderer | Conversion error | [`useConversion.ts:26-30`](../../src/renderer/hooks/useConversion.ts:26-30) |
+| `batch-conversion-progress` | Main → Renderer | Batch conversion progress | [`useBatchConversion.ts:15-17`](../../src/renderer/hooks/useBatchConversion.ts:15-17) |
+| `batch-conversion-complete` | Main → Renderer | Batch conversion complete | [`useBatchConversion.ts:19-24`](../../src/renderer/hooks/useBatchConversion.ts:19-24) |
+| `merge-conversion-progress` | Main → Renderer | Merge conversion progress | [`useMergeConversion.ts:15-17`](../../src/renderer/hooks/useMergeConversion.ts:15-17) |
+| `merge-conversion-complete` | Main → Renderer | Merge conversion complete | [`useMergeConversion.ts:19-24`](../../src/renderer/hooks/useMergeConversion.ts:19-24) |
 
 ## Development/Production Differences
 

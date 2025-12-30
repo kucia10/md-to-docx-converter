@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Single file conversion state management and IPC communication
-- **Primary Users/Callers**: [`App.tsx`](../../../../../src/renderer/App.tsx), conversion components
-- **Core Entry Point**: [`useConversion()`](../../../../../src/renderer/hooks/useConversion.ts:5)
+- **Primary Users/Callers**: [`App.tsx`](../../../../../../src/renderer/App.tsx), conversion components
+- **Core Entry Point**: [`useConversion()`](../../../../../../src/renderer/hooks/useConversion.ts:5)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Custom Hooks (State Management Layer)
 - **Upstream/Downstream Dependencies**:
-  - Depends on: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - Depends on: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - Used by: React components (single conversion mode)
 - **Role in Runtime Flow**: Single file conversion start → progress tracking → completion/error handling
 
@@ -32,7 +32,7 @@
 - **Inputs**:
   - `inputPath`: Path to the Markdown file to convert
   - `outputPath`: Path for the resulting DOCX file
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (font, margins, page settings, etc.)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (font, margins, page settings, etc.)
 - **Outputs**: None (async execution)
 - **Errors/Exceptions**: On IPC communication failure, stores error message in `conversionError`
 - **Side Effects**: Sets `isConverting` to true, makes IPC call
@@ -64,9 +64,9 @@ await startConversion('/path/to/file.md', '/path/to/output.docx', {
 
 ### Main Flow
 1. **Initialization**: Register IPC event listeners via `useEffect`
-   - [`onConversionProgress`](../../../../../src/renderer/hooks/useConversion.ts:15): Receives progress updates
-   - [`onConversionComplete`](../../../../../src/renderer/hooks/useConversion.ts:19): Receives completion
-   - [`onConversionError`](../../../../../src/renderer/hooks/useConversion.ts:26): Receives errors
+   - [`onConversionProgress`](../../../../../../src/renderer/hooks/useConversion.ts:15): Receives progress updates
+   - [`onConversionComplete`](../../../../../../src/renderer/hooks/useConversion.ts:19): Receives completion
+   - [`onConversionError`](../../../../../../src/renderer/hooks/useConversion.ts:26): Receives errors
 
 2. **Start Conversion**: Call `startConversion()`
    - Initialize state (`isConverting: true`, set initial progress)
@@ -119,7 +119,7 @@ await startConversion('/path/to/file.md', '/path/to/output.docx', {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `ConversionProgress`, `ConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `ConversionProgress`, `ConversionResult`
 
 ### External Libraries/Services
 - React: `useState`, `useCallback`, `useEffect`

@@ -23,8 +23,8 @@ npm run dist
 ```
 
 **Usage Location**:
-- [`src/main/main.ts:5`](../src/main/main.ts:5) - Development environment detection
-- [`src/main/python/converter.ts:21`](../src/main/python/converter.ts:21) - Python path determination
+- [`src/main/main.ts:5`](../../src/main/main.ts:5) - Development environment detection
+- [`src/main/python/converter.ts:21`](../../src/main/python/converter.ts:21) - Python path determination
 
 ## Build Configuration
 
@@ -197,8 +197,8 @@ extraResources:
 
 | Environment | Python Executable | Python Script | Implementation |
 |-------------|------------------|---------------|----------------|
-| **Development** | System `python3` (macOS/Linux) / `python` (Windows) | `src/python/convert.py` | [`converter.ts:101-118`](../src/main/python/converter.ts:101-118) |
-| **Production** | System `python3` (macOS/Linux) / `python` (Windows) | `resources/python/convert.py` | [`converter.ts:101-118`](../src/main/python/converter.ts:101-118) |
+| **Development** | System `python3` (macOS/Linux) / `python` (Windows) | `src/python/convert.py` | [`converter.ts:101-118`](../../src/main/python/converter.ts:101-118) |
+| **Production** | System `python3` (macOS/Linux) / `python` (Windows) | `resources/python/convert.py` | [`converter.ts:101-118`](../../src/main/python/converter.ts:101-118) |
 
 **Note**: Python uses system Python in both development and production environments. Users need to have Python 3+ and Pandoc installed on their system.
 
@@ -228,8 +228,8 @@ private getPythonScriptPath(): string {
 
 | Environment | Loading Method | URL/Path | Implementation |
 |-------------|----------------|-----------|----------------|
-| **Development** | HTTP | `http://localhost:3000` | [`main.ts:47-49`](../src/main/main.ts:47-49) |
-| **Production** | File | `dist/renderer/index.html` | [`main.ts:51-52`](../src/main/main.ts:51-52) |
+| **Development** | HTTP | `http://localhost:3000` | [`main.ts:47-49`](../../src/main/main.ts:47-49) |
+| **Production** | File | `dist/renderer/index.html` | [`main.ts:51-52`](../../src/main/main.ts:51-52) |
 
 ```typescript
 if (isDev) {
@@ -244,9 +244,9 @@ if (isDev) {
 
 | Setting | Development | Production | Implementation |
 |---------|-------------|------------|----------------|
-| `nodeIntegration` | `true` | `false` | [`main.ts:29`](../src/main/main.ts:29) |
-| `webSecurity` | `false` | `true` | [`main.ts:31`](../src/main/main.ts:31) |
-| `DevTools` | Auto open | Closed | [`main.ts:49`](../src/main/main.ts:49) |
+| `nodeIntegration` | `true` | `false` | [`main.ts:29`](../../src/main/main.ts:29) |
+| `webSecurity` | `false` | `true` | [`main.ts:31`](../../src/main/main.ts:31) |
+| `DevTools` | Auto open | Closed | [`main.ts:49`](../../src/main/main.ts:49) |
 
 ```typescript
 webPreferences: {
@@ -276,7 +276,7 @@ if (isDev) {
 
 Additional PATH is set to find Pandoc path in Python scripts.
 
-**Implementation**: [`converter.ts:51-66`](../src/main/python/converter.ts:51-66)
+**Implementation**: [`converter.ts:51-66`](../../src/main/python/converter.ts:51-66)
 
 ```typescript
 const additionalPaths = [
@@ -319,7 +319,7 @@ pandoc input.md -o output.docx \
   --variable margin-right=1.25in    # UI: 3.18cm
 ```
 
-**PandocConverter Implementation**: [`convert.py:129-133`](../src/python/convert.py:129-133)
+**PandocConverter Implementation**: [`convert.py:129-133`](../../src/python/convert.py:129-133)
 
 ```python
 # Default margins (top:2.54cm, bottom:2.54cm, left:3.18cm, right:3.18cm)
@@ -333,7 +333,7 @@ cmd.extend(['--variable', 'margin-right=3.18cm'])
 
 ### Supported Languages
 
-**File**: [`src/renderer/i18n.ts`](../src/renderer/i18n.ts)
+**File**: [`src/renderer/i18n.ts`](../../src/renderer/i18n.ts)
 
 ```typescript
 const SUPPORTED_LANGUAGES = [
@@ -380,7 +380,7 @@ const getInitialLanguage = (): string => {
 
 ### Language Files
 
-**Location**: [`src/renderer/locales/`](../src/renderer/locales/)
+**Location**: [`src/renderer/locales/`](../../src/renderer/locales/)
 
 ```
 locales/
@@ -402,7 +402,7 @@ locales/
 
 ### Theme Type
 
-**File**: [`src/renderer/context/ThemeContext.tsx`](../src/renderer/context/ThemeContext.tsx)
+**File**: [`src/renderer/context/ThemeContext.tsx`](../../src/renderer/context/ThemeContext.tsx)
 
 ```typescript
 type Theme = 'light' | 'dark' | 'system'
@@ -473,7 +473,7 @@ sys.stderr.write(f'Error: {error_message}')
 
 ### Sandbox Configuration
 
-**File**: [`src/main/main.ts:32`](../src/main/main.ts:32)
+**File**: [`src/main/main.ts:32`](../../src/main/main.ts:32)
 
 ```typescript
 webPreferences: {

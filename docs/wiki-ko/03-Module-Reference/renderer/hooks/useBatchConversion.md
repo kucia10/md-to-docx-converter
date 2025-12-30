@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 배치 파일 변환(다중 파일 일괄 변환) 상태 관리 및 IPC 통신
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), 배치 변환 컴포넌트
-- **핵심 엔트리포인트**: [`useBatchConversion()`](../../../../../src/renderer/hooks/useBatchConversion.ts:5)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), 배치 변환 컴포넌트
+- **핵심 엔트리포인트**: [`useBatchConversion()`](../../../../../../src/renderer/hooks/useBatchConversion.ts:5)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Custom Hooks (State Management Layer)
 - **상위/하위 의존**:
-  - 의존: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - 의존: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - 사용: React 컴포넌트 (배치 변환 모드)
 - **런타임 플로우에서의 역할**: 다중 파일 변환 시작 → 각 파일별 진행률 추적 → 완료/오류 처리
 
@@ -32,7 +32,7 @@
 - **입력**:
   - `inputFiles`: 변환할 Markdown 파일 경로 배열
   - `outputDirectory`: 결과 파일 저장 디렉터리 경로
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (공통 변환 옵션)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (공통 변환 옵션)
 - **출력**: 없음 (비동기 실행)
 - **에러/예외**: IPC 통신 실패 시 `batchError`에 에러 메시지 저장
 - **부작용**: `isConverting`을 true로 설정, IPC 호출
@@ -63,8 +63,8 @@ await startBatchConversion(
 
 ### 주요 플로우
 1. **초기화**: `useEffect`로 IPC 이벤트 리스너 등록
-   - [`onBatchConversionProgress`](../../../../../src/renderer/hooks/useBatchConversion.ts:15): 배치 진행률 수신
-   - [`onBatchConversionComplete`](../../../../../src/renderer/hooks/useBatchConversion.ts:19): 완료 수신
+   - [`onBatchConversionProgress`](../../../../../../src/renderer/hooks/useBatchConversion.ts:15): 배치 진행률 수신
+   - [`onBatchConversionComplete`](../../../../../../src/renderer/hooks/useBatchConversion.ts:19): 완료 수신
 
 2. **배치 변환 시작**: `startBatchConversion()` 호출
    - 상태 초기화 (`isConverting: true`, 초기 진행률 설정)
@@ -124,7 +124,7 @@ await startBatchConversion(
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `BatchConversionProgress`, `BatchConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `BatchConversionProgress`, `BatchConversionResult`
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useCallback`, `useEffect`

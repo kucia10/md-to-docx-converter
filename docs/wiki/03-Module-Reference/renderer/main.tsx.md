@@ -3,7 +3,7 @@
 ## Summary
 - **Responsibility**: Renderer process entry point, React app mount
 - **Main Users/Callers**: None (loaded directly in browser)
-- **Key Entry Point**: [`ReactDOM.createRoot()`](../../../../../src/renderer/main.tsx:7)
+- **Key Entry Point**: [`ReactDOM.createRoot()`](../../../../../../src/renderer/main.tsx:7)
 
 ## Location in Architecture
 - **Layer**: Renderer Process - Entry Point
@@ -29,7 +29,7 @@
    - `styles/index.css`: Global styles
    - `i18n`: Multi-language configuration
 
-2. **Create React Root**: [`ReactDOM.createRoot()`](../../../../../src/renderer/main.tsx:7)
+2. **Create React Root**: [`ReactDOM.createRoot()`](../../../../../../src/renderer/main.tsx:7)
    - Find root DOM element with `document.getElementById('root')`
    - Create renderer with `createRoot()` (React 18+)
 
@@ -55,9 +55,9 @@
 ## Dependencies
 
 ### Internal Modules
-- [`App.tsx`](../../../../../src/renderer/App.tsx): Main app component
-- [`styles/index.css`](../../../../../src/renderer/styles/index.css): Global styles
-- [`i18n.ts`](../../../../../src/renderer/i18n.ts): Multi-language configuration
+- [`App.tsx`](../../../../../../src/renderer/App.tsx): Main app component
+- [`styles/index.css`](../../../../../../src/renderer/styles/index.css): Global styles
+- [`i18n.ts`](../../../../../../src/renderer/i18n.ts): Multi-language configuration
 
 ### External Libraries/Services
 - React: `React`

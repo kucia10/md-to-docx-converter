@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 단일 파일 변환 상태 관리 및 IPC 통신
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), 변환 컴포넌트
-- **핵심 엔트리포인트**: [`useConversion()`](../../../../../src/renderer/hooks/useConversion.ts:5)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), 변환 컴포넌트
+- **핵심 엔트리포인트**: [`useConversion()`](../../../../../../src/renderer/hooks/useConversion.ts:5)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Custom Hooks (State Management Layer)
 - **상위/하위 의존**: 
-  - 의존: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - 의존: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - 사용: React 컴포넌트 (단일 변환 모드)
 - **런타임 플로우에서의 역할**: 단일 파일 변환 시작 → 진행률 추적 → 완료/오류 처리
 
@@ -32,7 +32,7 @@
 - **입력**:
   - `inputPath`: 변환할 Markdown 파일 경로
   - `outputPath`: 변환 결과 DOCX 파일 경로
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (폰트, 여백, 페이지 설정 등)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (폰트, 여백, 페이지 설정 등)
 - **출력**: 없음 (비동기 실행)
 - **에러/예외**: IPC 통신 실패 시 `conversionError`에 에러 메시지 저장
 - **부작용**: `isConverting`을 true로 설정, IPC 호출
@@ -64,9 +64,9 @@ await startConversion('/path/to/file.md', '/path/to/output.docx', {
 
 ### 주요 플로우
 1. **초기화**: `useEffect`로 IPC 이벤트 리스너 등록
-   - [`onConversionProgress`](../../../../../src/renderer/hooks/useConversion.ts:15): 진행률 수신
-   - [`onConversionComplete`](../../../../../src/renderer/hooks/useConversion.ts:19): 완료 수신
-   - [`onConversionError`](../../../../../src/renderer/hooks/useConversion.ts:26): 오류 수신
+   - [`onConversionProgress`](../../../../../../src/renderer/hooks/useConversion.ts:15): 진행률 수신
+   - [`onConversionComplete`](../../../../../../src/renderer/hooks/useConversion.ts:19): 완료 수신
+   - [`onConversionError`](../../../../../../src/renderer/hooks/useConversion.ts:26): 오류 수신
 
 2. **변환 시작**: `startConversion()` 호출
    - 상태 초기화 (`isConverting: true`, 초기 진행률 설정)
@@ -119,7 +119,7 @@ await startConversion('/path/to/file.md', '/path/to/output.docx', {
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `ConversionProgress`, `ConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `ConversionProgress`, `ConversionResult`
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useCallback`, `useEffect`

@@ -88,7 +88,7 @@ MD to DOCX Converter는 **Electron 3-프로세스 아키텍처**를 따릅니다
 
 ### 1. Renderer Process (UI Layer)
 
-**위치**: [`src/renderer/`](../src/renderer/)
+**위치**: [`src/renderer/`](../../src/renderer/)
 
 **책임**:
 - 사용자 인터페이스 렌더링
@@ -97,23 +97,23 @@ MD to DOCX Converter는 **Electron 3-프로세스 아키텍처**를 따릅니다
 - IPC 호출 (via Preload)
 
 **주요 컴포넌트**:
-- [`App.tsx`](../src/renderer/App.tsx) - 메인 앱 컴포넌트
-- [`FileUpload.tsx`](../src/renderer/components/FileUpload.tsx) - 파일 업로드 (드래그앤드롭)
-- [`ConversionOptions.tsx`](../src/renderer/components/ConversionOptions.tsx) - 변환 옵션 UI
-- [`ProgressBar.tsx`](../src/renderer/components/ProgressBar.tsx) - 진행률 표시
-- [`ResultDisplay.tsx`](../src/renderer/components/ResultDisplay.tsx) - 결과 표시
-- [`MarkdownPreview.tsx`](../src/renderer/components/MarkdownPreview.tsx) - Markdown 렌더링
+- [`App.tsx`](../../src/renderer/App.tsx) - 메인 앱 컴포넌트
+- [`FileUpload.tsx`](../../src/renderer/components/FileUpload.tsx) - 파일 업로드 (드래그앤드롭)
+- [`ConversionOptions.tsx`](../../src/renderer/components/ConversionOptions.tsx) - 변환 옵션 UI
+- [`ProgressBar.tsx`](../../src/renderer/components/ProgressBar.tsx) - 진행률 표시
+- [`ResultDisplay.tsx`](../../src/renderer/components/ResultDisplay.tsx) - 결과 표시
+- [`MarkdownPreview.tsx`](../../src/renderer/components/MarkdownPreview.tsx) - Markdown 렌더링
 
 **주요 훅**:
-- [`useConversion.ts`](../src/renderer/hooks/useConversion.ts) - 단일 파일 변환 상태
-- [`useBatchConversion.ts`](../src/renderer/hooks/useBatchConversion.ts) - 배치 변환 상태
-- [`useMergeConversion.ts`](../src/renderer/hooks/useMergeConversion.ts) - 병합 변환 상태
-- [`useFileUpload.ts`](../src/renderer/hooks/useFileUpload.ts) - 파일 업로드 관리
-- [`usePreview.ts`](../src/renderer/hooks/usePreview.ts) - 미리보기 관리
+- [`useConversion.ts`](../../src/renderer/hooks/useConversion.ts) - 단일 파일 변환 상태
+- [`useBatchConversion.ts`](../../src/renderer/hooks/useBatchConversion.ts) - 배치 변환 상태
+- [`useMergeConversion.ts`](../../src/renderer/hooks/useMergeConversion.ts) - 병합 변환 상태
+- [`useFileUpload.ts`](../../src/renderer/hooks/useFileUpload.ts) - 파일 업로드 관리
+- [`usePreview.ts`](../../src/renderer/hooks/usePreview.ts) - 미리보기 관리
 
 ### 2. Preload Script (Context Bridge Layer)
 
-**위치**: [`src/preload/index.ts`](../src/preload/index.ts)
+**위치**: [`src/preload/index.ts`](../../src/preload/index.ts)
 
 **책임**:
 - Renderer ↔ Main 간 IPC 통신 브릿지
@@ -139,7 +139,7 @@ window.electronAPI = {
 
 ### 3. Main Process (Backend Layer)
 
-**위치**: [`src/main/`](../src/main/)
+**위치**: [`src/main/`](../../src/main/)
 
 **책임**:
 - Electron 앱 라이프사이클 관리
@@ -148,16 +148,16 @@ window.electronAPI = {
 - Python 프로세스 실행 및 관리
 
 **주요 모듈**:
-- [`main.ts`](../src/main/main.ts) - 앱 진입점, 윈도우 생성
-- [`ipc/channels.ts`](../src/main/ipc/channels.ts) - IPC 채널 상수 정의
-- [`ipc/handlers.ts`](../src/main/ipc/handlers.ts) - IPC 핸들러 구현
-- [`python/converter.ts`](../src/main/python/converter.ts) - Python 브릿지 클래스
+- [`main.ts`](../../src/main/main.ts) - 앱 진입점, 윈도우 생성
+- [`ipc/channels.ts`](../../src/main/ipc/channels.ts) - IPC 채널 상수 정의
+- [`ipc/handlers.ts`](../../src/main/ipc/handlers.ts) - IPC 핸들러 구현
+- [`python/converter.ts`](../../src/main/python/converter.ts) - Python 브릿지 클래스
 
 ### 4. Python Integration Layer
 
 **위치**: 
-- [`src/main/python/converter.ts`](../src/main/python/converter.ts) - TypeScript 브릿지
-- [`src/python/convert.py`](../src/python/convert.py) - Python 변환 스크립트
+- [`src/main/python/converter.ts`](../../src/main/python/converter.ts) - TypeScript 브릿지
+- [`src/python/convert.py`](../../src/python/convert.py) - Python 변환 스크립트
 
 **책임**:
 - Python 프로세스 `spawn()` 및 관리
@@ -250,28 +250,28 @@ window.electronAPI = {
 
 | 채널 | 방향 | 목적 | 핸들러 |
 |------|------|------|--------|
-| `open-file-dialog` | Renderer → Main | 파일 선택 다이얼로그 | [`handlers.ts:21-55`](../src/main/ipc/handlers.ts:21-55) |
-| `save-file-dialog` | Renderer → Main | 저장 다이얼로그 | [`handlers.ts:87-115`](../src/main/ipc/handlers.ts:87-115) |
-| `open-directory-dialog` | Renderer → Main | 디렉터리 선택 다이얼로그 | [`handlers.ts:57-85`](../src/main/ipc/handlers.ts:57-85) |
-| `read-file` | Renderer → Main | 파일 내용 읽기 | [`handlers.ts:118-135`](../src/main/ipc/handlers.ts:118-135) |
-| `start-conversion` | Renderer → Main | 단일 파일 변환 시작 | [`handlers.ts:138-163`](../src/main/ipc/handlers.ts:138-163) |
-| `start-batch-conversion` | Renderer → Main | 배치 변환 시작 | [`handlers.ts:166-227`](../src/main/ipc/handlers.ts:166-227) |
-| `start-merge-conversion` | Renderer → Main | 병합 변환 시작 | [`handlers.ts:230-280`](../src/main/ipc/handlers.ts:230-280) |
-| `cancel-conversion` | Renderer → Main | 변환 취소 | [`converter.ts:120-125`](../src/main/python/converter.ts:120-125) |
-| `get-app-version` | Renderer → Main | 앱 버전 조회 | [`handlers.ts:283-286`](../src/main/ipc/handlers.ts:283-286) |
-| `quit-app` | Renderer → Main | 앱 종료 | [`handlers.ts:289-293`](../src/main/ipc/handlers.ts:289-293) |
+| `open-file-dialog` | Renderer → Main | 파일 선택 다이얼로그 | [`handlers.ts:21-55`](../../src/main/ipc/handlers.ts:21-55) |
+| `save-file-dialog` | Renderer → Main | 저장 다이얼로그 | [`handlers.ts:87-115`](../../src/main/ipc/handlers.ts:87-115) |
+| `open-directory-dialog` | Renderer → Main | 디렉터리 선택 다이얼로그 | [`handlers.ts:57-85`](../../src/main/ipc/handlers.ts:57-85) |
+| `read-file` | Renderer → Main | 파일 내용 읽기 | [`handlers.ts:118-135`](../../src/main/ipc/handlers.ts:118-135) |
+| `start-conversion` | Renderer → Main | 단일 파일 변환 시작 | [`handlers.ts:138-163`](../../src/main/ipc/handlers.ts:138-163) |
+| `start-batch-conversion` | Renderer → Main | 배치 변환 시작 | [`handlers.ts:166-227`](../../src/main/ipc/handlers.ts:166-227) |
+| `start-merge-conversion` | Renderer → Main | 병합 변환 시작 | [`handlers.ts:230-280`](../../src/main/ipc/handlers.ts:230-280) |
+| `cancel-conversion` | Renderer → Main | 변환 취소 | [`converter.ts:120-125`](../../src/main/python/converter.ts:120-125) |
+| `get-app-version` | Renderer → Main | 앱 버전 조회 | [`handlers.ts:283-286`](../../src/main/ipc/handlers.ts:283-286) |
+| `quit-app` | Renderer → Main | 앱 종료 | [`handlers.ts:289-293`](../../src/main/ipc/handlers.ts:289-293) |
 
 ### Event Channels (Main → Renderer)
 
 | 채널 | 방향 | 목적 | 리스너 |
 |------|------|------|--------|
-| `conversion-progress` | Main → Renderer | 단일 변환 진행률 | [`useConversion.ts:15-17`](../src/renderer/hooks/useConversion.ts:15-17) |
-| `conversion-complete` | Main → Renderer | 단일 변환 완료 | [`useConversion.ts:19-24`](../src/renderer/hooks/useConversion.ts:19-24) |
-| `conversion-error` | Main → Renderer | 변환 오류 | [`useConversion.ts:26-30`](../src/renderer/hooks/useConversion.ts:26-30) |
-| `batch-conversion-progress` | Main → Renderer | 배치 변환 진행률 | [`useBatchConversion.ts:15-17`](../src/renderer/hooks/useBatchConversion.ts:15-17) |
-| `batch-conversion-complete` | Main → Renderer | 배치 변환 완료 | [`useBatchConversion.ts:19-24`](../src/renderer/hooks/useBatchConversion.ts:19-24) |
-| `merge-conversion-progress` | Main → Renderer | 병합 변환 진행률 | [`useMergeConversion.ts:15-17`](../src/renderer/hooks/useMergeConversion.ts:15-17) |
-| `merge-conversion-complete` | Main → Renderer | 병합 변환 완료 | [`useMergeConversion.ts:19-24`](../src/renderer/hooks/useMergeConversion.ts:19-24) |
+| `conversion-progress` | Main → Renderer | 단일 변환 진행률 | [`useConversion.ts:15-17`](../../src/renderer/hooks/useConversion.ts:15-17) |
+| `conversion-complete` | Main → Renderer | 단일 변환 완료 | [`useConversion.ts:19-24`](../../src/renderer/hooks/useConversion.ts:19-24) |
+| `conversion-error` | Main → Renderer | 변환 오류 | [`useConversion.ts:26-30`](../../src/renderer/hooks/useConversion.ts:26-30) |
+| `batch-conversion-progress` | Main → Renderer | 배치 변환 진행률 | [`useBatchConversion.ts:15-17`](../../src/renderer/hooks/useBatchConversion.ts:15-17) |
+| `batch-conversion-complete` | Main → Renderer | 배치 변환 완료 | [`useBatchConversion.ts:19-24`](../../src/renderer/hooks/useBatchConversion.ts:19-24) |
+| `merge-conversion-progress` | Main → Renderer | 병합 변환 진행률 | [`useMergeConversion.ts:15-17`](../../src/renderer/hooks/useMergeConversion.ts:15-17) |
+| `merge-conversion-complete` | Main → Renderer | 병합 변환 완료 | [`useMergeConversion.ts:19-24`](../../src/renderer/hooks/useMergeConversion.ts:19-24) |
 
 ## 개발/프로덕션 차이
 

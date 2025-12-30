@@ -2,14 +2,14 @@
 
 ## Summary
 - **Responsibility**: Application language change UI (dropdown)
-- **Main Users/Callers**: [`App.tsx`](../../src/renderer/App.tsx)
-- **Key Entry Point**: [`LanguageToggle`](../../src/renderer/components/LanguageToggle.tsx:21) component
+- **Main Users/Callers**: [`App.tsx`](../../../src/renderer/App.tsx)
+- **Key Entry Point**: [`LanguageToggle`](../../../src/renderer/components/LanguageToggle.tsx:21) component
 
 ## Location in Architecture
 - **Layer**: Renderer Process - UI Component
 - **Upstream/Downstream Dependencies**:
-  - **Upstream**: [`App.tsx`](../../src/renderer/App.tsx)
-  - **Downstream**: [`i18n.ts`](../../src/renderer/i18n.ts) (`SUPPORTED_LANGUAGES`), `react-i18next`
+  - **Upstream**: [`App.tsx`](../../../src/renderer/App.tsx)
+  - **Downstream**: [`i18n.ts`](../../../src/renderer/i18n.ts) (`SUPPORTED_LANGUAGES`), `react-i18next`
 - **Role in Runtime Flow**: User language selection → i18n language change → Update UI
 
 ## Public Interface
@@ -71,12 +71,12 @@
 
 ## Configuration/Environment Variables
 - **LocalStorage Key**: `'language'` (save selected language)
-- **Supported Languages**: [`SUPPORTED_LANGUAGES`](../../src/renderer/i18n.ts) constant
+- **Supported Languages**: [`SUPPORTED_LANGUAGES`](../../../src/renderer/i18n.ts) constant
 
 ## Dependencies
 
 ### Internal Modules
-- [`src/renderer/i18n.ts`](../../src/renderer/i18n.ts): `SUPPORTED_LANGUAGES`, `changeLanguage()`
+- [`src/renderer/i18n.ts`](../../../src/renderer/i18n.ts): `SUPPORTED_LANGUAGES`, `changeLanguage()`
 
 ### External Libraries/Services
 - React: `useState`, `useEffect`, `useRef`

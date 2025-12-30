@@ -84,7 +84,7 @@ export const IPC_CHANNELS = {
 
 ## Data/Models
 
-**Related Types**: [`src/renderer/types/index.ts`](../../../src/renderer/types/index.ts:96-115) - `ElectronAPI` interface
+**Related Types**: [`src/renderer/types/index.ts`](../../../../src/renderer/types/index.ts:96-115) - `ElectronAPI` interface
 
 ## Configuration/Environment Variables
 None

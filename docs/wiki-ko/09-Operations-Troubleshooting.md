@@ -66,7 +66,7 @@ MD to DOCX Converter는 데스크톱 애플리케이션으로, 운영 및 트러
 - macOS 파일 접근 권한 제한
 
 #### 해결 방법
-1. **샌드박스 설정 확인** ([`main.ts`](../src/main/main.ts:295)):
+1. **샌드박스 설정 확인** ([`main.ts`](../../src/main/main.ts:295)):
    ```typescript
    webPreferences: {
      sandbox: false,  // macOS 파일 다이얼로그용

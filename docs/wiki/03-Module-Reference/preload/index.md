@@ -8,7 +8,7 @@
 ## Location in Architecture
 - **Layer**: Preload Layer (between Main and Renderer)
 - **Upstream/Downstream Dependencies**:
-  - Upstream: Main process ([`src/main/ipc/handlers.ts`](../../src/main/ipc/handlers.ts:1))
+  - Upstream: Main process ([`src/main/ipc/handlers.ts`](../../../src/main/ipc/handlers.ts:1))
   - Downstream: Renderer process (exposed as window.electronAPI)
 - **Role in Runtime Flow**: Communication layer between Main process's IPC handlers and Renderer process's UI logic
 
@@ -159,18 +159,18 @@ const result = await window.electronAPI.saveFileDialog('output.docx')
 ## Internal Behavior
 
 ### Main Flows
-1. **Initialization**: Preload script loaded by Main process ([`src/main/main.ts:26`](../../src/main/main.ts:26))
-2. **API Exposure**: Expose [`electronAPI`](../../src/preload/index.ts:51) via `contextBridge.exposeInMainWorld()`
+1. **Initialization**: Preload script loaded by Main process ([`src/main/main.ts:26`](../../../src/main/main.ts:26))
+2. **API Exposure**: Expose [`electronAPI`](../../../src/preload/index.ts:51) via `contextBridge.exposeInMainWorld()`
 3. **IPC Communication**: Pass calls from Renderer → Preload → Main process
 4. **Event Reception**: Pass events from Main → Preload → Renderer
 
 ### Key Rules/Algorithms
-- **IPC Channel Consistency**: Only use channel constants defined in [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)
+- **IPC Channel Consistency**: Only use channel constants defined in [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)
 - **Event Listener Cleanup**: Must call `removeAllListeners()` on component unmount
 - **Security**: Use `contextBridge` to restrict Node.js access
 
 ### Edge Cases
-- **macOS File Dialog**: `app.focus({ steal: true })` in [`handlers.ts`](../../src/main/ipc/handlers.ts:1) handles focus
+- **macOS File Dialog**: `app.focus({ steal: true })` in [`handlers.ts`](../../../src/main/ipc/handlers.ts:1) handles focus
 - **Listener Leaks**: Memory leak possible if not cleaned up in components
 
 ## Data/Models
@@ -183,11 +183,11 @@ const result = await window.electronAPI.saveFileDialog('output.docx')
 - Serialization Format: JSON (IPC communication)
 
 ## Configuration/Environment Variables
-- Environment Dependencies: Electron [`contextBridge`](../../src/preload/index.ts:51) API
-- IPC Channels: Constants defined in [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)
+- Environment Dependencies: Electron [`contextBridge`](../../../src/preload/index.ts:51) API
+- IPC Channels: Constants defined in [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)
 
 ## Dependencies
-- Internal Modules: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)
+- Internal Modules: [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)
 - External Libraries/Services: 
   - `electron`: `contextBridge`, `ipcRenderer`
 

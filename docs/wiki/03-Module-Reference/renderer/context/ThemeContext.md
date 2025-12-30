@@ -2,8 +2,8 @@
 
 ## Summary
 - **Responsibility**: Application theme state management (light/dark/system mode)
-- **Main Users/Callers**: [`App.tsx`](../../../../../src/renderer/App.tsx), `ThemeToggle` component
-- **Key Entry Points**: [`ThemeProvider`](../../../../../src/renderer/context/ThemeContext.tsx:13), [`useTheme`](../../../../../src/renderer/context/ThemeContext.tsx:69)
+- **Main Users/Callers**: [`App.tsx`](../../../../../../src/renderer/App.tsx), `ThemeToggle` component
+- **Key Entry Points**: [`ThemeProvider`](../../../../../../src/renderer/context/ThemeContext.tsx:13), [`useTheme`](../../../../../../src/renderer/context/ThemeContext.tsx:69)
 
 ## Location in Architecture
 - **Layer**: Renderer Process - State Management Layer (React Context)
@@ -47,11 +47,11 @@ interface ThemeContextType {
 ## Internal Behavior
 
 ### Major Flows
-1. **Initialization**: [`ThemeProvider`](../../../../../src/renderer/context/ThemeContext.tsx:13)
+1. **Initialization**: [`ThemeProvider`](../../../../../../src/renderer/context/ThemeContext.tsx:13)
    - Read saved theme from `localStorage.getItem('theme')`
    - If missing, default to `'system'`
 
-2. **Theme Application**: [`useEffect`](../../../../../src/renderer/context/ThemeContext.tsx:20)
+2. **Theme Application**: [`useEffect`](../../../../../../src/renderer/context/ThemeContext.tsx:20)
    - Add/remove class to `document.documentElement`
    - `root.classList.remove('light', 'dark')` to remove existing classes
    - `root.classList.add(themeValue)` to add new class
@@ -61,11 +61,11 @@ interface ThemeContextType {
    - Listen to theme changes with `mediaQuery.addEventListener('change', handleChange)`
    - Auto-update only when theme is `'system'`
 
-4. **Theme Change**: [`setTheme`](../../../../../src/renderer/context/ThemeContext.tsx:57)
+4. **Theme Change**: [`setTheme`](../../../../../../src/renderer/context/ThemeContext.tsx:57)
    - Update state with `setThemeState(newTheme)`
    - Save to `localStorage.setItem('theme', newTheme)`
 
-5. **useTheme Hook**: [`useTheme()`](../../../../../src/renderer/context/ThemeContext.tsx:69)
+5. **useTheme Hook**: [`useTheme()`](../../../../../../src/renderer/context/ThemeContext.tsx:69)
    - Read context value with `useContext(ThemeContext)`
    - Throw error if `undefined`
 

@@ -123,11 +123,11 @@ if (!pythonConverter) {
 ## 데이터/모델
 
 **관련 타입**:
-- [`ConversionOptions`](../../../src/renderer/types/index.ts:10-23) - 변환 옵션
-- [`BatchConversionProgress`](../../../src/renderer/types/index.ts:61-69) - 배치 진행률
-- [`BatchConversionResult`](../../../src/renderer/types/index.ts:71-78) - 배치 결과
-- [`MergeConversionProgress`](../../../src/renderer/types/index.ts:80-86) - 병합 진행률
-- [`MergeConversionResult`](../../../src/renderer/types/index.ts:88-94) - 병합 결과
+- [`ConversionOptions`](../../../../src/renderer/types/index.ts:10-23) - 변환 옵션
+- [`BatchConversionProgress`](../../../../src/renderer/types/index.ts:61-69) - 배치 진행률
+- [`BatchConversionResult`](../../../../src/renderer/types/index.ts:71-78) - 배치 결과
+- [`MergeConversionProgress`](../../../../src/renderer/types/index.ts:80-86) - 병합 진행률
+- [`MergeConversionResult`](../../../../src/renderer/types/index.ts:88-94) - 병합 결과
 
 ## 설정/환경변수
 없음

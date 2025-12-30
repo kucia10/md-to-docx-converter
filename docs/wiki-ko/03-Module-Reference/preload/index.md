@@ -8,7 +8,7 @@
 ## 아키텍처 내 위치
 - 레이어: Preload Layer (Main과 Renderer 사이)
 - 상위/하위 의존:
-  - 상위: Main 프로세스 ([`src/main/ipc/handlers.ts`](../../src/main/ipc/handlers.ts:1))
+  - 상위: Main 프로세스 ([`src/main/ipc/handlers.ts`](../../../src/main/ipc/handlers.ts:1))
   - 하위: Renderer 프로세스 (window.electronAPI로 노출)
 - 런타임 플로우에서의 역할: Main 프로세스의 IPC 핸들러와 Renderer 프로세스의 UI 로직 사이의 통신 계층
 
@@ -159,18 +159,18 @@ const result = await window.electronAPI.saveFileDialog('output.docx')
 ## 내부 동작
 
 ### 주요 플로우
-1. **초기화**: Main 프로세스에서 preload 스크립트 로드 ([`src/main/main.ts:26`](../../src/main/main.ts:26))
-2. **API 노출**: `contextBridge.exposeInMainWorld()`로 [`electronAPI`](../../src/preload/index.ts:51) 노출
+1. **초기화**: Main 프로세스에서 preload 스크립트 로드 ([`src/main/main.ts:26`](../../../src/main/main.ts:26))
+2. **API 노출**: `contextBridge.exposeInMainWorld()`로 [`electronAPI`](../../../src/preload/index.ts:51) 노출
 3. **IPC 통신**: Renderer → Preload → Main 프로세스로 호출 전달
 4. **이벤트 수신**: Main → Preload → Renderer로 이벤트 전달
 
 ### 핵심 규칙/알고리즘
-- **IPC 채널 일관성**: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)에서 정의된 채널 상수만 사용
+- **IPC 채널 일관성**: [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)에서 정의된 채널 상수만 사용
 - **이벤트 리스너 정리**: 컴포넌트 언마운트 시 `removeAllListeners()` 호출 필수
 - **보안**: `contextBridge` 사용으로 Node.js 접근 제한
 
 ### 엣지케이스
-- **macOS 파일 다이얼로그**: [`handlers.ts`](../../src/main/ipc/handlers.ts:1)에서 `app.focus({ steal: true })`로 포커스 처리
+- **macOS 파일 다이얼로그**: [`handlers.ts`](../../../src/main/ipc/handlers.ts:1)에서 `app.focus({ steal: true })`로 포커스 처리
 - **리스너 누수**: 컴포넌트에서 정리하지 않으면 메모리 누수 발생 가능
 
 ## 데이터/모델
@@ -183,11 +183,11 @@ const result = await window.electronAPI.saveFileDialog('output.docx')
 - 직렬화 포맷: JSON (IPC 통신)
 
 ## 설정/환경변수
-- 환경 의존성: Electron [`contextBridge`](../../src/preload/index.ts:51) API
-- IPC 채널: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)에 정의된 상수들
+- 환경 의존성: Electron [`contextBridge`](../../../src/preload/index.ts:51) API
+- IPC 채널: [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)에 정의된 상수들
 
 ## 의존성
-- 내부 모듈: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts:1)
+- 내부 모듈: [`src/main/ipc/channels.ts`](../../../src/main/ipc/channels.ts:1)
 - 외부 라이브러리/서비스: 
   - `electron`: `contextBridge`, `ipcRenderer`
 

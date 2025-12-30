@@ -123,11 +123,11 @@ if (!pythonConverter) {
 ## Data/Models
 
 **Related Types**:
-- [`ConversionOptions`](../../../src/renderer/types/index.ts:10-23) - Conversion options
-- [`BatchConversionProgress`](../../../src/renderer/types/index.ts:61-69) - Batch progress
-- [`BatchConversionResult`](../../../src/renderer/types/index.ts:71-78) - Batch result
-- [`MergeConversionProgress`](../../../src/renderer/types/index.ts:80-86) - Merge progress
-- [`MergeConversionResult`](../../../src/renderer/types/index.ts:88-94) - Merge result
+- [`ConversionOptions`](../../../../src/renderer/types/index.ts:10-23) - Conversion options
+- [`BatchConversionProgress`](../../../../src/renderer/types/index.ts:61-69) - Batch progress
+- [`BatchConversionResult`](../../../../src/renderer/types/index.ts:71-78) - Batch result
+- [`MergeConversionProgress`](../../../../src/renderer/types/index.ts:80-86) - Merge progress
+- [`MergeConversionResult`](../../../../src/renderer/types/index.ts:88-94) - Merge result
 
 ## Configuration/Environment Variables
 None

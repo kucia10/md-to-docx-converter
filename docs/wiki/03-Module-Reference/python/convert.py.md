@@ -293,7 +293,7 @@ def _get_pandoc_path(self) -> str
 
 #### 1. Pandoc Default Options
 
-**Implementation**: [`convert.py:112-152`](../../../src/python/convert.py:112-152)
+**Implementation**: [`convert.py:112-152`](../../../../src/python/convert.py:112-152)
 
 ```python
 # Default font settings (Georgia, 14pt)
@@ -327,7 +327,7 @@ cmd.extend(['--variable', 'papersize=A4'])
 
 #### 2. Bibliography Reference Style (Currently Disabled)
 
-**Implementation**: [`convert.py:139-144`](../../../src/python/convert.py:139-144)
+**Implementation**: [`convert.py:139-144`](../../../../src/python/convert.py:139-144)
 
 ```python
 # Bibliography style (chicago-reference.docx currently disabled)

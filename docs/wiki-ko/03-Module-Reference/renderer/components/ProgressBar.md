@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 변환 진행률 표시 UI 컴포넌트
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), 변환 컨테이너
-- **핵심 엔트리포인트**: [`ProgressBar`](../../../../../src/renderer/components/ProgressBar.tsx:39)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), 변환 컨테이너
+- **핵심 엔트리포인트**: [`ProgressBar`](../../../../../../src/renderer/components/ProgressBar.tsx:39)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Presentation Layer (UI Components)
 - **상위/하위 의존**:
-  - 의존: `types` ([`ConversionProgress`](../../../../../src/renderer/types/index.ts)), `i18next`
+  - 의존: `types` ([`ConversionProgress`](../../../../../../src/renderer/types/index.ts)), `i18next`
   - 사용: 변환 화면, 배치/병합 변환 화면
 - **런타임 플로우에서의 역할**: IPC 이벤트 수신 → 진행률 업데이트 → UI 렌더링
 
@@ -36,14 +36,14 @@ interface ProgressBarProps {
 ## 내부 동작
 
 ### 주요 플로우
-1. **스테이지 텍스트 결정**: [`getStageText()`](../../../../../src/renderer/components/ProgressBar.tsx:11)
+1. **스테이지 텍스트 결정**: [`getStageText()`](../../../../../../src/renderer/components/ProgressBar.tsx:11)
    - `preparing`: 준비 중
    - `converting`: 변환 중
    - `finalizing`: 완료 중
    - `completed`: 완료
    - `error`: 오류 발생
 
-2. **스테이지 아이콘 결정**: [`getStageIcon()`](../../../../../src/renderer/components/ProgressBar.tsx:26)
+2. **스테이지 아이콘 결정**: [`getStageIcon()`](../../../../../../src/renderer/components/ProgressBar.tsx:26)
    - 진행 중: 시계 아이콘 (`Clock`) + 회전 애니메이션
    - 완료: 체크 아이콘 (`CheckCircle`, 녹색)
    - 오류: 경고 아이콘 (`AlertCircle`, 빨간색)
@@ -88,7 +88,7 @@ interface ProgressBarProps {
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionProgress`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionProgress`
 
 ### 외부 라이브러리/서비스
 - React: `React.FC`

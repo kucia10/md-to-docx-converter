@@ -247,7 +247,7 @@ npm run version:patch      # Patch version bump (1.2.1 → 1.2.2)
 - **Python Transfer**: Convert cm → inches (÷2.54) before passing to Pandoc
 
 ### IPC Channel Rules
-- All channels are defined and imported only from [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts)
+- All channels are defined and imported only from [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts)
 
 ## Related Documents
 

@@ -225,7 +225,7 @@ const pythonPath = this.getPythonPath()  // 'python3' or 'python'
 
 #### 1. 개발/프로덕션 Python 경로 전환
 
-**구현**: [`getPythonPath()`](../../../src/main/python/converter.ts:101-108)
+**구현**: [`getPythonPath()`](../../../../src/main/python/converter.ts:101-108)
 
 ```typescript
 private getPythonPath(): string {
@@ -238,7 +238,7 @@ private getPythonPath(): string {
 
 #### 2. Python 스크립트 경로 전환
 
-**구현**: [`getPythonScriptPath()`](../../../src/main/python/converter.ts:110-118)
+**구현**: [`getPythonScriptPath()`](../../../../src/main/python/converter.ts:110-118)
 
 ```typescript
 private getPythonScriptPath(): string {
@@ -254,7 +254,7 @@ private getPythonScriptPath(): string {
 
 #### 3. Pandoc 경로 PATH 추가 (macOS)
 
-**구현**: [`converter.ts:51-66`](../../../src/main/python/converter.ts:51-66)
+**구현**: [`converter.ts:51-66`](../../../../src/main/python/converter.ts:51-66)
 
 ```typescript
 const additionalPaths = [

@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Merge conversion (merge multiple files into single DOCX) state management and IPC communication
-- **Primary Users/Callers**: [`App.tsx`](../../../../../src/renderer/App.tsx), merge conversion components
-- **Core Entry Point**: [`useMergeConversion()`](../../../../../src/renderer/hooks/useMergeConversion.ts:5)
+- **Primary Users/Callers**: [`App.tsx`](../../../../../../src/renderer/App.tsx), merge conversion components
+- **Core Entry Point**: [`useMergeConversion()`](../../../../../../src/renderer/hooks/useMergeConversion.ts:5)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Custom Hooks (State Management Layer)
 - **Upstream/Downstream Dependencies**:
-  - Depends on: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - Depends on: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - Used by: React components (merge conversion mode)
 - **Role in Runtime Flow**: Multiple file merge start → progress tracking → single DOCX generation → completion/error handling
 
@@ -32,7 +32,7 @@
 - **Inputs**:
   - `inputFiles`: Array of Markdown file paths to merge (order is important)
   - `outputPath`: Path for the resulting merged DOCX file
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (common conversion options)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (common conversion options)
 - **Outputs**: None (async execution)
 - **Errors/Exceptions**: On IPC communication failure, stores error message in `mergeError`
 - **Side Effects**: Sets `isConverting` to true, makes IPC call
@@ -63,8 +63,8 @@ await startMergeConversion(
 
 ### Main Flow
 1. **Initialization**: Register IPC event listeners via `useEffect`
-   - [`onMergeConversionProgress`](../../../../../src/renderer/hooks/useMergeConversion.ts:15): Receives merge progress
-   - [`onMergeConversionComplete`](../../../../../src/renderer/hooks/useMergeConversion.ts:19): Receives completion
+   - [`onMergeConversionProgress`](../../../../../../src/renderer/hooks/useMergeConversion.ts:15): Receives merge progress
+   - [`onMergeConversionComplete`](../../../../../../src/renderer/hooks/useMergeConversion.ts:19): Receives completion
 
 2. **Start Merge Conversion**: Call `startMergeConversion()`
    - Initialize state (`isConverting: true`, set initial progress)
@@ -88,7 +88,7 @@ await startMergeConversion(
 - On error, use i18next translation: `t('errors.generalConversionError')`
 
 ### Special Behavior of Merge Conversion
-1. **Python Side**: [`merge_files()`](../../../../../src/python/convert.py) function in [`convert.py`](../../../../../src/python/convert.py)
+1. **Python Side**: [`merge_files()`](../../../../../../src/python/convert.py) function in [`convert.py`](../../../../../../src/python/convert.py)
 2. **File Separation**: Insert `---\n\n# {filename}\n\n` separator between each file
 3. **Page Separation**: LaTeX `\newpage` command starts each file on a new page
 4. **Temporary File**: Save merged Markdown as temporary file, then convert with Pandoc
@@ -128,7 +128,7 @@ await startMergeConversion(
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `MergeConversionProgress`, `MergeConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `MergeConversionProgress`, `MergeConversionResult`
 
 ### External Libraries/Services
 - React: `useState`, `useCallback`, `useEffect`
@@ -167,7 +167,7 @@ await startMergeConversion(
 | Page Separation | None | None | Separated by new page |
 
 ## Python Merge Logic (Backend)
-Merge conversion is performed by the [`merge_files()`](../../../../../src/python/convert.py) function in the Python script:
+Merge conversion is performed by the [`merge_files()`](../../../../../../src/python/convert.py) function in the Python script:
 
 ```python
 def merge_files(input_files, output_file, options):

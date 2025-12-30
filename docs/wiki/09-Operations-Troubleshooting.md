@@ -66,7 +66,7 @@ MD to DOCX Converter is a desktop application, providing common issues and solut
 - macOS file access permission restrictions
 
 #### Solutions
-1. **Check Sandbox Settings** ([`main.ts`](../src/main/main.ts:295)):
+1. **Check Sandbox Settings** ([`main.ts`](../../src/main/main.ts:295)):
     ```typescript
     webPreferences: {
       sandbox: false,  // for macOS file dialogs

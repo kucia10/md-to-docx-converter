@@ -293,7 +293,7 @@ def _get_pandoc_path(self) -> str
 
 #### 1. Pandoc 기본 옵션
 
-**구현**: [`convert.py:112-152`](../../../src/python/convert.py:112-152)
+**구현**: [`convert.py:112-152`](../../../../src/python/convert.py:112-152)
 
 ```python
 # 기본 폰트 설정 (Georgia, 14pt)
@@ -327,7 +327,7 @@ cmd.extend(['--variable', 'papersize=A4'])
 
 #### 2. 참고문헌 스타일 (현재 비활성화)
 
-**구현**: [`convert.py:139-144`](../../../src/python/convert.py:139-144)
+**구현**: [`convert.py:139-144`](../../../../src/python/convert.py:139-144)
 
 ```python
 # 참고문헌 스타일 (chicago-reference.docx 없어서 비활성화)

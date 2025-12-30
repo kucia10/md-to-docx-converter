@@ -2,8 +2,8 @@
 
 ## Summary
 - **Responsibility**: Theme toggle button component (light/dark/system mode)
-- **Primary User/Caller**: [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **Core Entry Point**: [`ThemeToggle`](../../../../../src/renderer/components/ThemeToggle.tsx:4)
+- **Primary User/Caller**: [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **Core Entry Point**: [`ThemeToggle`](../../../../../../src/renderer/components/ThemeToggle.tsx:4)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Presentation Layer (UI Components)
@@ -27,17 +27,17 @@ light → dark → system → light → ...
 ## Internal Behavior
 
 ### Main Flow
-1. **Icon Determination**: [`getIcon()`](../../../../../src/renderer/components/ThemeToggle.tsx:8)
+1. **Icon Determination**: [`getIcon()`](../../../../../../src/renderer/components/ThemeToggle.tsx:8)
    - `light`: Sun icon (SVG circle sun)
    - `dark`: Moon icon (SVG crescent moon)
    - `system`: Computer monitor icon (SVG)
 
-2. **Label Determination**: [`getLabel()`](../../../../../src/renderer/components/ThemeToggle.tsx:31)
+2. **Label Determination**: [`getLabel()`](../../../../../../src/renderer/components/ThemeToggle.tsx:31)
    - `light`: `t('theme.lightMode')`
    - `dark`: `t('theme.darkMode')`
    - `system`: `t('theme.system')`
 
-3. **Theme Cycling**: [`cycleTheme()`](../../../../../src/renderer/components/ThemeToggle.tsx:42)
+3. **Theme Cycling**: [`cycleTheme()`](../../../../../../src/renderer/components/ThemeToggle.tsx:42)
    - Find current theme index
    - Next theme: `(currentIndex + 1) % themes.length`
    - Update context with `setTheme(nextTheme)`
@@ -94,7 +94,7 @@ type Theme = 'light' | 'dark' | 'system'
 ## Dependencies
 
 ### Internal Modules
-- [`@/context/ThemeContext`](../../../../../src/renderer/context/ThemeContext.tsx): `useTheme()` (theme state)
+- [`@/context/ThemeContext`](../../../../../../src/renderer/context/ThemeContext.tsx): `useTheme()` (theme state)
 
 ### External Libraries/Services
 - React: `React.FC`

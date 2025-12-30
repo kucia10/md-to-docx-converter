@@ -3,7 +3,7 @@
 ## 요약
 - **책임**: Renderer 프로세스 진입점, React 앱 마운트
 - **주요 사용자/호출자**: 없음 (브라우저에서 직접 로드)
-- **핵심 엔트리포인트**: [`ReactDOM.createRoot()`](../../../../../src/renderer/main.tsx:7)
+- **핵심 엔트리포인트**: [`ReactDOM.createRoot()`](../../../../../../src/renderer/main.tsx:7)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Entry Point
@@ -29,7 +29,7 @@
    - `styles/index.css`: 글로벌 스타일
    - `i18n`: 다국어 설정
 
-2. **React 루트 생성**: [`ReactDOM.createRoot()`](../../../../../src/renderer/main.tsx:7)
+2. **React 루트 생성**: [`ReactDOM.createRoot()`](../../../../../../src/renderer/main.tsx:7)
    - `document.getElementById('root')`로 루트 DOM 요소 찾기
    - `createRoot()`로 렌더러 생성 (React 18+)
 
@@ -55,9 +55,9 @@
 ## 의존성
 
 ### 내부 모듈
-- [`App.tsx`](../../../../../src/renderer/App.tsx): 메인 앱 컴포넌트
-- [`styles/index.css`](../../../../../src/renderer/styles/index.css): 글로벌 스타일
-- [`i18n.ts`](../../../../../src/renderer/i18n.ts): 다국어 설정
+- [`App.tsx`](../../../../../../src/renderer/App.tsx): 메인 앱 컴포넌트
+- [`styles/index.css`](../../../../../../src/renderer/styles/index.css): 글로벌 스타일
+- [`i18n.ts`](../../../../../../src/renderer/i18n.ts): 다국어 설정
 
 ### 외부 라이브러리/서비스
 - React: `React`

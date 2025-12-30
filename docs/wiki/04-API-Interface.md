@@ -4,7 +4,7 @@
 
 This document describes the API interface between the Renderer Process and Main Process through Electron IPC (Inter-Process Communication) channels.
 
-**IPC Channel Definitions**: [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts)
+**IPC Channel Definitions**: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts)
 
 ## IPC Communication Methods
 
@@ -44,7 +44,7 @@ Show file selection dialog
 | **Direction** | Renderer → Main |
 | **Parameters** | None |
 | **Returns** | `Promise<{canceled: boolean; filePaths: string[]}>` |
-| **Implementation** | [`handlers.ts:21-55`](../src/main/ipc/handlers.ts:21-55) |
+| **Implementation** | [`handlers.ts:21-55`](../../src/main/ipc/handlers.ts:21-55) |
 
 **Usage Example**:
 ```typescript
@@ -70,7 +70,7 @@ Show save dialog
 | **Direction** | Renderer → Main |
 | **Parameters** | `defaultName?: string` |
 | **Returns** | `Promise<{canceled: boolean; filePath?: string}>` |
-| **Implementation** | [`handlers.ts:87-115`](../src/main/ipc/handlers.ts:87-115) |
+| **Implementation** | [`handlers.ts:87-115`](../../src/main/ipc/handlers.ts:87-115) |
 
 **Usage Example**:
 ```typescript
@@ -95,7 +95,7 @@ Show directory selection dialog
 | **Direction** | Renderer → Main |
 | **Parameters** | None |
 | **Returns** | `Promise<{canceled: boolean; filePaths?: string[]}>` |
-| **Implementation** | [`handlers.ts:57-85`](../src/main/ipc/handlers.ts:57-85) |
+| **Implementation** | [`handlers.ts:57-85`](../../src/main/ipc/handlers.ts:57-85) |
 
 **Usage Example**:
 ```typescript
@@ -116,7 +116,7 @@ Read file content
 | **Direction** | Renderer → Main |
 | **Parameters** | `filePath: string` |
 | **Returns** | `Promise<{name, path, content, size, lastModified}>` |
-| **Implementation** | [`handlers.ts:118-135`](../src/main/ipc/handlers.ts:118-135) |
+| **Implementation** | [`handlers.ts:118-135`](../../src/main/ipc/handlers.ts:118-135) |
 
 **Usage Example**:
 ```typescript
@@ -150,7 +150,7 @@ Start single file conversion
 | **Direction** | Renderer → Main |
 | **Parameters** | `{inputPath, outputPath, options}` |
 | **Returns** | `Promise<{success, message}>` |
-| **Implementation** | [`handlers.ts:138-163`](../src/main/ipc/handlers.ts:138-163) |
+| **Implementation** | [`handlers.ts:138-163`](../../src/main/ipc/handlers.ts:138-163) |
 
 **Parameter Structure**:
 ```typescript
@@ -161,7 +161,7 @@ Start single file conversion
 }
 ```
 
-**ConversionOptions** ([`src/renderer/types/index.ts`](../src/renderer/types/index.ts:10-23)):
+**ConversionOptions** ([`src/renderer/types/index.ts`](../../src/renderer/types/index.ts:10-23)):
 ```typescript
 {
   fontSize?: number,               // Font size (pt)
@@ -210,7 +210,7 @@ Start batch conversion
 | **Direction** | Renderer → Main |
 | **Parameters** | `{inputFiles, outputDirectory, options}` |
 | **Returns** | `Promise<BatchConversionResult>` |
-| **Implementation** | [`handlers.ts:166-227`](../src/main/ipc/handlers.ts:166-227) |
+| **Implementation** | [`handlers.ts:166-227`](../../src/main/ipc/handlers.ts:166-227) |
 
 **Parameter Structure**:
 ```typescript
@@ -245,7 +245,7 @@ Start merge conversion (multiple files → single DOCX)
 | **Direction** | Renderer → Main |
 | **Parameters** | `{inputFiles, outputPath, options}` |
 | **Returns** | `Promise<MergeConversionResult>` |
-| **Implementation** | [`handlers.ts:230-280`](../src/main/ipc/handlers.ts:230-280) |
+| **Implementation** | [`handlers.ts:230-280`](../../src/main/ipc/handlers.ts:230-280) |
 
 **Parameter Structure**:
 ```typescript
@@ -285,7 +285,7 @@ Cancel conversion
 | **Direction** | Renderer → Main |
 | **Parameters** | None |
 | **Returns** | `void` |
-| **Implementation** | [`converter.ts:120-125`](../src/main/python/converter.ts:120-125) |
+| **Implementation** | [`converter.ts:120-125`](../../src/main/python/converter.ts:120-125) |
 
 **Usage Example**:
 ```typescript
@@ -308,7 +308,7 @@ Receive single file conversion progress event
 | **Channel** | `conversion-progress` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `ConversionProgress` |
-| **Implementation** | [`useConversion.ts:15-17`](../src/renderer/hooks/useConversion.ts:15-17) |
+| **Implementation** | [`useConversion.ts:15-17`](../../src/renderer/hooks/useConversion.ts:15-17) |
 
 **ConversionProgress Structure**:
 ```typescript
@@ -338,7 +338,7 @@ Receive single file conversion complete event
 | **Channel** | `conversion-complete` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `ConversionResult` |
-| **Implementation** | [`useConversion.ts:19-24`](../src/renderer/hooks/useConversion.ts:19-24) |
+| **Implementation** | [`useConversion.ts:19-24`](../../src/renderer/hooks/useConversion.ts:19-24) |
 
 **ConversionResult Structure**:
 ```typescript
@@ -368,7 +368,7 @@ Receive conversion error event
 | **Channel** | `conversion-error` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `string` (error message) |
-| **Implementation** | [`useConversion.ts:26-30`](../src/renderer/hooks/useConversion.ts:26-30) |
+| **Implementation** | [`useConversion.ts:26-30`](../../src/renderer/hooks/useConversion.ts:26-30) |
 
 **Usage Example**:
 ```typescript
@@ -387,7 +387,7 @@ Receive batch conversion progress event
 | **Channel** | `batch-conversion-progress` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `BatchConversionProgress` |
-| **Implementation** | [`useBatchConversion.ts:15-17`](../src/renderer/hooks/useBatchConversion.ts:15-17) |
+| **Implementation** | [`useBatchConversion.ts:15-17`](../../src/renderer/hooks/useBatchConversion.ts:15-17) |
 
 **BatchConversionProgress Structure**:
 ```typescript
@@ -412,7 +412,7 @@ Receive batch conversion complete event
 | **Channel** | `batch-conversion-complete` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `BatchConversionResult` |
-| **Implementation** | [`useBatchConversion.ts:19-24`](../src/renderer/hooks/useBatchConversion.ts:19-24) |
+| **Implementation** | [`useBatchConversion.ts:19-24`](../../src/renderer/hooks/useBatchConversion.ts:19-24) |
 
 **BatchConversionResult Structure**:
 ```typescript
@@ -436,7 +436,7 @@ Receive merge conversion progress event
 | **Channel** | `merge-conversion-progress` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `MergeConversionProgress` |
-| **Implementation** | [`useMergeConversion.ts:15-17`](../src/renderer/hooks/useMergeConversion.ts:15-17) |
+| **Implementation** | [`useMergeConversion.ts:15-17`](../../src/renderer/hooks/useMergeConversion.ts:15-17) |
 
 **MergeConversionProgress Structure**:
 ```typescript
@@ -459,7 +459,7 @@ Receive merge conversion complete event
 | **Channel** | `merge-conversion-complete` |
 | **Direction** | Main → Renderer |
 | **Callback Parameter** | `MergeConversionResult` |
-| **Implementation** | [`useMergeConversion.ts:19-24`](../src/renderer/hooks/useMergeConversion.ts:19-24) |
+| **Implementation** | [`useMergeConversion.ts:19-24`](../../src/renderer/hooks/useMergeConversion.ts:19-24) |
 
 **MergeConversionResult Structure**:
 ```typescript
@@ -485,7 +485,7 @@ Get app version
 | **Direction** | Renderer → Main |
 | **Parameters** | None |
 | **Returns** | `Promise<string>` (e.g., "v1.2.1") |
-| **Implementation** | [`handlers.ts:283-286`](../src/main/ipc/handlers.ts:283-286) |
+| **Implementation** | [`handlers.ts:283-286`](../../src/main/ipc/handlers.ts:283-286) |
 
 **Usage Example**:
 ```typescript
@@ -504,7 +504,7 @@ Quit app
 | **Direction** | Renderer → Main |
 | **Parameters** | None |
 | **Returns** | `void` |
-| **Implementation** | [`handlers.ts:289-293`](../src/main/ipc/handlers.ts:289-293) |
+| **Implementation** | [`handlers.ts:289-293`](../../src/main/ipc/handlers.ts:289-293) |
 
 **Behavior**:
 - Calls Python process `cleanup()`
@@ -520,7 +520,7 @@ Remove all IPC event listeners
 | **Direction** | Renderer (internal) |
 | **Parameters** | None |
 | **Returns** | `void` |
-| **Implementation** | [`preload/index.ts:39-47`](../src/preload/index.ts:39-47) |
+| **Implementation** | [`preload/index.ts:39-47`](../../src/preload/index.ts:39-47) |
 
 **Usage Example**:
 ```typescript
@@ -540,7 +540,7 @@ window.electronAPI.removeAllListeners()
 
 ## IPC Channel Constants
 
-All channel constants are defined in [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts).
+All channel constants are defined in [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts).
 
 ```typescript
 export const IPC_CHANNELS = {

@@ -225,7 +225,7 @@ const pythonPath = this.getPythonPath()  // 'python3' or 'python'
 
 #### 1. Development/Production Python Path Switching
 
-**Implementation**: [`getPythonPath()`](../../../src/main/python/converter.ts:101-108)
+**Implementation**: [`getPythonPath()`](../../../../src/main/python/converter.ts:101-108)
 
 ```typescript
 private getPythonPath(): string {
@@ -238,7 +238,7 @@ private getPythonPath(): string {
 
 #### 2. Python Script Path Switching
 
-**Implementation**: [`getPythonScriptPath()`](../../../src/main/python/converter.ts:110-118)
+**Implementation**: [`getPythonScriptPath()`](../../../../src/main/python/converter.ts:110-118)
 
 ```typescript
 private getPythonScriptPath(): string {
@@ -254,7 +254,7 @@ private getPythonScriptPath(): string {
 
 #### 3. Pandoc Path PATH Addition (macOS)
 
-**Implementation**: [`converter.ts:51-66`](../../../src/main/python/converter.ts:51-66)
+**Implementation**: [`converter.ts:51-66`](../../../../src/main/python/converter.ts:51-66)
 
 ```typescript
 const additionalPaths = [

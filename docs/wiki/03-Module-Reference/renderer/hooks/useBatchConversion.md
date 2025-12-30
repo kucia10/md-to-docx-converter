@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Batch file conversion (multiple file bulk conversion) state management and IPC communication
-- **Primary Users/Callers**: [`App.tsx`](../../../../../src/renderer/App.tsx), batch conversion components
-- **Core Entry Point**: [`useBatchConversion()`](../../../../../src/renderer/hooks/useBatchConversion.ts:5)
+- **Primary Users/Callers**: [`App.tsx`](../../../../../../src/renderer/App.tsx), batch conversion components
+- **Core Entry Point**: [`useBatchConversion()`](../../../../../../src/renderer/hooks/useBatchConversion.ts:5)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Custom Hooks (State Management Layer)
 - **Upstream/Downstream Dependencies**:
-  - Depends on: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - Depends on: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - Used by: React components (batch conversion mode)
 - **Role in Runtime Flow**: Multiple file conversion start → per-file progress tracking → completion/error handling
 
@@ -32,7 +32,7 @@
 - **Inputs**:
   - `inputFiles`: Array of Markdown file paths to convert
   - `outputDirectory`: Path to directory for saving result files
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (common conversion options)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (common conversion options)
 - **Outputs**: None (async execution)
 - **Errors/Exceptions**: On IPC communication failure, stores error message in `batchError`
 - **Side Effects**: Sets `isConverting` to true, makes IPC call
@@ -63,8 +63,8 @@ await startBatchConversion(
 
 ### Main Flow
 1. **Initialization**: Register IPC event listeners via `useEffect`
-   - [`onBatchConversionProgress`](../../../../../src/renderer/hooks/useBatchConversion.ts:15): Receives batch progress
-   - [`onBatchConversionComplete`](../../../../../src/renderer/hooks/useBatchConversion.ts:19): Receives completion
+   - [`onBatchConversionProgress`](../../../../../../src/renderer/hooks/useBatchConversion.ts:15): Receives batch progress
+   - [`onBatchConversionComplete`](../../../../../../src/renderer/hooks/useBatchConversion.ts:19): Receives completion
 
 2. **Start Batch Conversion**: Call `startBatchConversion()`
    - Initialize state (`isConverting: true`, set initial progress)
@@ -124,7 +124,7 @@ await startBatchConversion(
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `BatchConversionProgress`, `BatchConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `BatchConversionProgress`, `BatchConversionResult`
 
 ### External Libraries/Services
 - React: `useState`, `useCallback`, `useEffect`

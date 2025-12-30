@@ -84,7 +84,7 @@ export const IPC_CHANNELS = {
 
 ## 데이터/모델
 
-**관련 타입**: [`src/renderer/types/index.ts`](../../../src/renderer/types/index.ts:96-115) - `ElectronAPI` 인터페이스
+**관련 타입**: [`src/renderer/types/index.ts`](../../../../src/renderer/types/index.ts:96-115) - `ElectronAPI` 인터페이스
 
 ## 설정/환경변수
 없음

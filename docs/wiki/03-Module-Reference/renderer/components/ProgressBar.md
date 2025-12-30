@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Display conversion progress UI component
-- **Main Users/Callers**: [`App.tsx`](../../src/renderer/App.tsx), conversion container components
-- **Key Entry Point**: [`ProgressBar`](../../src/renderer/components/ProgressBar.tsx:39) component
+- **Main Users/Callers**: [`App.tsx`](../../../src/renderer/App.tsx), conversion container components
+- **Key Entry Point**: [`ProgressBar`](../../../src/renderer/components/ProgressBar.tsx:39) component
 
 ## Location in Architecture
 - **Layer**: Renderer Process - Presentation Layer (UI Components)
 - **Upstream/Downstream Dependencies**:
-  - **Dependency**: `types` ([`ConversionProgress`](../../src/renderer/types/index.ts))
+  - **Dependency**: `types` ([`ConversionProgress`](../../../src/renderer/types/index.ts))
   - **Used by**: Conversion screens, batch/merge conversion screens
   - **Role in Runtime Flow**: Receive IPC event → update progress state → render UI
 
@@ -36,14 +36,14 @@ interface ProgressBarProps {
 ## Internal Behavior
 
 ### Major Flows
-1. **Status Text Determination**: [`getStageText()`](../../src/renderer/components/ProgressBar.tsx:11)
+1. **Status Text Determination**: [`getStageText()`](../../../src/renderer/components/ProgressBar.tsx:11)
    - `preparing`: Preparing
    - `converting`: Converting
    - `finalizing`: Finalizing
    - `completed`: Completed
    - `error`: Error occurred
 
-2. **Icon Determination**: [`getStageIcon()`](../../src/renderer/components/ProgressBar.tsx:26)
+2. **Icon Determination**: [`getStageIcon()`](../../../src/renderer/components/ProgressBar.tsx:26)
    - Progressing: Clock icon with spinning animation
    - Completed: Checkmark icon (green color)
    - Error: Warning icon (red color)
@@ -87,7 +87,7 @@ interface ProgressBarProps {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../src/renderer/types/index.ts): `ConversionProgress`
+- [`types/index.ts`](../../../src/renderer/types/index.ts): `ConversionProgress`
 
 ### External Libraries/Services
 - React: `React.FC`

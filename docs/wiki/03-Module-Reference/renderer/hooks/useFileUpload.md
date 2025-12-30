@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: File upload management (drag-and-drop, file selector, file reordering)
-- **Primary Users/Callers**: [`FileUpload.tsx`](../../../../../src/renderer/components/FileUpload.tsx), [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **Core Entry Point**: [`useFileUpload()`](../../../../../src/renderer/hooks/useFileUpload.ts:4)
+- **Primary Users/Callers**: [`FileUpload.tsx`](../../../../../../src/renderer/components/FileUpload.tsx), [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **Core Entry Point**: [`useFileUpload()`](../../../../../../src/renderer/hooks/useFileUpload.ts:4)
 
 ## Architecture Position
 - **Layer**: Renderer Process - Custom Hooks (UI Interaction Layer)
 - **Upstream/Downstream Dependencies**:
-  - Depends on: `types` ([`FileItem`](../../../../../src/renderer/types/index.ts))
+  - Depends on: `types` ([`FileItem`](../../../../../../src/renderer/types/index.ts))
   - Used by: `FileUpload` component, drag-and-drop library
 - **Role in Runtime Flow**: File drag/selection → reading → `FileItem` array creation → reordering
 
@@ -110,16 +110,16 @@ await handleFileSelect(e.dataTransfer.files)
 ## Internal Behavior
 
 ### Main Flow
-1. **File Reading**: [`readFileContent()`](../../../../../src/renderer/hooks/useFileUpload.ts:8)
+1. **File Reading**: [`readFileContent()`](../../../../../../src/renderer/hooks/useFileUpload.ts:8)
    - Uses `FileReader` API
    - Reads text with UTF-8 encoding
    - Promise-based asynchronous processing
 
-2. **FileItem Creation**: [`createFileItem()`](../../../../../src/renderer/hooks/useFileUpload.ts:23)
+2. **FileItem Creation**: [`createFileItem()`](../../../../../../src/renderer/hooks/useFileUpload.ts:23)
    - Generate unique ID: `Math.random().toString(36).substr(2, 9)`
    - Store file metadata: name, size, modification date, path, content
 
-3. **File Selection Handling**: [`handleFileSelect()`](../../../../../src/renderer/hooks/useFileUpload.ts:35)
+3. **File Selection Handling**: [`handleFileSelect()`](../../../../../../src/renderer/hooks/useFileUpload.ts:35)
    - Iterate through `FileList` and read each file
    - Skip only the file that failed on read error
    - Add files with `setSelectedFiles(prev => [...prev, ...newFiles])`
@@ -171,7 +171,7 @@ await handleFileSelect(e.dataTransfer.files)
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `FileItem`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `FileItem`
 
 ### External Libraries/Services
 - React: `useState`, `useCallback`

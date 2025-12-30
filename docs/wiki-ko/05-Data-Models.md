@@ -1,7 +1,7 @@
 # 데이터 모델 (Data Models)
 
 ## 개요
-이 문서는 [`src/renderer/types/index.ts`](../src/renderer/types/index.ts)에 정의된 TypeScript 타입과 데이터 모델을 설명합니다.
+이 문서는 [`src/renderer/types/index.ts`](../../src/renderer/types/index.ts)에 정의된 TypeScript 타입과 데이터 모델을 설명합니다.
 
 ## 타입 정의
 
@@ -17,7 +17,7 @@
 | `lastModified` | `number` | 마지막 수정 시간 (timestamp) |
 | `content` | `string?` | 파일 내용 (미리보기용) |
 
-**위치**: [`src/renderer/types/index.ts:1-8`](../src/renderer/types/index.ts:1-8)
+**위치**: [`src/renderer/types/index.ts:1-8`](../../src/renderer/types/index.ts:1-8)
 
 ---
 
@@ -39,7 +39,7 @@
 | `imageHandling` | `'embed' \| 'link'?` | 'embed' | 이미지 처리 방식 |
 | `codeBlockStyle` | `'fenced' \| 'indented'?` | 'fenced' | 코드 블록 스타일 |
 
-**위치**: [`src/renderer/types/index.ts:10-23`](../src/renderer/types/index.ts:10-23)
+**위치**: [`src/renderer/types/index.ts:10-23`](../../src/renderer/types/index.ts:10-23)
 
 **참고**: 
 - UI에서는 여백을 **cm** 단위로 저장
@@ -59,7 +59,7 @@
 | `percentage` | `number` | 진행률 (0-100) |
 | `stage` | `'preparing' \| 'converting' \| 'finalizing' \| 'completed' \| 'error'` | 변환 단계 |
 
-**위치**: [`src/renderer/types/index.ts:25-31`](../src/renderer/types/index.ts:25-31)
+**위치**: [`src/renderer/types/index.ts:25-31`](../../src/renderer/types/index.ts:25-31)
 
 ---
 
@@ -74,7 +74,7 @@
 | `processedFiles` | `string[]?` | 처리된 파일 목록 |
 | `errors` | `string[]?` | 오류 목록 |
 
-**위치**: [`src/renderer/types/index.ts:33-39`](../src/renderer/types/index.ts:33-39)
+**위치**: [`src/renderer/types/index.ts:33-39`](../../src/renderer/types/index.ts:33-39)
 
 ---
 
@@ -91,7 +91,7 @@
 | `processedFiles` | `string[]` | 처리된 파일 경로 목록 |
 | `errors` | `Array<{fileName: string; error: string}>` | 오류 목록 |
 
-**위치**: [`src/renderer/types/index.ts:61-69`](../src/renderer/types/index.ts:61-69)
+**위치**: [`src/renderer/types/index.ts:61-69`](../../src/renderer/types/index.ts:61-69)
 
 ---
 
@@ -107,7 +107,7 @@
 | `processedFiles` | `number` | 처리된 파일 수 |
 | `errors` | `Array<{fileName: string; error: string}>` | 오류 목록 |
 
-**위치**: [`src/renderer/types/index.ts:71-78`](../src/renderer/types/index.ts:71-78)
+**위치**: [`src/renderer/types/index.ts:71-78`](../../src/renderer/types/index.ts:71-78)
 
 ---
 
@@ -122,7 +122,7 @@
 | `percentage` | `number` | 진행률 (0-100) |
 | `status` | `'preparing' \| 'merging' \| 'converting' \| 'completed' \| 'error'` | 상태 |
 
-**위치**: [`src/renderer/types/index.ts:80-86`](../src/renderer/types/index.ts:80-86)
+**위치**: [`src/renderer/types/index.ts:80-86`](../../src/renderer/types/index.ts:80-86)
 
 ---
 
@@ -137,7 +137,7 @@
 | `totalFiles` | `number` | 병합된 파일 수 |
 | `error` | `string?` | 오류 메시지 |
 
-**위치**: [`src/renderer/types/index.ts:88-94`](../src/renderer/types/index.ts:88-94)
+**위치**: [`src/renderer/types/index.ts:88-94`](../../src/renderer/types/index.ts:88-94)
 
 ---
 
@@ -182,7 +182,7 @@ Preload 스크립트에서 노출된 IPC API 타입
 | `quitApp()` | - | `void` | 앱 종료 |
 | `removeAllListeners()` | - | `void` | 모든 IPC 리스너 제거 |
 
-**위치**: [`src/renderer/types/index.ts:96-115`](../src/renderer/types/index.ts:96-115)
+**위치**: [`src/renderer/types/index.ts:96-115`](../../src/renderer/types/index.ts:96-115)
 
 ---
 

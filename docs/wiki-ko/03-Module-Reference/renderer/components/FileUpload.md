@@ -2,14 +2,14 @@
 
 ## 요약
 - 책임: 파일 선택, 드래그 앤 드롭, 파일 순서 관리 UI 제공
-- 주요 사용자/호출자: [`App.tsx`](../../src/renderer/App.tsx:1)
-- 핵심 엔트리포인트: [`FileUpload`](../../src/renderer/components/FileUpload.tsx:22) 컴포넌트
+- 주요 사용자/호출자: [`App.tsx`](../../../src/renderer/App.tsx:1)
+- 핵심 엔트리포인트: [`FileUpload`](../../../src/renderer/components/FileUpload.tsx:22) 컴포넌트
 
 ## 아키텍처 내 위치
 - 레이어: Renderer Layer (UI Component)
 - 상위/하위 의존:
-  - 상위: [`App.tsx`](../../src/renderer/App.tsx:1)
-  - 하위: [`useFileUpload`](../hooks/useFileUpload.md) 훅, [`window.electronAPI`](../../src/preload/index.ts:4)
+  - 상위: [`App.tsx`](../../../src/renderer/App.tsx:1)
+  - 하위: [`useFileUpload`](../hooks/useFileUpload.md) 훅, [`window.electronAPI`](../../../src/preload/index.ts:4)
 - 런타임 플로우에서의 역할: 사용자 파일 입력 UI와 파일 관리 기능
 
 ## 퍼블릭 인터페이스
@@ -85,14 +85,14 @@ interface FileUploadProps {
 ### 주요 플로우
 1. **파일 다이얼로그 열기**: `handleOpenFileDialog()` → `electronAPI.openFileDialog()` 호출
 2. **파일 읽기**: `electronAPI.readFile()`로 각 파일 내용 읽기
-3. **FileList 구성**: [`DataTransfer`](../../src/renderer/components/FileUpload.tsx:61) API로 [`FileList`](../../src/renderer/components/FileUpload.tsx:71) 구조 생성
+3. **FileList 구성**: [`DataTransfer`](../../../src/renderer/components/FileUpload.tsx:61) API로 [`FileList`](../../../src/renderer/components/FileUpload.tsx:71) 구조 생성
 4. **파일 목록 표시**: `DragDropContext`로 드래그 앤 드롭 가능한 리스트 표시
 5. **파일 순서 변경**: `handleDragEnd()` → `onReorderFiles()` 호출
 
 ### 핵심 규칙/알고리즘
 - **파일 크기 포맷**: `formatFileSize()`로 Bytes → KB/MB/GB 변환
 - **날짜 포맷**: `formatDate()`로 `toLocaleDateString('ko-KR')`로 한국어 형식 변환
-- **드래그 앤 드롭**: [`@hello-pangea/dnd`](../../src/renderer/components/FileUpload.tsx:4) 라이브러리 사용
+- **드래그 앤 드롭**: [`@hello-pangea/dnd`](../../../src/renderer/components/FileUpload.tsx:4) 라이브러리 사용
 - **Electron 파일 다이얼로그**: `isCombinedPreview`가 `true`일 경우 버튼 숨김
 
 ### 엣지케이스
@@ -101,7 +101,7 @@ interface FileUploadProps {
 - **빈 파일 선택**: `result.filePaths.length === 0` 체크로 방어
 
 ## 데이터/모델
-- 모델/DTO: `FileItem`, `FileReadResult` ([`types/index.ts`](../../src/renderer/types/index.ts:1))
+- 모델/DTO: `FileItem`, `FileReadResult` ([`types/index.ts`](../../../src/renderer/types/index.ts:1))
 - 스키마/테이블: 없음
 - 직렬화 포맷: 없음 (메모리 상태만 관리)
 
@@ -110,8 +110,8 @@ interface FileUploadProps {
 
 ## 의존성
 - 내부 모듈: 
-  - [`src/renderer/types/index.ts`](../../src/renderer/types/index.ts:1) (`FileItem`, `FileReadResult` 타입)
-  - [`src/preload/index.ts`](../../src/preload/index.ts:1) (`electronAPI`)
+  - [`src/renderer/types/index.ts`](../../../src/renderer/types/index.ts:1) (`FileItem`, `FileReadResult` 타입)
+  - [`src/preload/index.ts`](../../../src/preload/index.ts:1) (`electronAPI`)
 - 외부 라이브러리/서비스: 
   - React
   - `react-i18next`

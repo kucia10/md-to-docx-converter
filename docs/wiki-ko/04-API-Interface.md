@@ -4,7 +4,7 @@
 
 이 문서는 Electron IPC (Inter-Process Communication) 채널을 통해 Renderer Process와 Main Process 간의 API 인터페이스를 설명합니다.
 
-**IPC 채널 정의**: [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts)
+**IPC 채널 정의**: [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts)
 
 ## IPC 통신 방식
 
@@ -44,7 +44,7 @@ window.electronAPI.onSomeEvent((data) => {
 | **방향** | Renderer → Main |
 | **파라미터** | 없음 |
 | **반환** | `Promise<{canceled: boolean; filePaths: string[]}>` |
-| **구현** | [`handlers.ts:21-55`](../src/main/ipc/handlers.ts:21-55) |
+| **구현** | [`handlers.ts:21-55`](../../src/main/ipc/handlers.ts:21-55) |
 
 **사용 예시**:
 ```typescript
@@ -70,7 +70,7 @@ if (!result.canceled) {
 | **방향** | Renderer → Main |
 | **파라미터** | `defaultName?: string` |
 | **반환** | `Promise<{canceled: boolean; filePath?: string}>` |
-| **구현** | [`handlers.ts:87-115`](../src/main/ipc/handlers.ts:87-115) |
+| **구현** | [`handlers.ts:87-115`](../../src/main/ipc/handlers.ts:87-115) |
 
 **사용 예시**:
 ```typescript
@@ -95,7 +95,7 @@ if (!result.canceled && result.filePath) {
 | **방향** | Renderer → Main |
 | **파라미터** | 없음 |
 | **반환** | `Promise<{canceled: boolean; filePaths?: string[]}>` |
-| **구현** | [`handlers.ts:57-85`](../src/main/ipc/handlers.ts:57-85) |
+| **구현** | [`handlers.ts:57-85`](../../src/main/ipc/handlers.ts:57-85) |
 
 **사용 예시**:
 ```typescript
@@ -116,7 +116,7 @@ if (!result.canceled && result.filePaths) {
 | **방향** | Renderer → Main |
 | **파라미터** | `filePath: string` |
 | **반환** | `Promise<{name, path, content, size, lastModified}>` |
-| **구현** | [`handlers.ts:118-135`](../src/main/ipc/handlers.ts:118-135) |
+| **구현** | [`handlers.ts:118-135`](../../src/main/ipc/handlers.ts:118-135) |
 
 **사용 예시**:
 ```typescript
@@ -150,7 +150,7 @@ console.log(fileData.name)    // 파일명
 | **방향** | Renderer → Main |
 | **파라미터** | `{inputPath, outputPath, options}` |
 | **반환** | `Promise<{success, message}>` |
-| **구현** | [`handlers.ts:138-163`](../src/main/ipc/handlers.ts:138-163) |
+| **구현** | [`handlers.ts:138-163`](../../src/main/ipc/handlers.ts:138-163) |
 
 **파라미터 구조**:
 ```typescript
@@ -161,7 +161,7 @@ console.log(fileData.name)    // 파일명
 }
 ```
 
-**ConversionOptions** ([`src/renderer/types/index.ts`](../src/renderer/types/index.ts:10-23)):
+**ConversionOptions** ([`src/renderer/types/index.ts`](../../src/renderer/types/index.ts:10-23)):
 ```typescript
 {
   fontSize?: number,               // 폰트 크기 (pt)
@@ -210,7 +210,7 @@ await window.electronAPI.startConversion(
 | **방향** | Renderer → Main |
 | **파라미터** | `{inputFiles, outputDirectory, options}` |
 | **반환** | `Promise<BatchConversionResult>` |
-| **구현** | [`handlers.ts:166-227`](../src/main/ipc/handlers.ts:166-227) |
+| **구현** | [`handlers.ts:166-227`](../../src/main/ipc/handlers.ts:166-227) |
 
 **파라미터 구조**:
 ```typescript
@@ -245,7 +245,7 @@ await window.electronAPI.startBatchConversion(
 | **방향** | Renderer → Main |
 | **파라미터** | `{inputFiles, outputPath, options}` |
 | **반환** | `Promise<MergeConversionResult>` |
-| **구현** | [`handlers.ts:230-280`](../src/main/ipc/handlers.ts:230-280) |
+| **구현** | [`handlers.ts:230-280`](../../src/main/ipc/handlers.ts:230-280) |
 
 **파라미터 구조**:
 ```typescript
@@ -285,7 +285,7 @@ await window.electronAPI.startMergeConversion(
 | **방향** | Renderer → Main |
 | **파라미터** | 없음 |
 | **반환** | `void` |
-| **구현** | [`converter.ts:120-125`](../src/main/python/converter.ts:120-125) |
+| **구현** | [`converter.ts:120-125`](../../src/main/python/converter.ts:120-125) |
 
 **사용 예시**:
 ```typescript
@@ -308,7 +308,7 @@ window.electronAPI.cancelConversion()
 | **채널** | `conversion-progress` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `ConversionProgress` |
-| **구현** | [`useConversion.ts:15-17`](../src/renderer/hooks/useConversion.ts:15-17) |
+| **구현** | [`useConversion.ts:15-17`](../../src/renderer/hooks/useConversion.ts:15-17) |
 
 **ConversionProgress 구조**:
 ```typescript
@@ -338,7 +338,7 @@ window.electronAPI.onConversionProgress((progress) => {
 | **채널** | `conversion-complete` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `ConversionResult` |
-| **구현** | [`useConversion.ts:19-24`](../src/renderer/hooks/useConversion.ts:19-24) |
+| **구현** | [`useConversion.ts:19-24`](../../src/renderer/hooks/useConversion.ts:19-24) |
 
 **ConversionResult 구조**:
 ```typescript
@@ -368,7 +368,7 @@ window.electronAPI.onConversionComplete((result) => {
 | **채널** | `conversion-error` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `string` (오류 메시지) |
-| **구현** | [`useConversion.ts:26-30`](../src/renderer/hooks/useConversion.ts:26-30) |
+| **구현** | [`useConversion.ts:26-30`](../../src/renderer/hooks/useConversion.ts:26-30) |
 
 **사용 예시**:
 ```typescript
@@ -387,7 +387,7 @@ window.electronAPI.onConversionError((errorMessage) => {
 | **채널** | `batch-conversion-progress` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `BatchConversionProgress` |
-| **구현** | [`useBatchConversion.ts:15-17`](../src/renderer/hooks/useBatchConversion.ts:15-17) |
+| **구현** | [`useBatchConversion.ts:15-17`](../../src/renderer/hooks/useBatchConversion.ts:15-17) |
 
 **BatchConversionProgress 구조**:
 ```typescript
@@ -412,7 +412,7 @@ window.electronAPI.onConversionError((errorMessage) => {
 | **채널** | `batch-conversion-complete` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `BatchConversionResult` |
-| **구현** | [`useBatchConversion.ts:19-24`](../src/renderer/hooks/useBatchConversion.ts:19-24) |
+| **구현** | [`useBatchConversion.ts:19-24`](../../src/renderer/hooks/useBatchConversion.ts:19-24) |
 
 **BatchConversionResult 구조**:
 ```typescript
@@ -436,7 +436,7 @@ window.electronAPI.onConversionError((errorMessage) => {
 | **채널** | `merge-conversion-progress` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `MergeConversionProgress` |
-| **구현** | [`useMergeConversion.ts:15-17`](../src/renderer/hooks/useMergeConversion.ts:15-17) |
+| **구현** | [`useMergeConversion.ts:15-17`](../../src/renderer/hooks/useMergeConversion.ts:15-17) |
 
 **MergeConversionProgress 구조**:
 ```typescript
@@ -459,7 +459,7 @@ window.electronAPI.onConversionError((errorMessage) => {
 | **채널** | `merge-conversion-complete` |
 | **방향** | Main → Renderer |
 | **콜백 파라미터** | `MergeConversionResult` |
-| **구현** | [`useMergeConversion.ts:19-24`](../src/renderer/hooks/useMergeConversion.ts:19-24) |
+| **구현** | [`useMergeConversion.ts:19-24`](../../src/renderer/hooks/useMergeConversion.ts:19-24) |
 
 **MergeConversionResult 구조**:
 ```typescript
@@ -485,7 +485,7 @@ window.electronAPI.onConversionError((errorMessage) => {
 | **방향** | Renderer → Main |
 | **파라미터** | 없음 |
 | **반환** | `Promise<string>` (예: "v1.2.1") |
-| **구현** | [`handlers.ts:283-286`](../src/main/ipc/handlers.ts:283-286) |
+| **구현** | [`handlers.ts:283-286`](../../src/main/ipc/handlers.ts:283-286) |
 
 **사용 예시**:
 ```typescript
@@ -504,7 +504,7 @@ console.log(version) // "v1.2.1"
 | **방향** | Renderer → Main |
 | **파라미터** | 없음 |
 | **반환** | `void` |
-| **구현** | [`handlers.ts:289-293`](../src/main/ipc/handlers.ts:289-293) |
+| **구현** | [`handlers.ts:289-293`](../../src/main/ipc/handlers.ts:289-293) |
 
 **동작**:
 - Python 프로세스 `cleanup()` 호출
@@ -520,7 +520,7 @@ console.log(version) // "v1.2.1"
 | **방향** | Renderer (내부) |
 | **파라미터** | 없음 |
 | **반환** | `void` |
-| **구현** | [`preload/index.ts:39-47`](../src/preload/index.ts:39-47) |
+| **구현** | [`preload/index.ts:39-47`](../../src/preload/index.ts:39-47) |
 
 **사용 예시**:
 ```typescript
@@ -540,7 +540,7 @@ window.electronAPI.removeAllListeners()
 
 ## IPC 채널 상수
 
-모든 채널 상수는 [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts)에 정의되어 있습니다.
+모든 채널 상수는 [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts)에 정의되어 있습니다.
 
 ```typescript
 export const IPC_CHANNELS = {

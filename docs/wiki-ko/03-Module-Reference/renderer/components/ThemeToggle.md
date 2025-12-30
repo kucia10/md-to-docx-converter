@@ -2,8 +2,8 @@
 
 ## 요약
 - **책임**: 테마 전환 버튼 컴포넌트 (라이트/다크/시스템 모드)
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **핵심 엔트리포인트**: [`ThemeToggle`](../../../../../src/renderer/components/ThemeToggle.tsx:4)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **핵심 엔트리포인트**: [`ThemeToggle`](../../../../../../src/renderer/components/ThemeToggle.tsx:4)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Presentation Layer (UI Components)
@@ -27,17 +27,17 @@ light → dark → system → light → ...
 ## 내부 동작
 
 ### 주요 플로우
-1. **아이콘 결정**: [`getIcon()`](../../../../../src/renderer/components/ThemeToggle.tsx:8)
+1. **아이콘 결정**: [`getIcon()`](../../../../../../src/renderer/components/ThemeToggle.tsx:8)
    - `light`: 해 아이콘 (SVG 원형 태양)
    - `dark`: 달 아이콘 (SVG 초승달)
    - `system`: 컴퓨터 모니터 아이콘 (SVG)
 
-2. **레이블 결정**: [`getLabel()`](../../../../../src/renderer/components/ThemeToggle.tsx:31)
+2. **레이블 결정**: [`getLabel()`](../../../../../../src/renderer/components/ThemeToggle.tsx:31)
    - `light`: `t('theme.lightMode')`
    - `dark`: `t('theme.darkMode')`
    - `system`: `t('theme.system')`
 
-3. **테마 순환**: [`cycleTheme()`](../../../../../src/renderer/components/ThemeToggle.tsx:42)
+3. **테마 순환**: [`cycleTheme()`](../../../../../../src/renderer/components/ThemeToggle.tsx:42)
    - 현재 테마의 인덱스 찾기
    - 다음 테마: `(currentIndex + 1) % themes.length`
    - `setTheme(nextTheme)`로 컨텍스트 업데이트
@@ -94,7 +94,7 @@ type Theme = 'light' | 'dark' | 'system'
 ## 의존성
 
 ### 내부 모듈
-- [`@/context/ThemeContext`](../../../../../src/renderer/context/ThemeContext.tsx): `useTheme()` (테마 상태)
+- [`@/context/ThemeContext`](../../../../../../src/renderer/context/ThemeContext.tsx): `useTheme()` (테마 상태)
 
 ### 외부 라이브러리/서비스
 - React: `React.FC`

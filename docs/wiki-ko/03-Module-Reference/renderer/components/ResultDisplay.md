@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 변환 결과 표시 모달 컴포넌트 (성공/실패 메시지, 파일 다운로드, 에러 목록)
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), 변환 훅들
-- **핵심 엔트리포인트**: [`ResultDisplay`](../../../../../src/renderer/components/ResultDisplay.tsx:11)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), 변환 훅들
+- **핵심 엔트리포인트**: [`ResultDisplay`](../../../../../../src/renderer/components/ResultDisplay.tsx:11)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Presentation Layer (UI Components)
 - **상위/하위 의존**:
-  - 의존: `types` ([`ConversionResult`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - 의존: `types` ([`ConversionResult`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - 사용: 변환 완료 후 결과 표시
 - **런타임 플로우에서의 역할**: 변환 완료 → 결과 모달 표시 → 사용자 액션 (다운로드/폴더 열기/닫기)
 
@@ -47,9 +47,9 @@ interface ResultDisplayProps {
 3. **성공 상세 정보** (`success = true`):
    - 처리된 파일 목록 (`processedFiles` 배열)
    - 출력 파일 정보 (`outputPath`)
-   - **폴더 열기 버튼**: [`handleOpenOutputFolder()`](../../../../../src/renderer/components/ResultDisplay.tsx:15)
+   - **폴더 열기 버튼**: [`handleOpenOutputFolder()`](../../../../../../src/renderer/components/ResultDisplay.tsx:15)
      - 현재 구현: 파일 다이얼로그 표시 (추후 개선 필요)
-   - **다운로드 버튼**: [`handleDownloadFile()`](../../../../../src/renderer/components/ResultDisplay.tsx:30)
+   - **다운로드 버튼**: [`handleDownloadFile()`](../../../../../../src/renderer/components/ResultDisplay.tsx:30)
      - `<a>` 태그 생성 후 클릭 트리거
      - `href="file://..."` + `download` 속성
 
@@ -80,8 +80,8 @@ interface ResultDisplayProps {
 ### 버튼 액션
 | 버튼 | 아이콘 | 액션 |
 |------|--------|------|
-| 폴더 열기 | `FolderOpen` | [`handleOpenOutputFolder()`](../../../../../src/renderer/components/ResultDisplay.tsx:15) |
-| 다운로드 | `Download` | [`handleDownloadFile()`](../../../../../src/renderer/components/ResultDisplay.tsx:30) |
+| 폴더 열기 | `FolderOpen` | [`handleOpenOutputFolder()`](../../../../../../src/renderer/components/ResultDisplay.tsx:15) |
+| 다운로드 | `Download` | [`handleDownloadFile()`](../../../../../../src/renderer/components/ResultDisplay.tsx:30) |
 | 닫기 | `X` / 닫기 | `onClose()` |
 
 ## 설정/환경변수
@@ -90,7 +90,7 @@ interface ResultDisplayProps {
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionResult`
 
 ### 외부 라이브러리/서비스
 - React: `React.FC`
@@ -126,7 +126,7 @@ interface ResultDisplayProps {
 ## 개선 필요 사항
 
 ### 폴더 열기 기능
-현재 구현 ([`handleOpenOutputFolder()`](../../../../../src/renderer/components/ResultDisplay.tsx:15)):
+현재 구현 ([`handleOpenOutputFolder()`](../../../../../../src/renderer/components/ResultDisplay.tsx:15)):
 ```typescript
 const result = await window.electronAPI.saveFileDialog()
 console.log('Output folder would be opened:', result.filePath)

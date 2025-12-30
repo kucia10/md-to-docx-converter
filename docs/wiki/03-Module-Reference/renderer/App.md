@@ -2,8 +2,8 @@
 
 ## Summary
 - **Responsibility**: Main app component (overall UI assembly, state management, event handling)
-- **Main Users/Callers**: [`main.tsx`](../../../../../src/renderer/main.tsx)
-- **Key Entry Point**: [`App()`](../../../../../src/renderer/App.tsx:19)
+- **Main Users/Callers**: [`main.tsx`](../../../../../../src/renderer/main.tsx)
+- **Key Entry Point**: [`App()`](../../../../../../src/renderer/App.tsx:19)
 
 ## Location in Architecture
 - **Layer**: Renderer Process - Main Component (Orchestration Layer)
@@ -34,17 +34,17 @@ function AppWrapper() {
 
 ### Major Flows
 1. **Custom Hook Initialization**:
-   - [`useFileUpload()`](../../../../../src/renderer/hooks/useFileUpload.ts): File management
-   - [`useConversion()`](../../../../../src/renderer/hooks/useConversion.ts): Single file conversion
-   - [`useBatchConversion()`](../../../../../src/renderer/hooks/useBatchConversion.ts): Batch file conversion
-   - [`useMergeConversion()`](../../../../../src/renderer/hooks/useMergeConversion.ts): Merge file conversion
-   - [`usePreview(selectedFiles)`](../../../../../src/renderer/hooks/usePreview.ts): Preview
+   - [`useFileUpload()`](../../../../../../src/renderer/hooks/useFileUpload.ts): File management
+   - [`useConversion()`](../../../../../../src/renderer/hooks/useConversion.ts): Single file conversion
+   - [`useBatchConversion()`](../../../../../../src/renderer/hooks/useBatchConversion.ts): Batch file conversion
+   - [`useMergeConversion()`](../../../../../../src/renderer/hooks/useMergeConversion.ts): Merge file conversion
+   - [`usePreview(selectedFiles)`](../../../../../../src/renderer/hooks/usePreview.ts): Preview
 
 2. **State Initialization**:
    - `appVersion`: App version (fetched from Main Process)
    - `conversionOptions`: Conversion options (font, margins, page settings, etc.)
 
-3. **App Version Fetch**: [`useEffect`](../../../../../src/renderer/App.tsx:161)
+3. **App Version Fetch**: [`useEffect`](../../../../../../src/renderer/App.tsx:161)
    - `window.electronAPI.getAppVersion()` call
    - Save to state
 
@@ -56,17 +56,17 @@ function AppWrapper() {
 
 ### Conversion Handlers
 
-#### Single File Conversion: [`handleStartConversion()`](../../../../../src/renderer/App.tsx:89)
+#### Single File Conversion: [`handleStartConversion()`](../../../../../../src/renderer/App.tsx:89)
 1. Check if file is selected
 2. Generate default DOCX filename (`{basename}.docx`)
 3. Show save dialog
 4. Call `startConversion(file.path, outputPath, options)`
 
-#### Batch Conversion: [`handleStartBatchConversion()`](../../../../../src/renderer/App.tsx:116)
+#### Batch Conversion: [`handleStartBatchConversion()`](../../../../../../src/renderer/App.tsx:116)
 1. Show directory selection dialog
 2. Call `startBatchConversion(inputFiles, outputDirectory, options)`
 
-#### Merge Conversion: [`handleStartMergeConversion()`](../../../../../src/renderer/App.tsx:137)
+#### Merge Conversion: [`handleStartMergeConversion()`](../../../../../../src/renderer/App.tsx:137)
 1. Generate default merged filename (`merged-files.docx`)
 2. Show save dialog
 3. Call `startMergeConversion(inputFiles, outputPath, options)`
@@ -117,20 +117,20 @@ function AppWrapper() {
 ## Dependencies
 
 ### Internal Modules
-- [`components/FileUpload`](../../../../../src/renderer/components/FileUpload.tsx): File upload UI
-- [`components/MarkdownPreview`](../../../../../src/renderer/components/MarkdownPreview.tsx): Preview
-- [`components/ConversionOptions`](../../../../../src/renderer/components/ConversionOptions.tsx): Options settings
-- [`components/ProgressBar`](../../../../../src/renderer/components/ProgressBar.tsx): Progress bar
-- [`components/ResultDisplay`](../../../../../src/renderer/components/ResultDisplay.tsx): Result display
-- [`components/ThemeToggle`](../../../../../src/renderer/components/ThemeToggle.tsx): Theme toggle
-- [`components/LanguageToggle`](../../../../../src/renderer/components/LanguageToggle.tsx): Language toggle
-- [`hooks/useFileUpload`](../../../../../src/renderer/hooks/useFileUpload.ts): File management
-- [`hooks/useConversion`](../../../../../src/renderer/hooks/useConversion.ts): Single file conversion
-- [`hooks/useBatchConversion`](../../../../../src/renderer/hooks/useBatchConversion.ts): Batch file conversion
-- [`hooks/useMergeConversion`](../../../../../src/renderer/hooks/useMergeConversion.ts): Merge file conversion
-- [`hooks/usePreview`](../../../../../src/renderer/hooks/usePreview.ts): Preview
-- [`context/ThemeContext`](../../../../../src/renderer/context/ThemeContext.tsx): Theme context
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): Type definitions
+- [`components/FileUpload`](../../../../../../src/renderer/components/FileUpload.tsx): File upload UI
+- [`components/MarkdownPreview`](../../../../../../src/renderer/components/MarkdownPreview.tsx): Preview
+- [`components/ConversionOptions`](../../../../../../src/renderer/components/ConversionOptions.tsx): Options settings
+- [`components/ProgressBar`](../../../../../../src/renderer/components/ProgressBar.tsx): Progress bar
+- [`components/ResultDisplay`](../../../../../../src/renderer/components/ResultDisplay.tsx): Result display
+- [`components/ThemeToggle`](../../../../../../src/renderer/components/ThemeToggle.tsx): Theme toggle
+- [`components/LanguageToggle`](../../../../../../src/renderer/components/LanguageToggle.tsx): Language toggle
+- [`hooks/useFileUpload`](../../../../../../src/renderer/hooks/useFileUpload.ts): File management
+- [`hooks/useConversion`](../../../../../../src/renderer/hooks/useConversion.ts): Single file conversion
+- [`hooks/useBatchConversion`](../../../../../../src/renderer/hooks/useBatchConversion.ts): Batch file conversion
+- [`hooks/useMergeConversion`](../../../../../../src/renderer/hooks/useMergeConversion.ts): Merge file conversion
+- [`hooks/usePreview`](../../../../../../src/renderer/hooks/usePreview.ts): Preview
+- [`context/ThemeContext`](../../../../../../src/renderer/context/ThemeContext.tsx): Theme context
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): Type definitions
 
 ### External Libraries/Services
 - React: `useState`, `useEffect`

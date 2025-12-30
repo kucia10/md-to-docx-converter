@@ -2,8 +2,8 @@
 
 ## 요약
 - **책임**: 메인 앱 컴포넌트 (전체 UI 조립, 상태 관리, 이벤트 핸들링)
-- **주요 사용자/호출자**: [`main.tsx`](../../../../../src/renderer/main.tsx)
-- **핵심 엔트리포인트**: [`App()`](../../../../../src/renderer/App.tsx:19)
+- **주요 사용자/호출자**: [`main.tsx`](../../../../../../src/renderer/main.tsx)
+- **핵심 엔트리포인트**: [`App()`](../../../../../../src/renderer/App.tsx:19)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Main Component (Orchestration Layer)
@@ -34,17 +34,17 @@ function AppWrapper() {
 
 ### 주요 플로우
 1. **커스텀 훅 초기화**:
-   - [`useFileUpload()`](../../../../../src/renderer/hooks/useFileUpload.ts): 파일 관리
-   - [`useConversion()`](../../../../../src/renderer/hooks/useConversion.ts): 단일 변환
-   - [`useBatchConversion()`](../../../../../src/renderer/hooks/useBatchConversion.ts): 배치 변환
-   - [`useMergeConversion()`](../../../../../src/renderer/hooks/useMergeConversion.ts): 병합 변환
-   - [`usePreview(selectedFiles)`](../../../../../src/renderer/hooks/usePreview.ts): 미리보기
+   - [`useFileUpload()`](../../../../../../src/renderer/hooks/useFileUpload.ts): 파일 관리
+   - [`useConversion()`](../../../../../../src/renderer/hooks/useConversion.ts): 단일 변환
+   - [`useBatchConversion()`](../../../../../../src/renderer/hooks/useBatchConversion.ts): 배치 변환
+   - [`useMergeConversion()`](../../../../../../src/renderer/hooks/useMergeConversion.ts): 병합 변환
+   - [`usePreview(selectedFiles)`](../../../../../../src/renderer/hooks/usePreview.ts): 미리보기
 
 2. **상태 초기화**:
    - `appVersion`: 앱 버전 (Main Process에서 가져옴)
    - `conversionOptions`: 변환 옵션 (폰트, 여백, 페이지 설정 등)
 
-3. **앱 버전 가져오기**: [`useEffect`](../../../../../src/renderer/App.tsx:161)
+3. **앱 버전 가져오기**: [`useEffect`](../../../../../../src/renderer/App.tsx:161)
    - `window.electronAPI.getAppVersion()` 호출
    - 상태에 저장
 
@@ -56,17 +56,17 @@ function AppWrapper() {
 
 ### 변환 핸들러
 
-#### 단일 파일 변환: [`handleStartConversion()`](../../../../../src/renderer/App.tsx:89)
+#### 단일 파일 변환: [`handleStartConversion()`](../../../../../../src/renderer/App.tsx:89)
 1. 선택된 파일 확인
 2. 기본 DOCX 파일명 생성 (`{basename}.docx`)
 3. 저장 다이얼로그 표시
 4. `startConversion(file.path, outputPath, options)` 호출
 
-#### 배치 변환: [`handleStartBatchConversion()`](../../../../../src/renderer/App.tsx:116)
+#### 배치 변환: [`handleStartBatchConversion()`](../../../../../../src/renderer/App.tsx:116)
 1. 디렉터리 다이얼로그 표시
 2. `startBatchConversion(inputFiles, outputDirectory, options)` 호출
 
-#### 병합 변환: [`handleStartMergeConversion()`](../../../../../src/renderer/App.tsx:137)
+#### 병합 변환: [`handleStartMergeConversion()`](../../../../../../src/renderer/App.tsx:137)
 1. 기본 병합 파일명 생성 (`merged-files.docx`)
 2. 저장 다이얼로그 표시
 3. `startMergeConversion(inputFiles, outputPath, options)` 호출
@@ -117,20 +117,20 @@ function AppWrapper() {
 ## 의존성
 
 ### 내부 모듈
-- [`components/FileUpload`](../../../../../src/renderer/components/FileUpload.tsx): 파일 업로드 UI
-- [`components/MarkdownPreview`](../../../../../src/renderer/components/MarkdownPreview.tsx): 미리보기
-- [`components/ConversionOptions`](../../../../../src/renderer/components/ConversionOptions.tsx): 옵션 설정
-- [`components/ProgressBar`](../../../../../src/renderer/components/ProgressBar.tsx): 진행률
-- [`components/ResultDisplay`](../../../../../src/renderer/components/ResultDisplay.tsx): 결과 표시
-- [`components/ThemeToggle`](../../../../../src/renderer/components/ThemeToggle.tsx): 테마 토글
-- [`components/LanguageToggle`](../../../../../src/renderer/components/LanguageToggle.tsx): 언어 토글
-- [`hooks/useFileUpload`](../../../../../src/renderer/hooks/useFileUpload.ts): 파일 관리
-- [`hooks/useConversion`](../../../../../src/renderer/hooks/useConversion.ts): 단일 변환
-- [`hooks/useBatchConversion`](../../../../../src/renderer/hooks/useBatchConversion.ts): 배치 변환
-- [`hooks/useMergeConversion`](../../../../../src/renderer/hooks/useMergeConversion.ts): 병합 변환
-- [`hooks/usePreview`](../../../../../src/renderer/hooks/usePreview.ts): 미리보기
-- [`context/ThemeContext`](../../../../../src/renderer/context/ThemeContext.tsx): 테마 컨텍스트
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): 타입 정의
+- [`components/FileUpload`](../../../../../../src/renderer/components/FileUpload.tsx): 파일 업로드 UI
+- [`components/MarkdownPreview`](../../../../../../src/renderer/components/MarkdownPreview.tsx): 미리보기
+- [`components/ConversionOptions`](../../../../../../src/renderer/components/ConversionOptions.tsx): 옵션 설정
+- [`components/ProgressBar`](../../../../../../src/renderer/components/ProgressBar.tsx): 진행률
+- [`components/ResultDisplay`](../../../../../../src/renderer/components/ResultDisplay.tsx): 결과 표시
+- [`components/ThemeToggle`](../../../../../../src/renderer/components/ThemeToggle.tsx): 테마 토글
+- [`components/LanguageToggle`](../../../../../../src/renderer/components/LanguageToggle.tsx): 언어 토글
+- [`hooks/useFileUpload`](../../../../../../src/renderer/hooks/useFileUpload.ts): 파일 관리
+- [`hooks/useConversion`](../../../../../../src/renderer/hooks/useConversion.ts): 단일 변환
+- [`hooks/useBatchConversion`](../../../../../../src/renderer/hooks/useBatchConversion.ts): 배치 변환
+- [`hooks/useMergeConversion`](../../../../../../src/renderer/hooks/useMergeConversion.ts): 병합 변환
+- [`hooks/usePreview`](../../../../../../src/renderer/hooks/usePreview.ts): 미리보기
+- [`context/ThemeContext`](../../../../../../src/renderer/context/ThemeContext.tsx): 테마 컨텍스트
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): 타입 정의
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useEffect`

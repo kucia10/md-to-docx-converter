@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 파일 업로드 관리 (드래그앤드롭, 파일 선택기, 파일 순서 조정)
-- **주요 사용자/호출자**: [`FileUpload.tsx`](../../../../../src/renderer/components/FileUpload.tsx), [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **핵심 엔트리포인트**: [`useFileUpload()`](../../../../../src/renderer/hooks/useFileUpload.ts:4)
+- **주요 사용자/호출자**: [`FileUpload.tsx`](../../../../../../src/renderer/components/FileUpload.tsx), [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **핵심 엔트리포인트**: [`useFileUpload()`](../../../../../../src/renderer/hooks/useFileUpload.ts:4)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Custom Hooks (UI Interaction Layer)
 - **상위/하위 의존**:
-  - 의존: `types` ([`FileItem`](../../../../../src/renderer/types/index.ts))
+  - 의존: `types` ([`FileItem`](../../../../../../src/renderer/types/index.ts))
   - 사용: `FileUpload` 컴포넌트, 드래그앤드롭 라이브러리
 - **런타임 플로우에서의 역할**: 파일 드래그/선택 → 읽기 → `FileItem` 배열 생성 → 순서 조정
 
@@ -110,16 +110,16 @@ await handleFileSelect(e.dataTransfer.files)
 ## 내부 동작
 
 ### 주요 플로우
-1. **파일 읽기**: [`readFileContent()`](../../../../../src/renderer/hooks/useFileUpload.ts:8)
+1. **파일 읽기**: [`readFileContent()`](../../../../../../src/renderer/hooks/useFileUpload.ts:8)
    - `FileReader` API 사용
    - UTF-8 인코딩으로 텍스트 읽기
    - Promise 기반 비동기 처리
 
-2. **FileItem 생성**: [`createFileItem()`](../../../../../src/renderer/hooks/useFileUpload.ts:23)
+2. **FileItem 생성**: [`createFileItem()`](../../../../../../src/renderer/hooks/useFileUpload.ts:23)
    - 고유 ID 생성: `Math.random().toString(36).substr(2, 9)`
    - 파일 메타데이터 저장: 이름, 크기, 수정일, 경로, 내용
 
-3. **파일 선택 처리**: [`handleFileSelect()`](../../../../../src/renderer/hooks/useFileUpload.ts:35)
+3. **파일 선택 처리**: [`handleFileSelect()`](../../../../../../src/renderer/hooks/useFileUpload.ts:35)
    - `FileList` 순회하며 각 파일 읽기
    - 읽기 실패 시 해당 파일만 건너뜀
    - `setSelectedFiles(prev => [...prev, ...newFiles])`로 추가
@@ -171,7 +171,7 @@ await handleFileSelect(e.dataTransfer.files)
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `FileItem`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `FileItem`
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useCallback`

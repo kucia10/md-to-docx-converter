@@ -247,7 +247,7 @@ npm run version:patch      # 패치 버전 업 (1.2.1 → 1.2.2)
 - **Python 전달**: cm → inch 변환 (÷2.54) 후 Pandoc에 전달
 
 ### IPC 채널 규칙
-- 모든 채널은 [`src/main/ipc/channels.ts`](../src/main/ipc/channels.ts)에서만 정의 및 import
+- 모든 채널은 [`src/main/ipc/channels.ts`](../../src/main/ipc/channels.ts)에서만 정의 및 import
 
 ## 관련 문서
 

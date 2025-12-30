@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: 병합 변환(다중 파일을 단일 DOCX로 병합) 상태 관리 및 IPC 통신
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), 병합 변환 컴포넌트
-- **핵심 엔트리포인트**: [`useMergeConversion()`](../../../../../src/renderer/hooks/useMergeConversion.ts:5)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), 병합 변환 컴포넌트
+- **핵심 엔트리포인트**: [`useMergeConversion()`](../../../../../../src/renderer/hooks/useMergeConversion.ts:5)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Custom Hooks (State Management Layer)
 - **상위/하위 의존**:
-  - 의존: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts)), `window.electronAPI`
+  - 의존: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts)), `window.electronAPI`
   - 사용: React 컴포넌트 (병합 변환 모드)
 - **런타임 플로우에서의 역할**: 다중 파일 병합 시작 → 진행률 추적 → 단일 DOCX 생성 → 완료/오류 처리
 
@@ -32,7 +32,7 @@
 - **입력**:
   - `inputFiles`: 병합할 Markdown 파일 경로 배열 (순서 중요)
   - `outputPath`: 병합 결과 DOCX 파일 경로
-  - `options`: [`ConversionOptions`](../../../../../src/renderer/types/index.ts) (공통 변환 옵션)
+  - `options`: [`ConversionOptions`](../../../../../../src/renderer/types/index.ts) (공통 변환 옵션)
 - **출력**: 없음 (비동기 실행)
 - **에러/예외**: IPC 통신 실패 시 `mergeError`에 에러 메시지 저장
 - **부작용**: `isConverting`을 true로 설정, IPC 호출
@@ -63,8 +63,8 @@ await startMergeConversion(
 
 ### 주요 플로우
 1. **초기화**: `useEffect`로 IPC 이벤트 리스너 등록
-   - [`onMergeConversionProgress`](../../../../../src/renderer/hooks/useMergeConversion.ts:15): 병합 진행률 수신
-   - [`onMergeConversionComplete`](../../../../../src/renderer/hooks/useMergeConversion.ts:19): 완료 수신
+   - [`onMergeConversionProgress`](../../../../../../src/renderer/hooks/useMergeConversion.ts:15): 병합 진행률 수신
+   - [`onMergeConversionComplete`](../../../../../../src/renderer/hooks/useMergeConversion.ts:19): 완료 수신
 
 2. **병합 변환 시작**: `startMergeConversion()` 호출
    - 상태 초기화 (`isConverting: true`, 초기 진행률 설정)
@@ -88,7 +88,7 @@ await startMergeConversion(
 - 에러 발생 시 i18next 번역 사용: `t('errors.generalConversionError')`
 
 ### 병합 변환의 특별한 동작
-1. **Python 측**: [`convert.py`](../../../../../src/python/convert.py)의 `merge_files()` 함수
+1. **Python 측**: [`convert.py`](../../../../../../src/python/convert.py)의 `merge_files()` 함수
 2. **파일 구분**: 각 파일 사이에 `---\n\n# {filename}\n\n` 구분자 삽입
 3. **페이지 구분**: LaTeX `\newpage` 명령으로 각 파일을 새 페이지에서 시작
 4. **임시 파일**: 병합된 Markdown을 임시 파일로 저장 후 Pandoc으로 변환
@@ -128,7 +128,7 @@ await startMergeConversion(
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `MergeConversionProgress`, `MergeConversionResult`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `MergeConversionProgress`, `MergeConversionResult`
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useCallback`, `useEffect`
@@ -167,7 +167,7 @@ await startMergeConversion(
 | 페이지 구분 | 없음 | 없음 | 새 페이지로 구분 |
 
 ## Python 병합 로직 (Backend)
-병합 변환은 Python 스크립트의 [`merge_files()`](../../../../../src/python/convert.py) 함수에서 수행:
+병합 변환은 Python 스크립트의 [`merge_files()`](../../../../../../src/python/convert.py) 함수에서 수행:
 
 ```python
 def merge_files(input_files, output_file, options):

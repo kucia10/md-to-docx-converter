@@ -2,14 +2,14 @@
 
 ## 요약
 - 책임: 문서 변환 옵션 설정 UI 제공 (폰트, 마진, 참고문헌 스타일 등)
-- 주요 사용자/호출자: [`App.tsx`](../../src/renderer/App.tsx:1)
-- 핵심 엔트리포인트: [`ConversionOptions`](../../src/renderer/components/ConversionOptions.tsx:11) 컴포넌트
+- 주요 사용자/호출자: [`App.tsx`](../../../src/renderer/App.tsx:1)
+- 핵심 엔트리포인트: [`ConversionOptions`](../../../src/renderer/components/ConversionOptions.tsx:11) 컴포넌트
 
 ## 아키텍처 내 위치
 - 레이어: Renderer Layer (UI Component)
 - 상위/하위 의존:
-  - 상위: [`App.tsx`](../../src/renderer/App.tsx:1)
-  - 하위: [`types/index.ts`](../../src/renderer/types/index.ts:1) (`ConversionOptions` 타입)
+  - 상위: [`App.tsx`](../../../src/renderer/App.tsx:1)
+  - 하위: [`types/index.ts`](../../../src/renderer/types/index.ts:1) (`ConversionOptions` 타입)
 - 런타임 플로우에서의 역할: 사용자에게 변환 옵션을 제공하고 상위 컴포넌트에 전달
 
 ## 퍼블릭 인터페이스
@@ -76,7 +76,7 @@ interface ConversionOptionsType {
 - **undefined 값 처리**: `||` 연산자로 기본값 설정
 
 ## 데이터/모델
-- 모델/DTO: `ConversionOptionsType` ([`types/index.ts`](../../src/renderer/types/index.ts:1))
+- 모델/DTO: `ConversionOptionsType` ([`types/index.ts`](../../../src/renderer/types/index.ts:1))
 - 스키마/테이블: 없음
 - 직렬화 포맷: 없음 (메모리 상태만 관리)
 
@@ -85,7 +85,7 @@ interface ConversionOptionsType {
 - **참고문헌 스타일**: APA, MLA, Chicago, Harvard 지원
 
 ## 의존성
-- 내부 모듈: [`src/renderer/types/index.ts`](../../src/renderer/types/index.ts:1) (`ConversionOptionsType` 타입)
+- 내부 모듈: [`src/renderer/types/index.ts`](../../../src/renderer/types/index.ts:1) (`ConversionOptionsType` 타입)
 - 외부 라이브러리/서비스: 
   - React
   - `react-i18next`

@@ -2,14 +2,14 @@
 
 ## 요약
 - 책임: 애플리케이션 언어 변경 UI 제공 (드롭다운)
-- 주요 사용자/호출자: [`App.tsx`](../../src/renderer/App.tsx:1)
-- 핵심 엔트리포인트: [`LanguageToggle`](../../src/renderer/components/LanguageToggle.tsx:21) 컴포넌트
+- 주요 사용자/호출자: [`App.tsx`](../../../src/renderer/App.tsx:1)
+- 핵심 엔트리포인트: [`LanguageToggle`](../../../src/renderer/components/LanguageToggle.tsx:21) 컴포넌트
 
 ## 아키텍처 내 위치
 - 레이어: Renderer Layer (UI Component)
 - 상위/하위 의존:
-  - 상위: [`App.tsx`](../../src/renderer/App.tsx:1)
-  - 하위: [`i18n.ts`](../../src/renderer/i18n.ts:1) (`SUPPORTED_LANGUAGES`), `react-i18next`
+  - 상위: [`App.tsx`](../../../src/renderer/App.tsx:1)
+  - 하위: [`i18n.ts`](../../../src/renderer/i18n.ts:1) (`SUPPORTED_LANGUAGES`), `react-i18next`
 - 런타임 플로우에서의 역할: 사용자 언어 선택 및 i18n 언어 변경
 
 ## 퍼블릭 인터페이스
@@ -48,10 +48,10 @@
 
 ## 설정/환경변수
 - **LocalStorage 키**: `'language'`
-- **지원 언어**: [`SUPPORTED_LANGUAGES`](../../src/renderer/i18n.ts:1) 상수
+- **지원 언어**: [`SUPPORTED_LANGUAGES`](../../../src/renderer/i18n.ts:1) 상수
 
 ## 의존성
-- 내부 모듈: [`src/renderer/i18n.ts`](../../src/renderer/i18n.ts:1) (`SUPPORTED_LANGUAGES`)
+- 내부 모듈: [`src/renderer/i18n.ts`](../../../src/renderer/i18n.ts:1) (`SUPPORTED_LANGUAGES`)
 - 외부 라이브러리/서비스: 
   - React
   - `react-i18next`

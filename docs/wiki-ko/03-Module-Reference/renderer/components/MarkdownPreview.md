@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: Markdown 내용 렌더링 및 미리보기 표시 UI
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), `usePreview` 훅
-- **핵심 엔트리포인트**: [`MarkdownPreview`](../../../../../src/renderer/components/MarkdownPreview.tsx:14)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), `usePreview` 훅
+- **핵심 엔트리포인트**: [`MarkdownPreview`](../../../../../../src/renderer/components/MarkdownPreview.tsx:14)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Presentation Layer (UI Components)
 - **상위/하위 의존**:
-  - 의존: `types` ([`ConversionOptions`](../../../../../src/renderer/types/index.ts), `FileItem`), `react-markdown`
+  - 의존: `types` ([`ConversionOptions`](../../../../../../src/renderer/types/index.ts), `FileItem`), `react-markdown`
   - 사용: 미리보기 패널
 - **런타임 플로우에서의 역할**: 파일 선택 → 내용 렌더링 → 옵션에 따라 스타일 적용
 
@@ -28,7 +28,7 @@ interface MarkdownPreviewProps {
 ## 내부 동작
 
 ### 주요 플로우
-1. **스타일 계산**: [`previewStyle`](../../../../../src/renderer/components/MarkdownPreview.tsx:23)
+1. **스타일 계산**: [`previewStyle`](../../../../../../src/renderer/components/MarkdownPreview.tsx:23)
    - 폰트 패밀리: `options.fontFamily`
    - 폰트 크기: `options.fontSize` (pt 단위)
    - 줄 간격: `options.lineHeight`
@@ -41,7 +41,7 @@ interface MarkdownPreviewProps {
    - 미리보기 타이틀
    - 다중 파일 선택 시 병합 모드 토글 체크박스
 
-4. **Markdown 렌더링**: [`ReactMarkdown`](../../../../../src/renderer/components/MarkdownPreview.tsx:67) 사용
+4. **Markdown 렌더링**: [`ReactMarkdown`](../../../../../../src/renderer/components/MarkdownPreview.tsx:67) 사용
    - 사용자 정의 컴포넌트로 스타일 적용
    - 옵션에 따라 스타일 동적 적용
 
@@ -97,7 +97,7 @@ const previewStyle = {
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
 
 ### 외부 라이브러리/서비스
 - React: `React.FC`, `useMemo`

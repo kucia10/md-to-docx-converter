@@ -2,8 +2,8 @@
 
 ## 요약
 - **책임**: 애플리케이션 테마 상태 관리 (라이트/다크/시스템 모드)
-- **주요 사용자/호출자**: [`App.tsx`](../../../../../src/renderer/App.tsx), `ThemeToggle` 컴포넌트
-- **핵심 엔트리포인트**: [`ThemeProvider`](../../../../../src/renderer/context/ThemeContext.tsx:13), [`useTheme`](../../../../../src/renderer/context/ThemeContext.tsx:69)
+- **주요 사용자/호출자**: [`App.tsx`](../../../../../../src/renderer/App.tsx), `ThemeToggle` 컴포넌트
+- **핵심 엔트리포인트**: [`ThemeProvider`](../../../../../../src/renderer/context/ThemeContext.tsx:13), [`useTheme`](../../../../../../src/renderer/context/ThemeContext.tsx:69)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - State Management Layer (React Context)
@@ -47,11 +47,11 @@ interface ThemeContextType {
 ## 내부 동작
 
 ### 주요 플로우
-1. **초기화**: [`ThemeProvider`](../../../../../src/renderer/context/ThemeContext.tsx:13)
+1. **초기화**: [`ThemeProvider`](../../../../../../src/renderer/context/ThemeContext.tsx:13)
    - `localStorage.getItem('theme')`로 저장된 테마 읽기
    - 없으면 기본값 `'system'`
 
-2. **테마 적용**: [`useEffect`](../../../../../src/renderer/context/ThemeContext.tsx:20)
+2. **테마 적용**: [`useEffect`](../../../../../../src/renderer/context/ThemeContext.tsx:20)
    - `document.documentElement`에 클래스 추가/제거
    - `root.classList.remove('light', 'dark')`로 기존 클래스 제거
    - `root.classList.add(themeValue)`로 새 클래스 추가
@@ -61,11 +61,11 @@ interface ThemeContextType {
    - `mediaQuery.addEventListener('change', handleChange)`로 테마 변경 감지
    - 테마가 `'system'`일 때만 자동 업데이트
 
-4. **테마 변경**: [`setTheme`](../../../../../src/renderer/context/ThemeContext.tsx:57)
+4. **테마 변경**: [`setTheme`](../../../../../../src/renderer/context/ThemeContext.tsx:57)
    - `setThemeState(newTheme)`로 상태 업데이트
    - `localStorage.setItem('theme', newTheme)`로 저장
 
-5. **useTheme 훅**: [`useTheme()`](../../../../../src/renderer/context/ThemeContext.tsx:69)
+5. **useTheme 훅**: [`useTheme()`](../../../../../../src/renderer/context/ThemeContext.tsx:69)
    - `useContext(ThemeContext)`로 컨텍스트 값 읽기
    - `undefined`면 에러 던짐
 

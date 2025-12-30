@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Display conversion result modal (success/failure messages, file download, error list)
-- **Main Users/Callers**: [`App.tsx`](../../src/renderer/App.tsx), conversion hooks
-- **Key Entry Point**: [`ResultDisplay`](../../src/renderer/components/ResultDisplay.tsx:11) component
+- **Main Users/Callers**: [`App.tsx`](../../../src/renderer/App.tsx), conversion hooks
+- **Key Entry Point**: [`ResultDisplay`](../../../src/renderer/components/ResultDisplay.tsx:11) component
 
 ## Location in Architecture
 - **Layer**: Renderer Process - Presentation Layer (UI Components)
 - **Upstream/Downstream Dependencies**:
-  - **Dependency**: `types` ([`ConversionResult`](../../src/renderer/types/index.ts)), `window.electronAPI`
+  - **Dependency**: `types` ([`ConversionResult`](../../../src/renderer/types/index.ts)), `window.electronAPI`
   - **Used by**: None (display after conversion complete)
   - **Role in Runtime Flow**: Conversion complete → show result modal → user action (download/open/close folder)
 
@@ -47,9 +47,9 @@ interface ResultDisplayProps {
 3. **Success Details** (`success = true`):
    - Processed files list (`processedFiles` array)
    - Output file info (`outputPath`)
-   - **Open Folder Button**: [`handleOpenOutputFolder()`](../../src/renderer/components/ResultDisplay.tsx:15)
+   - **Open Folder Button**: [`handleOpenOutputFolder()`](../../../src/renderer/components/ResultDisplay.tsx:15)
      - Current implementation: Show file dialog (needs improvement to actually open folder)
-     - **Download Button**: [`handleDownloadFile()`](../../src/renderer/components/ResultDisplay.tsx:30)
+     - **Download Button**: [`handleDownloadFile()`](../../../src/renderer/components/ResultDisplay.tsx:30)
        - Create `<a>` tag with `href="file://..."` + `download` attribute
 
 4. **Failure Details** (`success = false`):
@@ -80,8 +80,8 @@ interface ResultDisplayProps {
 ### Button Actions
 | Button | Icon | Action |
 |---------|-------|--------|
-| Open Folder | `FolderOpen` | [`handleOpenOutputFolder()`](../../src/renderer/components/ResultDisplay.tsx:15) |
-| Download | `Download` | [`handleDownloadFile()`](../../src/renderer/components/ResultDisplay.tsx:30) |
+| Open Folder | `FolderOpen` | [`handleOpenOutputFolder()`](../../../src/renderer/components/ResultDisplay.tsx:15) |
+| Download | `Download` | [`handleDownloadFile()`](../../../src/renderer/components/ResultDisplay.tsx:30) |
 | Close | `X` / Close | `onClose()` |
 
 ## Configuration/Environment Variables
@@ -90,7 +90,7 @@ interface ResultDisplayProps {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../src/renderer/types/index.ts): `ConversionResult`
+- [`types/index.ts`](../../../src/renderer/types/index.ts): `ConversionResult`
 
 ### External Libraries/Services
 - React: `React.FC`
@@ -155,7 +155,7 @@ interface ResultDisplayProps {
 ## Future Improvements
 
 ### Folder Open Functionality
-Current implementation ([`handleOpenOutputFolder()`](../../src/renderer/components/ResultDisplay.tsx:15)):
+Current implementation ([`handleOpenOutputFolder()`](../../../src/renderer/components/ResultDisplay.tsx:15)):
 ```typescript
 const result = await window.electronAPI.saveFileDialog()
 console.log('Output folder would be opened:', result.filePath)

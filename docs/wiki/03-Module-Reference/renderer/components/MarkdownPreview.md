@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Markdown content rendering and preview display
-- **Main Users/Callers**: [`App.tsx`](../../src/renderer/App.tsx), `usePreview` hook
-- **Key Entry Point**: [`MarkdownPreview`](../../src/renderer/components/MarkdownPreview.tsx:14) component
+- **Main Users/Callers**: [`App.tsx`](../../../src/renderer/App.tsx), `usePreview` hook
+- **Key Entry Point**: [`MarkdownPreview`](../../../src/renderer/components/MarkdownPreview.tsx:14) component
 
 ## Location in Architecture
 - **Layer**: Renderer Process - Presentation Layer (UI Components)
 - **Upstream/Downstream Dependencies**:
-  - **Dependency**: `types` ([`ConversionOptions`](../../src/renderer/types/index.ts)), `FileItem`), `react-markdown`
+  - **Dependency**: `types` ([`ConversionOptions`](../../../src/renderer/types/index.ts)), `FileItem`), `react-markdown`
   - **Used by**: Preview panel
   - **Role in Runtime Flow**: File selection → content reading → style application → Markdown rendering
 
@@ -28,7 +28,7 @@ interface MarkdownPreviewProps {
 ## Internal Behavior
 
 ### Major Flows
-1. **Style Calculation**: [`previewStyle`](../../src/renderer/components/MarkdownPreview.tsx:23)
+1. **Style Calculation**: [`previewStyle`](../../../src/renderer/components/MarkdownPreview.tsx:23)
    - Font family: `options.fontFamily`
    - Font size: `options.fontSize` (pt unit)
    - Line height: `options.lineHeight`
@@ -41,7 +41,7 @@ interface MarkdownPreviewProps {
    - Preview title display
    - Toggle combined mode checkbox (if multiple files selected)
 
-4. **Markdown Rendering**: [`ReactMarkdown`](../../src/renderer/components/MarkdownPreview.tsx:67) usage
+4. **Markdown Rendering**: [`ReactMarkdown`](../../../src/renderer/components/MarkdownPreview.tsx:67) usage
    - Use user-defined component for custom styling
    - Apply options-specific styling
    - Support dark mode styles
@@ -80,7 +80,7 @@ const previewStyle = {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
+- [`types/index.ts`](../../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
 
 ### External Libraries/Services
 - React: `React.FC`, `useMemo`
@@ -156,7 +156,7 @@ const previewStyle = {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
+- [`types/index.ts`](../../../src/renderer/types/index.ts): `ConversionOptions`, `FileItem`
 
 ### External Libraries/Services
 - React: `React.FC`, `useMemo`

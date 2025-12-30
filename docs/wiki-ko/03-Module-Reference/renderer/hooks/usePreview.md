@@ -2,13 +2,13 @@
 
 ## 요약
 - **책임**: Markdown 미리보기 관리 (단일 파일/병합 파일 모드, 파일 전환)
-- **주요 사용자/호출자**: [`MarkdownPreview.tsx`](../../../../../src/renderer/components/MarkdownPreview.tsx), [`App.tsx`](../../../../../src/renderer/App.tsx)
-- **핵심 엔트리포인트**: [`usePreview(selectedFiles)`](../../../../../src/renderer/hooks/usePreview.ts:4)
+- **주요 사용자/호출자**: [`MarkdownPreview.tsx`](../../../../../../src/renderer/components/MarkdownPreview.tsx), [`App.tsx`](../../../../../../src/renderer/App.tsx)
+- **핵심 엔트리포인트**: [`usePreview(selectedFiles)`](../../../../../../src/renderer/hooks/usePreview.ts:4)
 
 ## 아키텍처 내 위치
 - **레이어**: Renderer Process - Custom Hooks (Presentation Layer)
 - **상위/하위 의존**:
-  - 의존: `types` ([`FileItem`](../../../../../src/renderer/types/index.ts))
+  - 의존: `types` ([`FileItem`](../../../../../../src/renderer/types/index.ts))
   - 사용: `MarkdownPreview` 컴포넌트, 파일 전환 UI 컨트롤
 - **런타임 플로우에서의 역할**: 파일 선택 → 내용 렌더링 → 미리보기 모드 전환
 
@@ -74,7 +74,7 @@ selectFileForPreview(selectedFileIndex + 1)
 ## 내부 동작
 
 ### 주요 플로우
-1. **미리보기 내용 계산**: [`useEffect`](../../../../../src/renderer/hooks/usePreview.ts:9)
+1. **미리보기 내용 계산**: [`useEffect`](../../../../../../src/renderer/hooks/usePreview.ts:9)
    - `isCombinedPreview`가 true: 모든 파일 병합 내용 생성
    - `isCombinedPreview`가 false: 단일 파일 내용
 
@@ -83,7 +83,7 @@ selectFileForPreview(selectedFileIndex + 1)
    - 파일 확장자 제거: `file.name.replace(/\.[^/.]+$/, '')`
    - 첫 번째 파일은 구분자 없이 시작
 
-3. **마지막 파일 자동 선택**: [`useEffect`](../../../../../src/renderer/hooks/usePreview.ts:32)
+3. **마지막 파일 자동 선택**: [`useEffect`](../../../../../../src/renderer/hooks/usePreview.ts:32)
    - `selectedFiles.length` 변경 시 자동으로 마지막 파일 선택
    - 단일 파일 모드(`!isCombinedPreview`)에서만 동작
 
@@ -147,7 +147,7 @@ selectFileForPreview(selectedFileIndex + 1)
 ## 의존성
 
 ### 내부 모듈
-- [`types/index.ts`](../../../../../src/renderer/types/index.ts): `FileItem`
+- [`types/index.ts`](../../../../../../src/renderer/types/index.ts): `FileItem`
 
 ### 외부 라이브러리/서비스
 - React: `useState`, `useCallback`, `useEffect`

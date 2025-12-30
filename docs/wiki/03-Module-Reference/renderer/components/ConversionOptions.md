@@ -2,13 +2,13 @@
 
 ## Summary
 - **Responsibility**: Provide document conversion options settings UI (font, margins, bibliography styles, etc.)
-- **Main Users/Callers**: [`App.tsx`](../../src/renderer/App.tsx:1)
-- **Key Entry Point**: [`ConversionOptions`](../../src/renderer/components/ConversionOptions.tsx:11) component
+- **Main Users/Callers**: [`App.tsx`](../../../src/renderer/App.tsx:1)
+- **Key Entry Point**: [`ConversionOptions`](../../../src/renderer/components/ConversionOptions.tsx:11) component
 
 ## Location in Architecture
 - **Layer**: Renderer Process - UI Component
 - **Upstream/Downstream Dependencies**:
-  - **Dependency**: [`App.tsx`](../../src/renderer/App.tsx:1)
+  - **Dependency**: [`App.tsx`](../../../src/renderer/App.tsx:1)
   - **Downstream**: `types/index.ts` (`ConversionOptions` type)
   - **Used by**: None (props only)
   - **Role in Runtime Flow**: Provide conversion options to user → pass to upper component
@@ -90,7 +90,7 @@ interface ConversionOptionsType {
 ## Dependencies
 
 ### Internal Modules
-- [`types/index.ts`](../../src/renderer/types/index.ts): `ConversionOptionsType` type
+- [`types/index.ts`](../../../src/renderer/types/index.ts): `ConversionOptionsType` type
 
 ### External Libraries/Services
 - React: `useState`, `useEffect`

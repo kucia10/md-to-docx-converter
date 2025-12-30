@@ -23,8 +23,8 @@ npm run dist
 ```
 
 **사용 위치**:
-- [`src/main/main.ts:5`](../src/main/main.ts:5) - 개발 환경 감지
-- [`src/main/python/converter.ts:21`](../src/main/python/converter.ts:21) - Python 경로 결정
+- [`src/main/main.ts:5`](../../src/main/main.ts:5) - 개발 환경 감지
+- [`src/main/python/converter.ts:21`](../../src/main/python/converter.ts:21) - Python 경로 결정
 
 ## 빌드 설정
 
@@ -197,8 +197,8 @@ extraResources:
 
 | 환경 | Python 실행 파일 | Python 스크립트 | 구현 |
 |------|-----------------|-----------------|------|
-| **개발** | 시스템 `python3` (macOS/Linux) / `python` (Windows) | `src/python/convert.py` | [`converter.ts:101-118`](../src/main/python/converter.ts:101-118) |
-| **프로덕션** | 시스템 `python3` (macOS/Linux) / `python` (Windows) | `resources/python/convert.py` | [`converter.ts:101-118`](../src/main/python/converter.ts:101-118) |
+| **개발** | 시스템 `python3` (macOS/Linux) / `python` (Windows) | `src/python/convert.py` | [`converter.ts:101-118`](../../src/main/python/converter.ts:101-118) |
+| **프로덕션** | 시스템 `python3` (macOS/Linux) / `python` (Windows) | `resources/python/convert.py` | [`converter.ts:101-118`](../../src/main/python/converter.ts:101-118) |
 
 **참고**: 개발 및 프로덕션 환경 모두 시스템 Python을 사용합니다. 사용자는 시스템에 Python 3+와 Pandoc이 설치되어 있어야 합니다.
 
@@ -228,8 +228,8 @@ private getPythonScriptPath(): string {
 
 | 환경 | 로딩 방법 | URL/경로 | 구현 |
 |------|------------|-----------|------|
-| **개발** | HTTP | `http://localhost:3000` | [`main.ts:47-49`](../src/main/main.ts:47-49) |
-| **프로덕션** | File | `dist/renderer/index.html` | [`main.ts:51-52`](../src/main/main.ts:51-52) |
+| **개발** | HTTP | `http://localhost:3000` | [`main.ts:47-49`](../../src/main/main.ts:47-49) |
+| **프로덕션** | File | `dist/renderer/index.html` | [`main.ts:51-52`](../../src/main/main.ts:51-52) |
 
 ```typescript
 if (isDev) {
@@ -244,9 +244,9 @@ if (isDev) {
 
 | 설정 | 개발 | 프로덕션 | 구현 |
 |------|------|----------|------|
-| `nodeIntegration` | `true` | `false` | [`main.ts:29`](../src/main/main.ts:29) |
-| `webSecurity` | `false` | `true` | [`main.ts:31`](../src/main/main.ts:31) |
-| `DevTools` | 자동 열림 | 닫혀 있음 | [`main.ts:49`](../src/main/main.ts:49) |
+| `nodeIntegration` | `true` | `false` | [`main.ts:29`](../../src/main/main.ts:29) |
+| `webSecurity` | `false` | `true` | [`main.ts:31`](../../src/main/main.ts:31) |
+| `DevTools` | 자동 열림 | 닫혀 있음 | [`main.ts:49`](../../src/main/main.ts:49) |
 
 ```typescript
 webPreferences: {
@@ -276,7 +276,7 @@ if (isDev) {
 
 Python 스크립트에서 Pandoc 경로를 찾기 위해 추가 PATH를 설정합니다.
 
-**구현**: [`converter.ts:51-66`](../src/main/python/converter.ts:51-66)
+**구현**: [`converter.ts:51-66`](../../src/main/python/converter.ts:51-66)
 
 ```typescript
 const additionalPaths = [
@@ -319,7 +319,7 @@ pandoc input.md -o output.docx \
   --variable margin-right=1.25in    # UI: 3.18cm
 ```
 
-**PandocConverter 구현**: [`convert.py:129-133`](../src/python/convert.py:129-133)
+**PandocConverter 구현**: [`convert.py:129-133`](../../src/python/convert.py:129-133)
 
 ```python
 # Default margins (top:2.54cm, bottom:2.54cm, left:3.18cm, right:3.18cm)
@@ -333,7 +333,7 @@ cmd.extend(['--variable', 'margin-right=3.18cm'])
 
 ### 지원 언어
 
-**파일**: [`src/renderer/i18n.ts`](../src/renderer/i18n.ts)
+**파일**: [`src/renderer/i18n.ts`](../../src/renderer/i18n.ts)
 
 ```typescript
 const SUPPORTED_LANGUAGES = [
@@ -380,7 +380,7 @@ const getInitialLanguage = (): string => {
 
 ### 언어 파일
 
-**위치**: [`src/renderer/locales/`](../src/renderer/locales/)
+**위치**: [`src/renderer/locales/`](../../src/renderer/locales/)
 
 ```
 locales/
@@ -402,7 +402,7 @@ locales/
 
 ### 테마 타입
 
-**파일**: [`src/renderer/context/ThemeContext.tsx`](../src/renderer/context/ThemeContext.tsx)
+**파일**: [`src/renderer/context/ThemeContext.tsx`](../../src/renderer/context/ThemeContext.tsx)
 
 ```typescript
 type Theme = 'light' | 'dark' | 'system'
@@ -473,7 +473,7 @@ sys.stderr.write(f'Error: {error_message}')
 
 ### 샌드박스 설정
 
-**파일**: [`src/main/main.ts:32`](../src/main/main.ts:32)
+**파일**: [`src/main/main.ts:32`](../../src/main/main.ts:32)
 
 ```typescript
 webPreferences: {
