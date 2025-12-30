@@ -164,6 +164,34 @@ electron-md-to-docx/
 - `npm run test` - 테스트 실행
 - `npm run test:watch` - 테스트 감시 모드
 
+## 문서화
+
+프로젝트 아키텍처, 모듈 및 개발 가이드라인에 대한 자세한 정보는 다음 문서를 참조하세요:
+
+### 핵심 문서
+- [정보 아키텍처](docs/wiki-ko/00-IA-Information-Architecture.md) - 정보 아키텍처 및 문서 색인
+- [개요](docs/wiki-ko/01-Overview.md) - 프로젝트 개요 및 소개
+- [아키텍처](docs/wiki-ko/02-Architecture.md) - 시스템 아키텍처 및 설계
+- [모듈 레퍼런스](docs/wiki-ko/03-Module-Reference/) - 전체 모듈 레퍼런스 문서
+  - [메인 프로세스](docs/wiki-ko/03-Module-Reference/main-process/) - Electron 메인 프로세스 모듈
+  - [IPC](docs/wiki-ko/03-Module-Reference/ipc/) - IPC 채널 및 핸들러
+  - [Preload](docs/wiki-ko/03-Module-Reference/preload/) - Preload 스크립트 문서
+  - [Renderer](docs/wiki-ko/03-Module-Reference/renderer/) - React 렌더러 모듈
+    - [컴포넌트](docs/wiki-ko/03-Module-Reference/renderer/components/) - UI 컴포넌트
+    - [훅](docs/wiki-ko/03-Module-Reference/renderer/hooks/) - 커스텀 React 훅
+    - [Context](docs/wiki-ko/03-Module-Reference/renderer/context/) - React 컨텍스트
+  - [Python](docs/wiki-ko/03-Module-Reference/python/) - Python 변환 모듈
+
+### 기술 문서
+- [API 인터페이스](docs/wiki-ko/04-API-Interface.md) - API 인터페이스 명세
+- [데이터 모델](docs/wiki-ko/05-Data-Models.md) - 데이터 모델 및 구조
+- [설정](docs/wiki-ko/06-Configuration.md) - 설정 및 환경 설정
+- [빌드 및 배포](docs/wiki-ko/07-Build-Deploy.md) - 빌드 및 배포 가이드
+- [관찰 가능성](docs/wiki-ko/08-Observability.md) - 로깅, 모니터링, 디버깅
+
+### 운영
+- [운영 및 문제 해결](docs/wiki-ko/09-Operations-Troubleshooting.md) - 운영 가이드 및 문제 해결
+
 ## 문제 해결
 
 ### 일반적인 문제

@@ -164,6 +164,34 @@ electron-md-to-docx/
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
 
+## Documentation
+
+For detailed information about the project architecture, modules, and development guidelines, please refer to the following documentation:
+
+### Core Documentation
+- [Information Architecture](docs/wiki/00-IA-Information-Architecture.md) - Information architecture and document index
+- [Overview](docs/wiki/01-Overview.md) - Project overview and introduction
+- [Architecture](docs/wiki/02-Architecture.md) - System architecture and design
+- [Module Reference](docs/wiki/03-Module-Reference/) - Complete module reference documentation
+  - [Main Process](docs/wiki/03-Module-Reference/main-process/) - Electron main process modules
+  - [IPC](docs/wiki/03-Module-Reference/ipc/) - IPC channels and handlers
+  - [Preload](docs/wiki/03-Module-Reference/preload/) - Preload script documentation
+  - [Renderer](docs/wiki/03-Module-Reference/renderer/) - React renderer modules
+    - [Components](docs/wiki/03-Module-Reference/renderer/components/) - UI components
+    - [Hooks](docs/wiki/03-Module-Reference/renderer/hooks/) - Custom React hooks
+    - [Context](docs/wiki/03-Module-Reference/renderer/context/) - React contexts
+  - [Python](docs/wiki/03-Module-Reference/python/) - Python conversion modules
+
+### Technical Documentation
+- [API Interface](docs/wiki/04-API-Interface.md) - API interface specifications
+- [Data Models](docs/wiki/05-Data-Models.md) - Data models and structures
+- [Configuration](docs/wiki/06-Configuration.md) - Configuration and environment setup
+- [Build & Deploy](docs/wiki/07-Build-Deploy.md) - Build and deployment guide
+- [Observability](docs/wiki/08-Observability.md) - Logging, monitoring, and debugging
+
+### Operations
+- [Operations & Troubleshooting](docs/wiki/09-Operations-Troubleshooting.md) - Operations guide and troubleshooting
+
 ## Troubleshooting
 
 ### Common Issues

@@ -9,6 +9,7 @@ out/
 
 # .athena configuration
 .athena/
+.roomodes
 
 # Runtime data
 pids
